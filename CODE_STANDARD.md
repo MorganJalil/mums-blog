@@ -10,5 +10,5 @@
 •	Class names must be defined in Pascalcase.<br>
 •	Method names must be defined in camelCase.<br>
 •	Variabel names must be defined in snakeCase.<br>
-•	Only <?php or <?= are allowed for PHP tags.<br>
+•	Only < ?php  or < ?=   are allowed for PHP tags.<br>
 </article>
