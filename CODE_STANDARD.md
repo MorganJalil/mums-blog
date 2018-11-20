@@ -17,7 +17,7 @@ CODING STYLE GUIDE
 
 •	An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
 
-<?php
+//<?php
 if ($something1) {
     // if body
 } elseif ($something2) {
@@ -28,7 +28,7 @@ if ($something1) {
 •	The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
 
 
-<?php
+//<?php
 switch ($something) {
     case 0:
         echo 'First case, with a break';
@@ -47,7 +47,7 @@ switch ($something) {
 }
 •	A switch structure looks like the following. Note the placement of parentheses, spaces, and braces. The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body.
 
-<?php
+//<?php
 while ($something) {
     // structure body
 }
@@ -58,14 +58,14 @@ A while statement looks like the following. Note the placement of parentheses, s
 
 
 
-<?php
+//<?php
 do {
     // structure body;
 } while ($something);
 
 Similarly, a do while statement looks like the following. Note the placement of parentheses, spaces, and braces.
 
-<?php
+//<?php
 for ($i = 0; $i < 10; $i++) {
     // for body
 }
@@ -78,7 +78,7 @@ foreach ($iterable as $key => $value) {
 
 A foreach statement looks like the following. Note the placement of parentheses, spaces, and braces.
 
-<?php
+//<?php
 try {
     // try body
 } catch (FirstExceptionType $e) {
