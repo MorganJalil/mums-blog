@@ -1,8 +1,9 @@
-CODING STYLE GUIDE
+<h1>CODING STYLE GUIDE</h1>
 
-•	Code MUST use TABS for intendent.
-•	Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD be split into multiple subsequent lines of no more than 80 characters each.
-•	Opening braces { MUST be on the same line, and closing braces } MUST go on the next line after the body.
-•	The closing ?> tag MUST be omitted from files containing only PHP.
-•	Blank lines MAY be added to improve readability and to indicate related blocks of code.
-
+<article>
+•	Code MUST use TABS for intendent.<br>
+•	Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD be split into multiple subsequent lines of no more than 80 characters each.<br>
+•	Opening braces { MUST be on the same line, and closing braces } MUST go on the next line after the body.<br>
+•	The closing ?> tag MUST be omitted from files containing only PHP.<br>
+•	Blank lines MAY be added to improve readability and to indicate related blocks of code.<br>
+</article>
