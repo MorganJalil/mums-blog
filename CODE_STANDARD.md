@@ -6,7 +6,7 @@ CODING STYLE GUIDE
 •	The closing ?> tag MUST be omitted from files containing only PHP.
 •	Blank lines MAY be added to improve readability and to indicate related blocks of code.
 
-•	<?php
+•	//<?php
 •	if ($something1) {
 •	// if body
 •	} elseif ($something2) {
