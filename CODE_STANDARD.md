@@ -12,3 +12,12 @@
 •	Variabel names must be defined in snakeCase.<br>
 •	Only < ?php  or < ?=   are allowed for PHP tags.<br>
 </article>
+
+```php
+<?php
+
+class Book {
+  public $author;
+  public $title;
+}
+```
