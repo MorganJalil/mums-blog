@@ -1,21 +1,21 @@
 CODING STYLE GUIDE
 
-•	Code MUST use TABS for intendent.
-•	Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD be split into multiple subsequent lines of no more than 80 characters each.
-•	Opening braces { MUST be on the same line, and closing braces } MUST go on the next line after the body.
-•	The closing ?> tag MUST be omitted from files containing only PHP.
-•	Blank lines MAY be added to improve readability and to indicate related blocks of code.
+â€¢	Code MUST use TABS for intendent.
+â€¢	Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD be split into multiple subsequent lines of no more than 80 characters each.
+â€¢	Opening braces { MUST be on the same line, and closing braces } MUST go on the next line after the body.
+â€¢	The closing ?> tag MUST be omitted from files containing only PHP.
+â€¢	Blank lines MAY be added to improve readability and to indicate related blocks of code.
 
-•	<?php
-•	if ($something1) {
-•	// if body
-•	} elseif ($something2) {
-•	// elseif body
-•	} else {
-•	// else body;
-•	}
+â€¢	<?php
+â€¢	if ($something1) {
+â€¢	// if body
+â€¢	} elseif ($something2) {
+â€¢	// elseif body
+â€¢	} else {
+â€¢	// else body;
+â€¢	}
 
-•	An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
+â€¢	An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
 
 <?php
 if ($something1) {
@@ -25,8 +25,7 @@ if ($something1) {
 } else {
     // else body;
 }
-•	The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
-
+â€¢	The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
 
 
 <?php
@@ -46,7 +45,7 @@ switch ($something) {
         echo 'Default case';
         break;
 }
-•	A switch structure looks like the following. Note the placement of parentheses, spaces, and braces. The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body.
+â€¢	A switch structure looks like the following. Note the placement of parentheses, spaces, and braces. The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body.
 
 <?php
 while ($something) {
