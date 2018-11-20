@@ -6,4 +6,6 @@
 •	Opening braces { MUST be on the same line, and closing braces } MUST go on the next line after the body.<br>
 •	The closing ?> tag MUST be omitted from files containing only PHP.<br>
 •	Blank lines MAY be added to improve readability and to indicate related blocks of code.<br>
+•	Always comment on the code unless it's obvious.<br>
+  •	Always comment on the code unless it's obvious.<br>
 </article>
