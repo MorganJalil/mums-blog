@@ -7,5 +7,8 @@
 •	The closing ?> tag MUST be omitted from files containing only PHP.<br>
 •	Blank lines MAY be added to improve readability and to indicate related blocks of code.<br>
 •	Always comment on the code unless it's obvious.<br>
-  •	Always comment on the code unless it's obvious.<br>
+•	Only <?php or <?= are allowed for PHP tags.<br>
+•	Class names must be defined in Pascalcase.<br>
+•	Method names must be defined in camelCase.<br>
+•	Variabel names must be defined in snakeCase.<br>
 </article>
