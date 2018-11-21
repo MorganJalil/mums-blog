@@ -78,7 +78,7 @@ do {
     // structure body;
 } while ($something);
 ```
-
+---
 >A for statement looks like the following. Note the placement of parentheses, spaces, and braces.
 ```php
 <?php
