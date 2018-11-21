@@ -110,7 +110,8 @@ try {
 ---
 ## Alternative syntax for control structures  
 ```php
-<?php if ($a == 5): ?>
+<?php 
+if ($a == 5): ?>
 A is equal to 5
 <?php endif; ?>
 ```
@@ -125,6 +126,5 @@ elseif ($a == 6):
     echo "!!!";
 else:
     echo "a is neither 5 nor 6";
-endif;
-?>
+endif; ?>
 ```
