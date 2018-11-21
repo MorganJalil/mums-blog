@@ -17,12 +17,26 @@
 >An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
 
 ```php
-	<?php
-	if ($something1) {
-	// if body
-	} elseif ($something2) {
-	// elseif body
-	} else {
-	// else body;
+<?php
+if ($something1) {
+// if body
+} elseif ($something2) {
+// elseif body
+} else {
+// else body;
   }
+```
+
+>The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
+
+```php
+<?php
+if ($something1) {
+    // if body
+} elseif ($something2) {
+    // elseif body
+} else {
+    // else body;
+}
+
 ```
