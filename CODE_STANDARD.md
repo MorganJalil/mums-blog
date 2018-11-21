@@ -74,5 +74,31 @@ while ($something) {
 do {
     // structure body;
 } while ($something);
-
 ```
+>A for statement looks like the following. Note the placement of parentheses, spaces, and braces.
+```php
+<?php
+for ($i = 0; $i < 10; $i++) {
+    // for body
+}
+```
+>A foreach statement looks like the following. Note the placement of parentheses, spaces, and braces.
+```php
+<?php
+foreach ($iterable as $key => $value) {
+    // foreach body
+}
+```
+
+<?php
+try {
+    // try body
+} catch (FirstExceptionType $e) {
+    // catch body
+} catch (OtherExceptionType $e) {
+    // catch body
+}
+
+A try catch block looks like the following. Note the placement of parentheses, spaces, and braces.
+
+
