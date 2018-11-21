@@ -14,6 +14,7 @@
 >* **Only <?php or <?= are allowed for PHP tags.**
 
 ## Examples
+---
 >An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
 
 ```php
@@ -26,7 +27,7 @@ if ($something1) {
 // else body;
 }
 ```
-
+---
 >The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
 
 ```php
@@ -39,7 +40,7 @@ if ($something1) {
     // else body;
 }
 ```
-
+---
 >A switch structure looks like the following. Note the placement of parentheses, spaces, and braces. The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body.
 
 ```php
@@ -61,7 +62,7 @@ switch ($something) {
         break;
 }
 ```
-
+---
 >A while statement looks like the following. Note the placement of parentheses, spaces, and braces.
 ```php
 <?php
@@ -69,7 +70,7 @@ while ($something) {
     // structure body
 }
 ```
-
+---
 >Similarly, a do while statement looks like the following. Note the placement of parentheses, spaces, and braces.
 ```php
 <?php
@@ -85,7 +86,7 @@ for ($i = 0; $i < 10; $i++) {
     // for body
 }
 ```
-
+---
 >A foreach statement looks like the following. Note the placement of parentheses, spaces, and braces.
 ```php
 <?php
@@ -93,7 +94,7 @@ foreach ($iterable as $key => $value) {
     // foreach body
 }
 ```
-
+---
 >A try catch block looks like the following. Note the placement of parentheses, spaces, and braces.
 ```php
 <?php
@@ -105,3 +106,4 @@ try {
     // catch body
 }
 ```
+---
