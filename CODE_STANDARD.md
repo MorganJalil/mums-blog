@@ -61,3 +61,10 @@ switch ($something) {
         break;
 }
 ```
+>A while statement looks like the following. Note the placement of parentheses, spaces, and braces.
+```php
+<?php
+while ($something) {
+    // structure body
+}
+```
