@@ -1,6 +1,6 @@
-<h1>CODING STYLE GUIDE</h1>
+# CODING STYLE GUIDE
 
-```php
+
 - Code MUST use TABS for intendent.
 
 - Lines SHOULD NOT be longer than 80 characters; lines longer than
@@ -21,7 +21,7 @@
 - Variabel names must be defined in snakeCase.
 
 - Only <?php or <?= are allowed for PHP tags.
-```
+
 
 ```php
 <?php
