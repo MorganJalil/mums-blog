@@ -68,3 +68,11 @@ while ($something) {
     // structure body
 }
 ```
+>Similarly, a do while statement looks like the following. Note the placement of parentheses, spaces, and braces.
+```php
+<?php
+do {
+    // structure body;
+} while ($something);
+
+```
