@@ -89,7 +89,9 @@ foreach ($iterable as $key => $value) {
     // foreach body
 }
 ```
-
+>
+A try catch block looks like the following. Note the placement of parentheses, spaces, and braces.
+```php
 <?php
 try {
     // try body
@@ -98,7 +100,5 @@ try {
 } catch (OtherExceptionType $e) {
     // catch body
 }
-
-A try catch block looks like the following. Note the placement of parentheses, spaces, and braces.
-
+```
 
