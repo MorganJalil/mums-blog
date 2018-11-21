@@ -24,7 +24,7 @@ if ($something1) {
 // elseif body
 } else {
 // else body;
-  }
+}
 ```
 
 >The keyword elseif SHOULD be used instead of else if so that all control keywords look like single words.
@@ -38,5 +38,26 @@ if ($something1) {
 } else {
     // else body;
 }
+```
 
+>A switch structure looks like the following. Note the placement of parentheses, spaces, and braces. The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body.
+
+```php
+<?php
+switch ($something) {
+    case 0:
+        echo 'First case, with a break';
+        break;
+    case 1:
+        echo 'Second case, which falls through';
+        // no break
+    case 2:
+    case 3:
+    case 4:
+        echo 'Third case, return instead of break';
+        return;
+    default:
+        echo 'Default case';
+        break;
+}
 ```
