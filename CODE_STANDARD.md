@@ -13,12 +13,16 @@
 >* **Variabel names must be defined in snakeCase.**
 >* **Only <?php or <?= are allowed for PHP tags.**
 
+## Examples
+>An if structure looks like the following. Note the placement of parentheses, spaces, and braces; and that else and elseif are on the same line as the closing brace from the earlier body.
 
 ```php
-<?php
-
-class Book {
-  public $author;
-  public $title;
-}
+	<?php
+	if ($something1) {
+	// if body
+	} elseif ($something2) {
+	// elseif body
+	} else {
+	// else body;
+  }
 ```
