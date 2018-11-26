@@ -1,6 +1,5 @@
 <?php
-
-$imageErr = "";
+include '../includes/database_connection.php';
 
 if(isset($_FILES["fileToUpload"])){
     $target_dir = "../images/uploads/";
@@ -15,25 +14,25 @@ if(isset($_FILES["fileToUpload"])){
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            $imageErr = "File is not an image.";
             $uploadOk = 0;
+            header('Location: image_upload.php?error=type');
         }
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-        $imageErr = "Sorry, file already exists.";
         $uploadOk = 0;
+        header('Location: image_upload.php?error=exist');
     }
     // Check file size
     if ($_FILES["fileToUpload"]["size"] > 500000) {
-        $imageErr = "Sorry, your file is too large.";
         $uploadOk = 0;
+        header('Location: image_upload.php?error=size');
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
-        $imageErr = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
         $uploadOk = 0;
+        header('Location: image_upload.php?error=format');
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
@@ -41,7 +40,14 @@ if(isset($_FILES["fileToUpload"])){
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+            $statement = $pdo->prepare("INSERT INTO images (image, text) VALUES (:image, :text)");
+            $statement->execute([
+                ":image" => $new_location,
+            ]);
+
+            header('Location: image_upload.php');
         } else {
             echo "Sorry, there was an error uploading your file.";
         }

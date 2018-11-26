@@ -1,5 +1,5 @@
 <?php
-include '../includes/upload.php';
+include '../includes/imageerror.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,36 +15,13 @@ include '../includes/upload.php';
     <title>Document</title>
 </head>
 <body>
-    
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-	Upload image
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Image upload</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data" id="image_upload">
-					Select image to upload (max 500kB):
-					<input type="file" name="fileToUpload" id="fileToUpload"><br>
-					<span class="error"><?=$imageErr;?></span><br>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary" form="image_upload">Upload image</button>
-			</div>
-		</div>
-	</div>
-</div>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+	Select image to upload (max 500kB):
+    <input type="file" name="fileToUpload" id="fileToUpload"><br>
+	<span class="error"><?=$imageErr;?></span><br>
+    <button type="submit" class="btn btn-primary">Upload image</button>
+</form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
