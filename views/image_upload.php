@@ -34,7 +34,8 @@ include '../includes/upload.php';
 			<div class="modal-body">
 				<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data" id="image_upload">
 					Select image to upload (max 500kB):
-					<input type="file" name="fileToUpload" id="fileToUpload">
+					<input type="file" name="fileToUpload" id="fileToUpload"><br>
+					<span class="error"><?=$imageErr;?></span><br>
 				</form>
 			</div>
 			<div class="modal-footer">
