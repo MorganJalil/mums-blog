@@ -12,28 +12,27 @@ include '../includes/database_connection.php';
 $userName = $_POST['username'];
 $password = $_POST['password'];
 
-$userInfo = $pdo->prepare('SELECT * FROM users WHERE username = :username AND password = :password ');
+$userInfo = $pdo->prepare('SELECT * FROM users WHERE username = :username');
 
 $userInfo->execute([
 
     'username' => $userName,
-    'password' => $password
 
 ]);
 
 $fetched_user = $userInfo->fetch();
 
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 
 $validPassword = password_verify($password, $fetched_user["password"]);
 
-    if(isset($_POST['logIn'])){
-        header('location:../index.php');
+    if(isset($_POST['login'])){
         if ($validPassword){
             $_SESSION["username"] = $fetched_user["username"];
             $_SESSION["id"] = $fetched_user["id"];
-        } else {
             header('location: ../index.php');
-
+        } else {
+            //error
         }
-
     }
