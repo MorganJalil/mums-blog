@@ -10,7 +10,7 @@
 </head>
 <body>
     
-
+<a href="views/register_user.php">Register</a>
 
 <?php 
     include 'includes/bootstrap_js.php';
