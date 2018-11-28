@@ -3,7 +3,7 @@ session_start();
 include '../includes/database_connection.php';
 
 
-// assign variable for username and password.
+// assigned variable for username and password.
 $userName = $_POST['username'];
 $password = $_POST['password'];
 
