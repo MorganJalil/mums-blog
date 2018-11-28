@@ -18,7 +18,7 @@ session_start();
                 <label for="reg_password">Password</label><br/>
                 <input type="password" name="password" placeholder="password" id="reg_password"><br/>
                 <label for="reg_email">eMail</label><br/>
-                <input type="email" name="email" placeholder="Email" id="reg_mail"><br/>
+                <input type="email" name="email" placeholder="Email" id="reg_email"><br/>
                 <input type="hidden" name="id" id="id"><br/>
                 <input type="submit" value="submit" class="btn btn-primary" ><br/>
             </form>
