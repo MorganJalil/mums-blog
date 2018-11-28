@@ -2,6 +2,7 @@
 session_start();
 ?>
 
+<!-- Delete this when we have includes with header.php, navbar.php etc.-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,8 @@ session_start();
     <title>Document</title>
 </head>
 <body>
+
+<!-- basic form, needs styling -->
 <form action="../includes/register.php" method="POST">
                 <h2 class="register">Register</h2>
                 <label for="reg_user">Username</label><br/>

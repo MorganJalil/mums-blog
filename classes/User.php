@@ -8,6 +8,7 @@ class User {
         $this->pdo = $pdo;
     }
 
+    //method to insert user data into db
     public function register($username, $password, $email) {
     
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
