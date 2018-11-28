@@ -1,20 +1,13 @@
 <?php
 //include '../includes/upload.php';
+include '../includes/database_connection.php';
 $imageErr = "";
 
-$statement = $pdo->prepare(
-	"SELECT cart.product_id, cart.user_id, cart.name, cart.price, cart.quantity, products.image AS image
-	FROM cart
-	JOIN products
-	ON products.id = cart.product_id
-	WHERE user_id = :user_id");
+$statement = $pdo->prepare("SELECT * FROM images");
 	
-	$statement->execute([
-	":user_id"     => $_SESSION["id"]
-	]);
-	
-	$images = $statement->fetchAll(PDO::FETCH_ASSOC);
+$statement->execute();
 
+$images = $statement->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -26,16 +19,27 @@ $statement = $pdo->prepare(
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!-- Include stylesheet -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <title>Document</title>
 </head>
 <body>
+<main class="container-fluid">
+
+<div class="col-6">
+	<h1>bild</h1>
+</div>
     
 <!-- Button trigger modal -->
+<div class="col-2">
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
-	Upload image
+	Choose an image
 </button>
+</div>
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -51,31 +55,56 @@ $statement = $pdo->prepare(
 
 				<div class="container-fluid">
 					
-					<div class="row">
-						<div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-						<div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-						<div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
-						<div class="col-md-3 ml-auto">.col-md-3 .ml-auto</div>
+					<div class="row justify-content-around">
+						<?php if(count($images) > 0){
+							for($i=0;$i<count($images);$i++){ ?>
+								<div class="col-md-3 mr-auto image_container">
+									<img src="<?=$images[$i]["image"]?>">
+								</div>
+							<?php }
+						}else{ ?>
+							<div class="col-md-3 mr-auto"><p>No images uploaded</p></div>
+						<?php } ?>
 					</div>
 					
 				</div>
 
-				<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data" id="image_upload">
+				<form action="upload.php" method="post" enctype="multipart/form-data" id="image_upload">
 					Select image to upload (max 500kB):
-					<input type="file" name="fileToUpload" id="fileToUpload"><br>
+					<input type="file" name="image" id="image">
+					<button type="submit" class="btn btn-primary" form="image_upload">Upload image</button><br>
 					<span class="error"><?=$imageErr;?></span><br>
+					
 				</form>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary" form="image_upload">Upload image</button>
+				<button type="submit" class="btn btn-primary" form="#">Choose image</button>
 			</div>
 		</div>
 	</div>
 </div>
 
+<!-- Create the editor container -->
+<div class="col-6">
+<div id="editor">
+  <p>Hello World!</p>
+  <p>Some initial <strong>bold</strong> text</p>
+  <p><br></p>
+</div>
+</div>
 
+</main>
 
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  var quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+</script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
