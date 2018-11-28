@@ -1,14 +1,9 @@
 <?php
-    session_start();
+session_start();
 include '../includes/database_connection.php';
 
+
 // assign variable for username and password.
-// fetch user info from DB's table user.
-// hash to secure password
-// TODO! Create the $_POST name in html.
-
-
-
 $userName = $_POST['username'];
 $password = $_POST['password'];
 
@@ -20,19 +15,20 @@ $userInfo->execute([
 
 ]);
 
-$fetched_user = $userInfo->fetch();
+$fetched_user = $userInfo->fetch(); // fetch user info from DB's table user.
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-
 $validPassword = password_verify($password, $fetched_user["password"]);
 
-    if(isset($_POST['login'])){
-        if ($validPassword){
-            $_SESSION["username"] = $fetched_user["username"];
-            $_SESSION["id"] = $fetched_user["id"];
-            header('location: ../index.php');
-        } else {
-            //error
-        }
+$message = " "; // if statement, if user submitted login & correct password -> set user in session else display msg.
+
+if (isset($_POST['login'])) {
+    if ($validPassword) {
+        $_SESSION["username"] = $fetched_user["username"];
+        $_SESSION["id"] = $fetched_user["id"];
+        header('location: ../index.php');
+    } else {
+        $message = "Wrong username or password";
     }
+}
