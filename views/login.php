@@ -26,7 +26,7 @@ $message = " "; // if statement, if user submitted login & correct password -> s
 if (isset($_POST['login'])) {
     if ($validPassword) {
         $_SESSION["username"] = $fetched_user["username"];
-        $_SESSION["id"] = $fetched_user["id"];
+        $_SESSION["user_id"] = $fetched_user["id"];
         header('location: ../index.php');
     } else {
         $message = "Wrong username or password";
