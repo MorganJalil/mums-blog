@@ -1,6 +1,6 @@
 <?php
 
-function test_input($data)
+function test_input($data) // exempel
 
 {
     $data = trim($data);
@@ -8,3 +8,4 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
