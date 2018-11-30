@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../classes/User.php';
 ?>
 
 <!-- Delete this when we have includes with header.php, navbar.php etc.-->
