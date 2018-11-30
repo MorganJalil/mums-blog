@@ -1,4 +1,5 @@
 <?php
+include 'database_connection.php';
 
 //retrieve all post: joined users table and posts table to create a associative array list.
 

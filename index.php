@@ -18,7 +18,7 @@ include 'includes/bootstrap_js.php';
 include 'includes/post_list.php';
 include 'includes/database_connection.php';
 
-foreach ($posts as $index => $post) { ?>
+foreach ($posts as $post) { ?>
 
     <?= $post['title'] ?>
     <?= $post['username'] ?>
