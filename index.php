@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="normalize.css">
     <title>Document</title>
 </head>
 <body>
-    
+
 <a href="views/register_user.php">Register</a>
 
-<?php 
-    include 'includes/bootstrap_js.php';
-    include 'includes/post_list.php';
+<?php
+include 'includes/bootstrap_js.php';
+include 'includes/post_list.php';
 include 'includes/database_connection.php';
 
 foreach ($posts as $index => $post) { ?>
@@ -24,7 +25,7 @@ foreach ($posts as $index => $post) { ?>
     <?= $post['created_at'] ?>
     <?= $post['body'] ?>
 
-<?php
+    <?php
 }
 
 //print_r($posts); //
