@@ -14,6 +14,28 @@
 
 <?php 
     include 'includes/bootstrap_js.php';
+include 'includes/database_connection.php';
+
+//hämtar alla post från admin,
+
+$request = $pdo->prepare('SELECT posts.id, users.username, posts.created_at, posts.title FROM posts INNER JOIN users ON posts.created_by = users.user_id AND users.admin = 1 AND admin = 1; ');
+
+$request->execute();
+
+$posts = $request->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($posts as $index => $row) { ?>
+
+    <?= $row['title'] ?>
+    <?= $row['username'] ?>
+    <?= $row['created_at'] ?>
+    <?= $row['description'] ?>
+
+<?php
+}
+
+//print_r($posts); //
+
 ?>
 
 </body>
