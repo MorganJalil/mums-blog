@@ -20,6 +20,7 @@ include '../classes/User.php';
                 <label for="reg_user">Username</label><br/>
                 <input type="text" name="username" placeholder="username" id="reg_user"><br/>
                 <label for="reg_password">Password</label><br/>
+                <?=($_SESSION['test'])?>
                 <input type="password" name="password" placeholder="password" id="reg_password"><br/>
                 <label for="reg_email">eMail</label><br/>
                 <input type="email" name="email" placeholder="Email" id="reg_email"><br/>

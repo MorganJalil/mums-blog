@@ -2,6 +2,8 @@
 include '../includes/functions.php';
 
 class User {
+
+    
     private $pdo;
     public function __construct($pdo) {
         $this->pdo = $pdo;
@@ -18,17 +20,21 @@ class User {
     //method to insert user data into db
     public function register($username, $password, $email) {
 
+
         if(strlen($username) < 4 || ctype_space($username)){
             header('Location:../views/register_user.php?=namefailed');
             exit();
         } else {
             $username = test_input($username);
-    }   
+        }   
 
-    if(strlen($password) < 6 || ctype_space($password)){
-        header('Location:../views/register_user.php?=passfailed');
-        exit();
-    } 
+        if(strlen($password) < 6 || ctype_space($password)){
+            header('Location:../views/register_user.php?test=passfailed');
+            $_SESSION['test'] = 'passfailed';
+            exit();
+        } else {
+            $_SESSION['test'] = null;
+        }
     
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo("$email is a valid email address");
