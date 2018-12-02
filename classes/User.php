@@ -3,7 +3,6 @@ include '../includes/functions.php';
 
 class User {
 
-    
     private $pdo;
     public function __construct($pdo) {
         $this->pdo = $pdo;
@@ -79,6 +78,6 @@ class User {
             ]
         );
         header('Location: ../index.php');
+        }
     }
-}
 }
