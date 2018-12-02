@@ -20,26 +20,29 @@ class User {
     //method to insert user data into db
     public function register($username, $password, $email) {
 
-
-        if(strlen($username) < 4 || ctype_space($username)){
+        // Validations for inputs from form, and error messages.
+        if(strlen($username) < 3 || ctype_space($username)){
             header('Location:../views/register_user.php?=namefailed');
+            $_SESSION['username_fail'] = 'Username must be atleast 3 characters long.';
             exit();
         } else {
             $username = test_input($username);
+            $_SESSION['username_fail'] = false;
         }   
 
         if(strlen($password) < 6 || ctype_space($password)){
             header('Location:../views/register_user.php?test=passfailed');
-            $_SESSION['test'] = 'passfailed';
+            $_SESSION['pwd_fail'] = 'Password must be atleast 6 characters long.';
             exit();
         } else {
-            $_SESSION['test'] = null;
+            $_SESSION['pwd_fail'] = false;
         }
     
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo("$email is a valid email address");
+            $_SESSION['email_fail'] = false;
         } else {
             header('Location:../views/register_user.php?=novalidmailfailed');
+            $_SESSION['email_fail'] = 'Invalid email format';
             exit();
         }
     
@@ -51,14 +54,18 @@ class User {
             ]
         );
         $fetched_data = $statement->fetch();
-        
+        // Validation and error messages if name or mail already taken
         if($fetched_data['username'] == $username){
             header('Location: ../views/register_user.php?=usernametaken');
+            $_SESSION['username_taken'] = 'Username is already taken';
             exit();
         } elseif($fetched_data['email'] == $email){
             header('Location: ../views/register_user.php?=mailtaken');
+            $_SESSION['email_taken'] = 'email is already taken';
             exit();
-        } else{
+        } else {
+            $_SESSION['username_taken'] = false;
+            $_SESSION['email_taken'] = false;
 
         //INSERT data into db
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);

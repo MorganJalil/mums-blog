@@ -18,14 +18,41 @@ include '../classes/User.php';
 <form action="../includes/register.php" method="POST">
                 <h2 class="register">Register</h2>
                 <label for="reg_user">Username</label><br/>
-                <input type="text" name="username" placeholder="username" id="reg_user"><br/>
+                <input type="text" name="username" placeholder="username" id="reg_user" required>
+                <?php
+                    if(isset($_SESSION['username_fail'])){
+                        $username_fail = $_SESSION['username_fail'];
+                        echo "<span>$username_fail</span>";
+                    }
+                ?><br/>
                 <label for="reg_password">Password</label><br/>
-                <?=($_SESSION['test'])?>
-                <input type="password" name="password" placeholder="password" id="reg_password"><br/>
-                <label for="reg_email">eMail</label><br/>
-                <input type="email" name="email" placeholder="Email" id="reg_email"><br/>
-                <input type="hidden" name="id" id="id"><br/>
+                <input type="password" name="password" placeholder="password" id="reg_password" required>
+                <?php
+                    if(isset($_SESSION['pwd_fail'])){
+                        $pwd_fail = $_SESSION['pwd_fail'];
+                        echo "<span>$pwd_fail</span>";
+                    }
+                ?><br/>
+                <label for="reg_email">email</label><br/> 
+                <input type="email" name="email" placeholder="email" id="reg_email" required>
+                <input type="hidden" name="id" id="reg_email">
+                <?php
+                    if(isset($_SESSION['email_fail'])){
+                        $email_fail = $_SESSION['email_fail'];
+                        echo "<span>$email_fail</span>";
+                    }
+                ?><br/>
                 <input type="submit" value="submit" class="btn btn-primary" ><br/>
             </form>
+            <?php
+                if(isset($_SESSION['username_taken'])){
+                    $username_taken = $_SESSION['username_taken'];
+                    echo "<span>$username_taken</span><br/>";
+                }
+                if(isset($_SESSION['email_taken'])){
+                    $email_taken = $_SESSION['email_taken'];
+                    echo "<span>$email_taken</span><br/>";
+                }
+            ?>
 </body>
 </html>
