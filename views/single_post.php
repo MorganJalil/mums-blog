@@ -19,7 +19,7 @@ require_once '../includes/functions.php';
     <title>Document</title>
 </head>
 <body>
-    
+    <?php getSinglePost($pdo);?>
     
     <!--Display post image-->
     <img src="../<?=fetchArrayi['imgPath']?>" alt="Cool Post Image">
