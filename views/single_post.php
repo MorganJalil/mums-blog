@@ -19,6 +19,7 @@ require_once '../includes/functions.php';
     <title>Document</title>
 </head>
 <body>
+    <!--Load single post function-->
     <?php getSinglePost($pdo);?>
     
     <!--Display post image-->
