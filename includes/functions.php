@@ -1,14 +1,13 @@
 <?php
 
 function getSinglePost($pdo) {
-    $post_id = 1;
     $id= 1;
    //kolla om man kan ersätta 1 med ?
     $single_post = $pdo->prepare('SELECT * FROM posts WHERE id = :id');
 
     $single_post->execute([
 
-        'id' => $post_id,
+        'id' => $id,
     
     ]);
     
@@ -19,9 +18,7 @@ function getSinglePost($pdo) {
    } else {
      header('location: ../index.php?=kebabfail');
    }
-   
-    
-    
+   var_dump($fetched_post["title"]);
 
 }
 
