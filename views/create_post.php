@@ -99,9 +99,11 @@ if(isset($_POST['image'])){
 			</div>
 
 			<div class="col-12">
+				<div class ="blog-image-frame">
 				<?php if(isset($_POST["image"])){?>
 					<img src="../<?=$_POST["image"];?>">
 				<?php } ?>
+				</div>
 			</div>
 			<!-- Create the editor container -->
 			<div class="col-12">
@@ -147,7 +149,7 @@ if(isset($_POST['image'])){
 				modules: {
 					toolbar: [
 					['bold', 'italic', 'underline', 'strike'],  
-					['link', 'blockquote', 'code-block'],
+					['link', 'blockquote'],
 					[{ list: 'ordered' }, { list: 'bullet' }]
 					]
 				},
@@ -161,10 +163,7 @@ if(isset($_POST['image'])){
 					$('#hiddeninput').val(mysave);			
 				});
 			});
-
-
 			</script>
-
 		</div>
 	</main>
 </div>
