@@ -5,6 +5,7 @@ session_start();
 
 //get database connection once
 require_once '../includes/database_connection.php';
+require_once '../includes/functions.php';
 
 ?>
 <!DOCTYPE html>
@@ -18,9 +19,11 @@ require_once '../includes/database_connection.php';
     <title>Document</title>
 </head>
 <body>
+    <!--Load single post function-->
+    <?php getSinglePost($pdo);?>
     
     <!--Display post image-->
-    <img src="" alt="Cool Post Image">
+    <img src="../<?=fetchArrayi['imgPath']?>" alt="Cool Post Image">
     <!--Display post title-->
     <h1>Title</h1>
     <!--Display post category-->
