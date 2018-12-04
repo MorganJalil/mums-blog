@@ -20,7 +20,7 @@ require_once '../includes/functions.php';
 </head>
 <body>
     <!--Load single post function-->
-    <?php getSinglePost($pdo);?>
+    <?php getSinglePost($pdo);?> </br>
     
     <!--Display post image-->
     <img src="../<?=fetchArrayi['imgPath']?>" alt="Cool Post Image">
@@ -32,22 +32,12 @@ require_once '../includes/functions.php';
     <h3>Date</h3>
     <!--Display post -->
     <p>Random post text</p>
-    <!--Display comments with comment field and if admin display remove comment button-->
-    <section class="comments">Comments</section>
     
     <!--Add comment form-->
     <div class="panel panel-default">
         <div class="panel-heading">Submit Your Comments</div>
         <div class="panel-body">
             <form method="post">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Name</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Subject</label>
                 <textarea name="subject" class="form-control" rows="3"></textarea>
