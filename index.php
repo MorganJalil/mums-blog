@@ -3,7 +3,7 @@ session_start();
 include 'includes/header.php';
 ?>
 
-<body style="color: blue;">
+<body class="body_index">
     <header role="banner">
         <img src="images/logo_borders.png" class="hero_image" alt="Logo Big">
         <nav role="navigation">
@@ -15,12 +15,12 @@ include 'includes/header.php';
         <main role="main">
 
         <form action="views/login.php" method="post">
-        <input type="text" name="username">
-        <input type="password" name="password">
+        <input type="text" name="username"><br/>
+        <input type="password" name="password"><br/>
         <button type="submit" name="login"> Log in
         </button>
     </form>
-        <a href="views/register_user.php">Register</a>
+        Not a member? <a href="views/register_user.php">Register</a>
         </main>
     </div>
 
