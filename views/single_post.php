@@ -34,6 +34,16 @@ require_once '../includes/functions.php';
     <p>Random post text</p>
     <!--Display comments with comment field and if admin display remove comment button-->
     <section class="comments">Comments</section>
+    
+    <!--Add comment form-->
+    <form action = "CommentForm.php" method = "post">
+    <table>
+    <tr><td>Name: </td><td><input type = "text" name = "name" size = "30"/></td></tr>
+    <tr><td colspan="2">Comment:</td></tr>
+    <tr><td colspan="2"><textarea name = "comment"></textarea></td></tr>
+    <tr><td colspan="2"><input type = "submit" name = "submit" value = "Comment"/></td></tr>
+    </table>
+    </form>
 
 <?php 
     include '../includes/bootstrap_js.php';
