@@ -36,14 +36,26 @@ require_once '../includes/functions.php';
     <section class="comments">Comments</section>
     
     <!--Add comment form-->
-    <form action = "CommentForm.php" method = "post">
-    <table>
-    <tr><td>Name: </td><td><input type = "text" name = "name" size = "30"/></td></tr>
-    <tr><td colspan="2">Comment:</td></tr>
-    <tr><td colspan="2"><textarea name = "comment"></textarea></td></tr>
-    <tr><td colspan="2"><input type = "submit" name = "submit" value = "Comment"/></td></tr>
-    </table>
-    </form>
+    <div class="panel panel-default">
+        <div class="panel-heading">Submit Your Comments</div>
+        <div class="panel-body">
+            <form method="post">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Subject</label>
+                <textarea name="subject" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
 
 <?php 
     include '../includes/bootstrap_js.php';
