@@ -16,9 +16,12 @@ index.php styling Morgan
     background-color: #f0f0f0;
 }
 
-.wrap {
-    margin-top: 2%;
-    text-align: center;
+.form_index {
+    margin: auto;
+    max-width:50%;
+    margin-top: 5%;
+    text-align: right;
+    
 }
 
 footer {
@@ -32,10 +35,20 @@ footer {
 Media queries
 ========================================================================== */
 
-@media (min-width: 576px) {  }
+@media (min-width: 576px) { 
+    .form_index {
+        margin: auto;
+        max-width:50%;
+        margin-top: 5%;
+        text-align: right;
+        
+    }
+ }
 
  /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {  }
+@media (min-width: 768px) { 
+    
+ }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {  }
