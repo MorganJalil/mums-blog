@@ -1,15 +1,19 @@
 <?php
+session_start();
+
 require ('database_connection.php');
 
 if(isset($_POST) & !empty($_POST)){
-	$subject = mysqli_real_escape_string($connection, $_POST['subject']);
+    $statement = $pdo->prepare(
+		"INSERT INTO comments (content, post_id, created_by)
+		VALUES (:content, :post_id, :created_by,);"
+		);
 
-	$isql = "INSERT INTO comments (subject) VALUES ('$subject')";
-	$ires = mysqli_query($connection, $isql) or die(mysqli_error($connection));
-	if($ires){
-		$smsg = "Your Comment Submitted Successfully";
-	}else{
-		$fmsg = "Failed to Submit Your Comment";
-	}
+		$statement->execute([
+		":content"     => $_POST["content"],
+		":post_id"     => $_POST["post_id"],
+		":created_by"     => $_SESSION["created_by"],
+        ]);	
+        
 
 }
