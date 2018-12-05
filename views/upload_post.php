@@ -3,18 +3,7 @@ session_start();
 require '../includes/database_connection.php';
 
 if(isset($_POST)){
-
-    var_dump($_POST);
-    var_dump($_SESSION);
-    echo "<br>";
-    echo "<br>";
-
-    echo $_POST["title"] . "<br>";
-    echo $_POST["description"] . "<br>";
-    echo $_SESSION["user_id"] . "<br>";
-    echo $_POST["image_id"] . "<br>";
-
-		
+    	
         //Add $_POST info to posts DB
 		$statement = $pdo->prepare(
 		"INSERT INTO posts (title, description, created_by, image, published)
