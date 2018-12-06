@@ -7,7 +7,7 @@ include 'includes/header.php';
 
     <header role="banner">
         <div class="container-fluid">
-            <img src="images/logo_borders.png" class="hero_image" alt="Logo Big">
+            <img src="images/hero_image.svg" class="hero_image" alt="Logo Big">
         
         </div>
         <nav role="navigation">
@@ -21,11 +21,11 @@ include 'includes/header.php';
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label class="sr-only" for="username">Username</label>
-                        <input type="text" class="form-control" name="username" Placeholder="Username">
+                        <input type="text" class="form-control border-0" name="username" Placeholder="Username">
                     </div>
                     <div class="form-group col-md-6">
                     <label class="sr-only" for="password">Password</label>
-                        <input type="password" class="form-control" name="password" Placeholder="Password">
+                        <input type="password" class="form-control border-0" name="password" Placeholder="Password">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success" name="login"> Log in</button><br/>
