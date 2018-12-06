@@ -33,16 +33,19 @@ require_once '../includes/functions.php';
     <!--Display post -->
     <p>Random post text</p>
     
+
+    <!--Set post and session for example-->
     <?php $post_id ="1";?>
-    <?php $_SESSION ["created_by"] = "Micke";?>
+    <?php $_SESSION["user_id"] = "2";?>
     <!--Add comment form-->
     <div class="panel panel-default">
         <div class="panel-heading">Submit Your Comments</div>
         <div class="panel-body">
             <form method="POST" action="../includes/commentform.php"> 
             <div class="form-group">
+                <!--insert post and session values to form-->
                 <input type="hidden" name="post_id" id="single_comment" value='<?= "$post_id"?>' />
-                <input type="hidden" name="post_id" id="single_comment" value='<?= $_SESSION ["created_by"]?>' />
+                <input type="hidden" name="created_by" id="single_comment" value='<?= $_SESSION["user_id"]?>' />
                 <label for="single_comment">Comment</label>
                 <textarea id="single_comment" name="content" class="form-control" rows="3"></textarea>
             </div>
