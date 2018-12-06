@@ -14,7 +14,6 @@ include 'includes/header.php';
         </nav>
     </header>
 
-    
         <main role="main">
 
             <form action="views/login.php" class="form_index" method="post">    
@@ -29,7 +28,7 @@ include 'includes/header.php';
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success" name="login"> Log in</button><br/>
-                Not a member? <a href="views/register_user.php">Register</a>
+                <p>Not a member? <a href="views/register_user.php">Register</a></p>
             </form>
         </main>
     
