@@ -21,7 +21,7 @@ function getSinglePost($pdo) {
      header('location: ../index.php?=kebabfail');
    }
    var_dump($fetched_post["title"]);
-
+}
 
 function test_input($data) // exempel
 
