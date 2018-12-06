@@ -1,19 +1,24 @@
 <?php
 session_start();
 
-require ('database_connection.php');
+var_dump($_POST);
 
-if(isset($_POST) & !empty($_POST)){
+require 'database_connection.php';
+
+//check that POST  is set
+if(isset($_POST) && !empty($_POST)){
+    //insert comment to database with values from post 
     $statement = $pdo->prepare(
 		"INSERT INTO comments (content, post_id, created_by)
-		VALUES (:content, :post_id, :created_by,);"
+		VALUES (:content, :post_id, :created_by);"
 		);
 
 		$statement->execute([
 		":content"     => $_POST["content"],
 		":post_id"     => $_POST["post_id"],
-		":created_by"     => $_SESSION["created_by"],
+		":created_by"     => $_POST["created_by"],
         ]);	
         
+        //header('Location: ../views/single_post.php');
 
 }
