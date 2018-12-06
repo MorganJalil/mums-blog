@@ -73,7 +73,7 @@ if(isset($_POST['image'])){
 											<label class="col-md-3 mr-auto">
 												<input type="radio" class="choose_image" name="image" value="<?=$images[$i]["image"]?>" form="choose_image">
 												<div class="image_container">
-												<img src="../<?=$images[$i]["image"]?>">
+													<img src="../<?=$images[$i]["image"]?>">
 												</div>
 											</label>									
 										<?php }
@@ -82,15 +82,7 @@ if(isset($_POST['image'])){
 									<?php } ?>		
 								</div>	
 							</div>
-<!--
-							<form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
-								Select image to upload (max 500kB):
-								<input type="file" name="image" id="image">
-								<button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
-							
-								
-							</form>
--->
+
 							<form action="upload_image.php" enctype="multipart/form-data" id="upload_image" method="post">
 								<div class="preview"></div>
 								<label for="image">Select image to upload (max 500kB):</label>
@@ -133,29 +125,22 @@ if(isset($_POST['image'])){
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
 						<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
-						<input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post">
-						
+						<input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post">	
 					<?php } ?>
-					<!--
-     				<input name="description" id="description" type="hidden" aria-label="description">
-					<div class="col-12" id="editor">
-					
-					</div>
-					 -->
+
 					<div class="col-12" id="editor" contenteditable="true" name="textBox" aria-label="description">
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
 
-					<!--<button type="submit" id="save" value="0" name="published" class="btn btn-primary save" form="post">Save</button>-->
 					<button type="submit" id="save" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
-				</form>
-				
+				</form>			
 			</div>
 
 	<!-- Include the Quill library -->
 		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-	<!-- Initialize Quill editor -->
 			<script>
+
+			//Initialize Quill editor 
 			var quill = new Quill('#editor', {
 				modules: {
 					toolbar: [
@@ -167,14 +152,14 @@ if(isset($_POST['image'])){
 				placeholder: 'Write product description...',
 				theme: 'snow'
 			});
-
+			
+			//Insert Quill content into hidden input
 			$(function(){
 				$('#save').click(function () {
 					var mysave = $('.ql-editor').html();
 					$('#hiddeninput').val(mysave);			
 				});
 			});
-
 
 			$(document).ready(function() { 
 				$(".submit-upload-image").click(function(){
@@ -183,7 +168,6 @@ if(isset($_POST['image'])){
 			}); 
 
 			</script>
-
 		</div>
 	</main>
 </div>

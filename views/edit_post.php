@@ -131,29 +131,23 @@ if(isset($_POST['image'])){
 					Choose an image
 					</button>
 				</div>
-				<form action="upload_post.php" method="post" id="update">
+				<form action="update_post.php" method="post" id="update">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION["user_id"];?>">
 
 					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="update" value="<?=$post[0]["title"];?>">
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
-						<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
-                    <input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post" <?php if($single_category['category_id'] == $post[0]["category_id"]){ ?>checked <?php }?>>
+					<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
+                    <input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="update"<?php if($single_category['category_id'] == $post[0]["category_id"]){ ?> checked <?php } ?>>
 						
 					<?php } ?>
-					<!--
-     				<input name="description" id="description" type="hidden" aria-label="description">
-					<div class="col-12" id="editor">
-					
-					</div>
-					 -->
+
 					<div class="col-12" id="editor" contenteditable="true" name="textBox" aria-label="description">
                         <?=$post[0]["description"];?>
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
 
-					<!--<button type="submit" id="save" value="0" name="published" class="btn btn-primary save" form="post">Save</button>-->
 					<button type="submit" id="save" value="1" name="published" class="btn btn-primary post" form="update">Update</button>
 				</form>
 				
