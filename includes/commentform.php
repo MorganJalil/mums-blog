@@ -12,7 +12,7 @@ if(isset($_POST) && !empty($_POST)){
 		"INSERT INTO comments (content, post_id, created_by)
 		VALUES (:content, :post_id, :created_by);"
 		);
-
+        //Replace $_post created by with session later
 		$statement->execute([
 		":content"     => $_POST["content"],
 		":post_id"     => $_POST["post_id"],
