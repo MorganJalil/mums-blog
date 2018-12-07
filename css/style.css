@@ -1,11 +1,11 @@
 *{
     margin: 0;
-    /*border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 body {
     width: 100%;
-    background-color: #f0f0f0;
+    background-image: linear-gradient(white, grey);
 }
 
 /* navigation bar*/
@@ -52,8 +52,8 @@ background-color: #f0f0f0;
 .hero_header {
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
     background-position: center;
-    height: 90vh;
-    background-size: cover;
+    height: 75vh;
+    background-size: 75% ;
     position: relative;
     overflow: hidden;
     
