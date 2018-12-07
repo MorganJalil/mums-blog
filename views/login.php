@@ -28,7 +28,9 @@ if (isset($_POST['login'])) {
     if ($validPassword) {
         $_SESSION["username"] = $fetched_user["username"];
         $_SESSION["user_id"] = $fetched_user["user_id"];
+        $_SESSION["admin"] = $fetched_user["admin"];
         header('location: ../index.php?pooop');
+        var_dump($_SESSION["admin"]);
 
     } else {
         header('location: ../index.php?login_failed_true');
