@@ -1,5 +1,15 @@
 <?php
 
+function getAllComments($pdo) {
+    $comments = [];
+    $database_comments = $pdo->query('SELECT * FROM comments')->fetchall();
+    foreach ($database_comments as $comment) {
+      $spinners[$comment['content']] = $comment;
+    }
+
+    return $comments;
+}
+
 function getSinglePost($pdo) {
     // Replace 1 with $_GET later
     $id= 1;
