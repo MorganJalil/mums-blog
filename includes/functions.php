@@ -12,7 +12,7 @@ function getSinglePost($pdo) {
         'id' => $id,
     
     ]);
-    
+
     $fetched_post = $single_post->fetch();
     //Errorchecking
    if (isset($fetched_post["id"])) {
