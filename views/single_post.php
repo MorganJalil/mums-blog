@@ -54,6 +54,18 @@ require_once '../includes/functions.php';
         </div>
     </div>
 
+    <?php
+    $all_comments = getAllComments($pdo);
+
+    var_dump('$all_comments');
+
+    foreach($all_comments as $allComment => $comment): ?>
+        <div class="card col-5" >
+            <p><?= $comment['created_by']; ?></p>
+            <p><?= $comment['post_id']; ?></p>
+            <p><?= $comment['content']; ?></p>
+        </div>
+    <?php endforeach;  ?>
 <?php 
     include '../includes/bootstrap_js.php';
 ?>
