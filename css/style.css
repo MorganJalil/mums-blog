@@ -1,0 +1,54 @@
+/* ==========================================================================
+index.php styling Morgan
+========================================================================== */
+
+.hero_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body_index {
+    height: 200%;
+    background-color: #f0f0f0;
+}
+
+.form_index {
+    margin: auto;
+    max-width:50%;
+    margin-top: 5%;
+    text-align: right;
+    
+}
+
+footer {
+  margin: auto;
+  margin-top: 10%;
+  width: 100%;
+  text-align:center; 
+}
+
+/* ==========================================================================
+Media queries
+========================================================================== */
+
+@media (min-width: 576px) { 
+    .form_index {
+        margin: auto;
+        max-width:50%;
+        margin-top: 5%;
+        text-align: right;
+        
+    }
+ }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }
