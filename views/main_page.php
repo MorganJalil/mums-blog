@@ -28,7 +28,9 @@ include '../includes/database_connection.php';
     foreach ($posts as $post): */ ?>
 
 
-<!--TODO function for disabling animation for mobile and smaller devixe -->
+<!--TODO function for disabling animation for mobile and smaller device-->
+<!--TODO @mediequeries header image for mobile and smaller device-->
+<!--TODO @mediequeries textbox for mobile and smaller device-->
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
@@ -54,7 +56,7 @@ include '../includes/database_connection.php';
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
-            <button class="btn btn-success my-2 my-sm-0 " type="submit">Login</button>
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Login</button>
         </form>
     </div>
 </nav>

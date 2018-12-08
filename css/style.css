@@ -5,10 +5,10 @@
 
 body {
     width: 100%;
-    background-image: linear-gradient(white, grey);
+    background-image: linear-gradient(white, whitesmoke, lightgrey);
 }
 
-/* NAVIGATION BAR BY SHERIE KLAPPENBACH*/
+/* NAVIGATION BAR - SHERIE */
 
 #main-page .navbar-default {
 background-color: #f0f0f0;
@@ -24,6 +24,7 @@ background-color: #f0f0f0;
 .navbarLogo {
     height: 3rem;
     width: 4rem;
+    padding: 1vh;
 }
 
 .navbar-default .navbar_options .nav-item {
@@ -40,18 +41,16 @@ background-color: #f0f0f0;
 
 }
 
-.navbar-default .btn {
+.navbar-default .btn-default {
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 3px;
     padding-bottom: 3px ;
+    background-color:#f0f0f0 ;
 }
 
-/* HERO HEADER BY SHERIE KLAPPENBACH */
+/* HERO HEADER - SHERIE */
 
-.post_section {
-    margin: 20px;
-}
 
 .hero_header {
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
@@ -82,7 +81,12 @@ background-color: #f0f0f0;
     color: #f0f0f0;
 }
 
-/* MAIN POST CONTENT BY SHERIE KLAPPENBACH*/
+/* MAIN POST CONTENT - SHERIE */
+
+.post_section {
+    padding: 30px;
+    align-content: center;
+}
 
 .latest_featured_article img  {
     height: 100%;
@@ -111,10 +115,8 @@ background-color: #f0f0f0;
 }
 
 .text-block h4 {
-    font-size: 2em;
+    font-size: 6em;
 }
-
-
 
 
 /* MEDIA QUERIES */
