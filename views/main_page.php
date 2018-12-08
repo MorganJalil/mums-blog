@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Millhouse</title>
 </head>
 <body id="main-page">
@@ -24,6 +26,9 @@ include '../includes/database_connection.php';
     $posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($posts as $post): */ ?>
+
+
+<!--TODO function for disabling animation for mobile and smaller devixe -->
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
@@ -71,9 +76,10 @@ include '../includes/database_connection.php';
 <? //= $post['body'] ?>
 <?php //endforeach; ?>
 
+
 <main class="container post_section ">
     <section>
-        <div class="row latest_featured_article">
+        <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article ">
             <div class="col-6 post_parallax">
                 <a href=""><img src="../images/paint_featured_interior%20copy.jpg"></a>
                 <div class="text-block">
@@ -81,15 +87,15 @@ include '../includes/database_connection.php';
                     <p>Poop</p>
                 </div>
             </div>
-            <div class="col-4 post_parallax">
+            <div class="col-6 post_parallax">
                 <a href=""><img src="../images/jen-p-541467-unsplash%20copy.jpg"></a>
                 <div class="text-block">
                     <h4>Article</h4>
                     <p>Poop </p>
                 </div>
             </div>
-            <div class="row latest_featured_article">
-                <div class="col-10 post_parallax">
+            <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article">
+                <div class="col-12 post_parallax">
                     <a href=""> <img src="../images/tamara-bellis-388531-unsplash.jpg"></a>
                     <div class="text-block">
                         <h4>Article</h4>
@@ -98,7 +104,7 @@ include '../includes/database_connection.php';
                 </div>
             </div>
         </div>
-        <div class="row featured_articles">
+        <div  data-aos="fade-up" data-aos-duration="2000" class="row featured_articles">
             <div class="col-5">
                 <a href=""><img src="../images/stil-243522-unsplash.jpg"></a>
                 <div class="text-block">
@@ -113,18 +119,22 @@ include '../includes/database_connection.php';
                     <p>Poop</p>
                 </div>
             </div>
-            <div class="row featured_articles">
-            <div class="col-10 post_parallax">
-                <a href=""><img src="../images/kari-shea-109894-unsplash%20copy.jpg"></a>
-                <div class="text-block">
-                    <h4>Article</h4>
-                    <p>Poop</p>
+            <div data-aos="fade-up" data-aos-duration="2500" class="row featured_articles">
+                <div class="col-12 post_parallax">
+                    <a href=""><img src="../images/kari-shea-109894-unsplash%20copy.jpg"></a>
+                    <div class="text-block">
+                        <h4>Article</h4>
+                        <p>Poop</p>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
 
 </main>
+<script>
+    AOS.init();
+</script>
+
 </body>
 </html>
