@@ -6,6 +6,27 @@ include '../includes/database_connection.php';
 $imageErr = "";
 $image_id = "";
 
+//REMOVE IMAGE FORM DB AND FOLDER
+if(isset($_GET['remove'])){
+	$image_id = $_GET['remove'];
+
+	$statement = $pdo->prepare("SELECT image FROM images WHERE id = :image_id");
+	
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+	$image_location = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	unlink("../".$image_location[0]['image']);
+
+	$statement = $pdo->prepare("DELETE FROM images WHERE id = :image_id");
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+
+	header("Location: ?");	
+}
+
 $statement = $pdo->prepare("SELECT * FROM images");	
 $statement->execute();
 $images = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -39,6 +60,7 @@ if(isset($_POST['image'])){
 
 	<!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 

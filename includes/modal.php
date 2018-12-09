@@ -8,18 +8,18 @@
                 </button>
             </div>
             <div class="modal-body">
-
                 <div class="container-fluid">
                 <!-- CHOOSE IMAGE FORM -->
-                <form action="edit_post.php" method="post" id="choose_image">
-                </form>	
+                    <form action="edit_post.php" method="post" id="choose_image">
+                    </form>	
                     <div class="row justify-content-left">		
                         <?php if(count($images) > 0){
                             for($i=0;$i<count($images);$i++){ ?>										
                                 <label class="col-md-3 mr-auto">
                                     <input type="radio" class="choose_image" name="image" value="<?=$images[$i]["image"]?>" form="choose_image">
                                     <div class="image_container">
-                                    <img src="../<?=$images[$i]["image"]?>">
+                                        <a class="close" href="?remove=<?=$images[$i]['id'];?>"><i class="far fa-times-circle"></i></a>
+                                        <img src="../<?=$images[$i]["image"]?>">
                                     </div>
                                 </label>									
                             <?php }
@@ -27,14 +27,13 @@
                             <div class="col-md-3 mr-auto"><p>No images uploaded</p></div>
                         <?php } ?>		
                     </div>	
-                </div>
-
+                </div>			
+}
                 <form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
                     Select image to upload (max 500kB):
                     <input type="file" name="image" id="image">
                     <button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
-                    <span class="error"><?=$imageErr;?></span><br>
-                    
+                    <span class="error"><?=$imageErr;?></span><br>    
                 </form>
             </div>
             <div class="modal-footer">

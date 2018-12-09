@@ -26,6 +26,13 @@
 	transform: translate(-50%, -50%);
 }
 
+.image_container .close {
+	position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+
 .blog-image-frame{
 	height: 30rem;
 	width: 30rem;

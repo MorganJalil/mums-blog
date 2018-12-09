@@ -65,7 +65,7 @@ if(isset($_POST['image'])){
 
 							<div class="container-fluid">
 							<!-- CHOOSE IMAGE FORM -->
-							<form action="create_post.php" method="post" id="choose_image">
+							<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" id="choose_image">
 							</form>	
 								<div class="row justify-content-left">		
 									<?php if(count($images) > 0){
@@ -85,7 +85,7 @@ if(isset($_POST['image'])){
 
 							<form action="upload_image.php" enctype="multipart/form-data" id="upload_image" method="post">
 								<div class="preview"></div>
-								<label for="image">Select image to upload (max 500kB):</label>
+								<label for="image">Select image to upload (max 500kB):</label><br>
 								<input type="file" name="image" id="image" class="form-control" style="width:30%" />
 								<span class="error"><?=$imageErr;?></span><br>
 
@@ -113,9 +113,16 @@ if(isset($_POST['image'])){
 				<!-- Create toolbar container -->
 				<div id="toolbar">
 					<!-- But you can also add your own -->
+					
+					<form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
+						Select image to upload (max 500kB):
+						<input type="file" name="image" id="image"><br>
+						<button type="submit" class="btn btn-primary" form="upload_image">Upload image</button>	 
+					</form>
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
 					Choose an image
 					</button>
+					<span class="error"><?=$imageErr;?></span><br>   
 				</div>
 				<form action="upload_post.php" method="post" id="post">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
