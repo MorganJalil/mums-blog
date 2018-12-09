@@ -6,23 +6,27 @@ var_dump($_POST);
 
 if(isset($_POST)){
 	
+	//Create slug for post
+	$slug = str_replace(" ", "_", $_POST["title"]);
+	
 	//Add $_POST info to posts DB
 	$statement = $pdo->prepare(
 	"UPDATE posts 
-    SET title = :title, description = :description, image = :image
+    SET title = :title, slug = :slug, description = :description, image = :image_id
     WHERE id = :post_id;
     
     UPDATE post_category 
-    SET prod_category_id = :post_id,
+    SET prod_category_id = :category_id,
 	WHERE post_id = :post_id;"
 	);
 
 	$statement->execute([
 	":title"     => $_POST["title"],
+	":slug"     => $slug,
 	":description"     => $_POST["description"],
-	":created_by"     => $_SESSION["user_id"],
 	":image_id"     => $_POST["image_id"],
-	":published"     => $_POST["published"],
+	":category_id"     => $_POST["category_id"],
+	":post_id"     => $_POST["post_id"],
 	]);	
 	
 	//header("Location: ../index.php?");		

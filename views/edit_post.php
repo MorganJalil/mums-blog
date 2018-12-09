@@ -5,6 +5,7 @@ $_SESSION["user_id"] = 1;
 include '../includes/database_connection.php';
 $imageErr = "";
 $image_id = "";
+$post_id = 23;
 
 $statement = $pdo->prepare("SELECT * FROM images");	
 $statement->execute();
@@ -24,7 +25,7 @@ ON post_category.post_id = posts.id
 WHERE posts.id = :post_id;");
 
 $statement->execute([
-    ":post_id"     => 22
+    ":post_id"     => $post_id
 ]);
 $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -64,55 +65,8 @@ if(isset($_POST['image'])){
 <div class="container-fluid">
 	<main class="post_wrap">
 		<div class="row justify-content-around">
-        <?php var_dump($post); ?>
 			<!-- Modal -->
-			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Choose and image</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-
-							<div class="container-fluid">
-							<!-- CHOOSE IMAGE FORM -->
-							<form action="edit_post.php" method="post" id="choose_image">
-							</form>	
-								<div class="row justify-content-left">		
-									<?php if(count($images) > 0){
-										for($i=0;$i<count($images);$i++){ ?>										
-											<label class="col-md-3 mr-auto">
-												<input type="radio" class="choose_image" name="image" value="<?=$images[$i]["image"]?>" form="choose_image">
-												<div class="image_container">
-												<img src="../<?=$images[$i]["image"]?>">
-												</div>
-											</label>									
-										<?php }
-									}else{ ?>
-										<div class="col-md-3 mr-auto"><p>No images uploaded</p></div>
-									<?php } ?>		
-								</div>	
-							</div>
-
-							<form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
-								Select image to upload (max 500kB):
-								<input type="file" name="image" id="image">
-								<button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
-								<span class="error"><?=$imageErr;?></span><br>
-								
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary" form="choose_image">Choose image</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			<?php include '../includes/modal.php'; ?>
 			<div class="col-12">
 				<div class ="blog-image-frame">
 				<?php if(isset($_POST["image"])){?>
@@ -134,6 +88,7 @@ if(isset($_POST['image'])){
 				<form action="update_post.php" method="post" id="update">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION["user_id"];?>">
+					<input type="hidden" name="post_id" id="post_id" value="<?=$post_id;?>">
 
 					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="update" value="<?=$post[0]["title"];?>">
 					<?php foreach($categories as $single_category){ ?>

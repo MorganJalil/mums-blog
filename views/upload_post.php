@@ -3,15 +3,19 @@ session_start();
 require '../includes/database_connection.php';
 
 if(isset($_POST)){
+
+	//Create slug for post
+	$slug = str_replace(" ", "_", $_POST["title"]);
 	
 	//Add $_POST info to posts DB
 	$statement = $pdo->prepare(
-	"INSERT INTO posts (title, description, created_by, image, published)
-	VALUES (:title, :description, :created_by, :image_id, :published);"
+	"INSERT INTO posts (title, slug, description, created_by, image, published)
+	VALUES (:title, :slug, :description, :created_by, :image_id, :published);"
 	);
 
 	$statement->execute([
 	":title"     => $_POST["title"],
+	":slug"     => $slug,
 	":description"     => $_POST["description"],
 	":created_by"     => $_SESSION["user_id"],
 	":image_id"     => $_POST["image_id"],
