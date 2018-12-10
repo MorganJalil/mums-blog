@@ -1,10 +1,32 @@
 <?php
 session_start();
-//include '../includes/upload.php';
-$_SESSION["user_id"] = 1;
 include '../includes/database_connection.php';
+include 'upload_image.php';
+$_SESSION["user_id"] = 1;
+
 $imageErr = "";
 $image_id = "";
+
+//REMOVE IMAGE FORM DB AND FOLDER
+if(isset($_GET['remove'])){
+	$image_id = $_GET['remove'];
+
+	$statement = $pdo->prepare("SELECT image FROM images WHERE id = :image_id");
+	
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+	$image_location = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	unlink("../".$image_location[0]['image']);
+
+	$statement = $pdo->prepare("DELETE FROM images WHERE id = :image_id");
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+
+	header("Location: ?");	
+}
 
 $statement = $pdo->prepare("SELECT * FROM images");	
 $statement->execute();
@@ -39,68 +61,20 @@ if(isset($_POST['image'])){
 
 	<!-- Include stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
     <title>Write new post</title>
 	<!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
 <div class="container-fluid">
 	<main class="post_wrap">
 		<div class="row justify-content-around">
 			<!-- Modal -->
-			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Choose and image</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-
-							<div class="container-fluid">
-							<!-- CHOOSE IMAGE FORM -->
-							<form action="<?=$_SERVER["PHP_SELF"];?>" method="post" id="choose_image">
-							</form>	
-								<div class="row justify-content-left">		
-									<?php if(count($images) > 0){
-										for($i=0;$i<count($images);$i++){ ?>										
-											<label class="col-md-3 mr-auto">
-												<input type="radio" class="choose_image" name="image" value="<?=$images[$i]["image"]?>" form="choose_image">
-												<div class="image_container">
-													<img src="../<?=$images[$i]["image"]?>">
-												</div>
-											</label>									
-										<?php }
-									}else{ ?>
-										<div class="col-md-3 mr-auto"><p>No images uploaded</p></div>
-									<?php } ?>		
-								</div>	
-							</div>
-
-							<form action="upload_image.php" enctype="multipart/form-data" id="upload_image" method="post">
-								<div class="preview"></div>
-								<label for="image">Select image to upload (max 500kB):</label><br>
-								<input type="file" name="image" id="image" class="form-control" style="width:30%" />
-								<span class="error"><?=$imageErr;?></span><br>
-
-								<button class="btn btn-primary submit-upload-image">Save</button>
-							</form>
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary" form="choose_image">Choose image</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			<?php include '../includes/modal.php'; ?>
 			<div class="col-12">
 				<div class ="blog-image-frame">
 				<?php if(isset($_POST["image"])){?>
@@ -113,17 +87,9 @@ if(isset($_POST['image'])){
 				<!-- Create toolbar container -->
 				<div id="toolbar">
 					<!-- But you can also add your own -->
-					
-					<form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
-						Select image to upload (max 500kB):
-						<input type="file" name="image" id="image"><br>
-						<button type="submit" class="btn btn-primary submit-upload-image" form="upload_image">Upload image</button>	 
-					</form>
-
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageUploadModal">
 					Choose an image
 					</button>
-					<span class="error"><?=$imageErr;?></span><br>   
 				</div>
 				<form action="upload_post.php" method="post" id="post">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
@@ -133,28 +99,22 @@ if(isset($_POST['image'])){
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
 						<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
-						<input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post">	
+						<input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post">
+						
 					<?php } ?>
 
 					<div class="col-12" id="editor" contenteditable="true" name="textBox" aria-label="description">
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
-
 					<button type="submit" id="save" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
-				</form>			
+				</form>
+				
 			</div>
 
 	<!-- Include the Quill library -->
 		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+	<!-- Initialize Quill editor -->
 			<script>
-
-				$(document).ready(function() { 
-				$(".submit-upload-image").click(function(){
-					$("#upload_image").ajaxForm({target: '.preview'}).submit();
-				});
-			}); 
-
-			//Initialize Quill editor 
 			var quill = new Quill('#editor', {
 				modules: {
 					toolbar: [
@@ -166,8 +126,7 @@ if(isset($_POST['image'])){
 				placeholder: 'Write product description...',
 				theme: 'snow'
 			});
-			
-			//Insert Quill content into hidden input
+
 			$(function(){
 				$('#save').click(function () {
 					var mysave = $('.ql-editor').html();
@@ -175,8 +134,13 @@ if(isset($_POST['image'])){
 				});
 			});
 
-		
-
+/*
+			$(document).ready(function() { 
+				if (){
+					$('#imageUploadModal').modal('show');
+				}
+			});
+*/
 			</script>
 		</div>
 	</main>
