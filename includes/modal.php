@@ -28,11 +28,11 @@
                         <?php } ?>		
                     </div>	
                 </div>			
-                <form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
+                <form action="<?=$_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data" id="upload_image">
                     Select image to upload (max 500kB):
                     <input type="file" name="image" id="image">
                     <button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
-                    <span class="error"><?=$imageErr;?></span><br>    
+                    <span class="error"><?=$imageErr;?></span><br>   
                 </form>
             </div>
             <div class="modal-footer">

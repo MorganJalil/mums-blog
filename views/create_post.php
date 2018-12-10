@@ -4,8 +4,13 @@ include '../includes/database_connection.php';
 include 'upload_image.php';
 $_SESSION["user_id"] = 1;
 
-$imageErr = "";
 $image_id = "";
+$openModal = false;
+
+//Open modal on reload
+if(isset($_GET['success']) || isset($_GET['error']) ){
+	$openModal = true;
+}
 
 //REMOVE IMAGE FORM DB AND FOLDER
 if(isset($_GET['remove'])){
@@ -108,6 +113,7 @@ if(isset($_POST['image'])){
 					<input id="hiddeninput" name="description" type="hidden">
 					<button type="submit" id="save" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
 				</form>
+				<?php var_dump($imageErr);?> 
 				
 			</div>
 
@@ -133,14 +139,15 @@ if(isset($_POST['image'])){
 					$('#hiddeninput').val(mysave);			
 				});
 			});
+			
+			var php_var = "<?php echo $openModal; ?>";
 
-/*
 			$(document).ready(function() { 
-				if (){
+				if (php_var){
 					$('#imageUploadModal').modal('show');
 				}
 			});
-*/
+
 			</script>
 		</div>
 	</main>

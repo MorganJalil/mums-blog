@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 #editor{
-	height: 20rem;;
+	height: 20rem;
+	background-color: #ffffff;
 }
 
 .image_container {
@@ -70,7 +71,6 @@ span {
 	background-color: #60495A;
 	border-color: #252525;
 }
-
 
 .btn-primary:hover{
 	background-color: #D7BCC8;

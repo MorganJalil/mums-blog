@@ -1,5 +1,5 @@
 <?php
-include '../includes/database_connection.php';
+$imageErr = "";
 
 if(isset($_FILES["image"])){
     $image = $_FILES["image"];
@@ -17,28 +17,29 @@ if(isset($_FILES["image"])){
             $uploadOk = 1;
         } else {
             $uploadOk = 0;
-            header('Location: create_post.php?error=type');
+            $imageErr = "Image type not valid";
         }
     }
     // Check if file already exists
     if (file_exists($target_file)) {
         $uploadOk = 0;
-        header('Location: create_post.php?error=exist');
+        header('Location: ?error=exist');
     }
     // Check file size
     if ($image["size"] > 500000) {
         $uploadOk = 0;
-        header('Location: create_post.php?error=size');
+        header('Location: ?error=size');
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
         $uploadOk = 0;
-        header('Location: create_post.php?error=format');
+        header('Location: ?error=format');
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo "Sorry, your file was not uploaded.";
+        $imageErr = "Sorry, your file was not uploaded.";
+        //header('Location: ?error');
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($temporary_location, $target_file)) {
@@ -50,7 +51,7 @@ if(isset($_FILES["image"])){
                 ":image" => trim($target_file, "../"),
             ]);
 
-            header('Location: ?');
+            header('Location: ?success');
         } else {
             //echo "Sorry, there was an error uploading your file.";
         }
