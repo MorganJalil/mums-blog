@@ -29,7 +29,7 @@ if(isset($_POST)){
 	":post_id"     => $_POST["post_id"],
 	]);	
 	
-	//header("Location: ../index.php?");		
+	header("Location: main_page.php?");		
 } 
 
 
