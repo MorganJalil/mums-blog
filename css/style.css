@@ -58,7 +58,7 @@ background-color: #f0f0f0;
     background-size:80%;
     position: relative;
     overflow: hidden;
-    
+
 }
 
 .heroLogo {
@@ -117,12 +117,49 @@ background-color: #f0f0f0;
     font-size: 6em;
 }
 
+/* ==========================================================================
+index.php styling Morgan
+========================================================================== */
+
+.hero_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body_index {
+    height: 200%;
+    background-color: #f0f0f0;
+}
+
+.form_index {
+    margin: auto;
+    max-width:50%;
+    margin-top: 5%;
+    text-align: right;
+
+}
+
+footer {
+    margin: auto;
+    margin-top: 10%;
+    width: 100%;
+    text-align:center;
+}
+
 
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 920px ){
     .inner-container{
         margin-top: 100px;
+    }
+    .form_index {
+        margin: auto;
+        max-width:50%;
+        margin-top: 5%;
+        text-align: right;
+
     }
 }
 @media only screen and (max-width: 540px ) {
