@@ -1,4 +1,15 @@
 -- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Nov 26, 2018 at 11:48 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
@@ -91,6 +102,8 @@ CREATE TABLE `product_category` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `username` varchar(500) NOT NULL,
+  `password` varchar(500) NOT NULL
   `admin` tinyint(1) DEFAULT NULL,
   `username` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
@@ -146,6 +159,7 @@ ALTER TABLE `user`
 --
 ALTER TABLE `comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `images`
 --
@@ -161,15 +175,18 @@ ALTER TABLE `posts`
 --
 ALTER TABLE `post_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
