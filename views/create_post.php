@@ -1,8 +1,9 @@
 <?php
 session_start();
-//include '../includes/upload.php';
-$_SESSION["user_id"] = 1;
 include '../includes/database_connection.php';
+include 'upload_image.php';
+$_SESSION["user_id"] = 1;
+
 $imageErr = "";
 $image_id = "";
 
@@ -86,7 +87,7 @@ if(isset($_POST['image'])){
 				<!-- Create toolbar container -->
 				<div id="toolbar">
 					<!-- But you can also add your own -->
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageUploadModal">
 					Choose an image
 					</button>
 				</div>
@@ -132,6 +133,14 @@ if(isset($_POST['image'])){
 					$('#hiddeninput').val(mysave);			
 				});
 			});
+
+/*
+			$(document).ready(function() { 
+				if (){
+					$('#imageUploadModal').modal('show');
+				}
+			});
+*/
 			</script>
 		</div>
 	</main>

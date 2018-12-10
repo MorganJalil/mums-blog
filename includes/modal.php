@@ -1,4 +1,4 @@
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -28,7 +28,6 @@
                         <?php } ?>		
                     </div>	
                 </div>			
-}
                 <form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
                     Select image to upload (max 500kB):
                     <input type="file" name="image" id="image">

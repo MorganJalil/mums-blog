@@ -117,8 +117,9 @@ if(isset($_POST['image'])){
 					<form action="upload_image.php" method="post" enctype="multipart/form-data" id="upload_image">
 						Select image to upload (max 500kB):
 						<input type="file" name="image" id="image"><br>
-						<button type="submit" class="btn btn-primary" form="upload_image">Upload image</button>	 
+						<button type="submit" class="btn btn-primary submit-upload-image" form="upload_image">Upload image</button>	 
 					</form>
+
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
 					Choose an image
 					</button>
@@ -147,6 +148,12 @@ if(isset($_POST['image'])){
 		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 			<script>
 
+				$(document).ready(function() { 
+				$(".submit-upload-image").click(function(){
+					$("#upload_image").ajaxForm({target: '.preview'}).submit();
+				});
+			}); 
+
 			//Initialize Quill editor 
 			var quill = new Quill('#editor', {
 				modules: {
@@ -168,11 +175,7 @@ if(isset($_POST['image'])){
 				});
 			});
 
-			$(document).ready(function() { 
-				$(".submit-upload-image").click(function(){
-					$("#upload_image").ajaxForm({target: '.preview'}).submit();
-				});
-			}); 
+		
 
 			</script>
 		</div>

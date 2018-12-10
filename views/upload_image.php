@@ -50,7 +50,7 @@ if(isset($_FILES["image"])){
                 ":image" => trim($target_file, "../"),
             ]);
 
-            header('Location: create_post.php');
+            header('Location: ?');
         } else {
             //echo "Sorry, there was an error uploading your file.";
         }
