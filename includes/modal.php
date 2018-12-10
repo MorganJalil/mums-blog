@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                 <!-- CHOOSE IMAGE FORM -->
-                    <form action="edit_post.php" method="post" id="choose_image">
+                    <form action="?" method="post" id="choose_image">
                     </form>	
                     <div class="row justify-content-left">		
                         <?php if(count($images) > 0){

@@ -24,7 +24,7 @@ class User {
             $_SESSION['username_fail'] = false;
         }   
         if(strlen($password) < 6 || ctype_space($password)){
-            :header('Location:../views/register_user.php?test=passfailed');
+            header('Location:../views/register_user.php?test=passfailed');
             $_SESSION['pwd_fail'] = 'Password must be atleast 6 characters long.';
             exit();
         } else {

@@ -1,8 +1,9 @@
 <?php
 session_start();
-//include '../includes/upload.php';
-$_SESSION["user_id"] = 1;
 include '../includes/database_connection.php';
+include 'upload_image.php';
+$_SESSION["user_id"] = 1;
+
 $imageErr = "";
 $image_id = "";
 $post_id = 23;
