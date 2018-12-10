@@ -10,6 +10,20 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Nov 26, 2018 at 02:27 PM
+-- Server version: 5.6.34-log
+-- PHP Version: 7.2.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
 --
 -- Database: `millhouse`
 --
