@@ -4,7 +4,7 @@ function getAllComments($pdo) {
     $comments = [];
     $database_comments = $pdo->query('SELECT * FROM comments')->fetchall();
     foreach ($database_comments as $comment) {
-      $spinners[$comment['content']] = $comment;
+      $comments[$comment['content']] = $comment;
     }
 
     return $comments;
