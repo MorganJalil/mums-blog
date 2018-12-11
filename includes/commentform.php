@@ -19,6 +19,6 @@ if(isset($_POST) && !empty($_POST)){
 		":created_by"     => $_POST["created_by"],
         ]);	
         
-        //header('Location: ../views/single_post.php');
+        header('Location: ../views/single_post.php');
 
 }
