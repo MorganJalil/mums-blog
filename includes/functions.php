@@ -1,13 +1,17 @@
 <?php
 
-function getAllComments($pdo) {
-    $comments = [];
-    $database_comments = $pdo->query('SELECT * FROM comments')->fetchall();
-    foreach ($database_comments as $comment) {
-      $comments[$comment['content']] = $comment;
-    }
-
-    return $comments;
+function getComments($pdo, $post_id) {
+    
+    $statement = $pdo->prepare(
+        "SELECT * FROM comments 
+       WHERE post_id = :post_id");
+    
+        $statement->execute([
+            ":post_id"     => $post_id,
+        ]);
+        $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+    
+        return $comments;
 }
 
 function getSinglePost($pdo) {
