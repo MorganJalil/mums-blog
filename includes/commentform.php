@@ -18,7 +18,7 @@ if(isset($_POST) && !empty($_POST)){
 		":post_id"     => $_POST["post_id"],
 		":created_by"     => $_POST["created_by"],
         ]);	
-        
-        header('Location: ../views/single_post.php');
+        //Send user back to correct blogpost
+        header("Location: ../views/single_post.php?" . $_POST['post_id'] . "=" . $_POST['slug']);
 
 }
