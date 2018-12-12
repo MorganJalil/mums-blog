@@ -2,6 +2,8 @@
 session_start();
 require '../includes/database_connection.php';
 
+var_dump($_POST);
+
 if(isset($_POST)){
 
 	//Create slug for post
@@ -35,7 +37,7 @@ if(isset($_POST)){
 	":post_id"     => $post_id[0]["id"],
 	":category_id"     => $_POST["category_id"],
 	]);	
-	header("Location: main_page.php?");		
+	//header("Location: main_page.php");		
 } 
 
 ?>

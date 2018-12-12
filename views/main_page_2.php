@@ -1,15 +1,10 @@
 <?php
-//Start session for comment and admin 
 session_start();
-
-$_SESSION["admin"] = 1;
-
-//get database connection once
-require_once '../includes/database_connection.php';
-require_once '../includes/functions.php';
+include '../includes/database_connection.php';
 include '../includes/db_fetches.php';
-
+include '../includes/functions.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +22,12 @@ include '../includes/db_fetches.php';
 </head>
 <body id="main-page">
 <?php
-include '../includes/bootstrap_js.php';?>
+include '../includes/bootstrap_js.php';
+
+highlight_string("<?php\n\$data =\n" . var_export($all_posts, true) . ";\n?>");
+
+
+?>
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
@@ -57,56 +57,36 @@ include '../includes/bootstrap_js.php';?>
         </form>
     </div>
 </nav>
-<main class="container">
-    <!--Load single post function-->
-    <?php 
-    if(empty(key($_GET)) || empty($_GET[key($_GET)])){  ?>
-    <div class="row no_post">
-        <div class="col-12"> 
-            <p>Oops, something went wrong!</p>  
-        </div>    
-    </div>
-    <?php 
-    } else { 
-    getSinglePost($pdo);
-    $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br />
-    
-    <!--Display post image-->
-    <img src="../<?=$single_post[0]['image'];?>" alt="Cool Post Image">
-    <!--Display post title-->
-    <h1><?=$single_post[0]['title'];?></h1><?php if($_SESSION["admin"] == 1){?><a href="edit_post.php?<?=key($_GET);?>=<?=$_GET[key($_GET)];?>">Edit post</a> <?php } ?>
-    <!--Display post date-->
-    <p><?=$single_post[0]['created_at'];?> |
-    <!--Display post category-->
-    <b>Category:</b> <?=ucfirst($single_post[0]['category_name']);?></p>
-    <!--Display post -->
-    <?=$single_post[0]['description'];?>
-    
 
-    <!--Set post and session for example-->
-    <?php $_SESSION["user_id"] = "2";?>
-    <!--Add comment form-->
-    <div class="panel panel-default">
-        <div class="panel-heading">Submit Your Comments</div>
-        <div class="panel-body">
-            <form method="POST" action="../includes/commentform.php"> 
-            <div class="form-group">
-                <!--insert post and session values to form-->
-                <input type="hidden" name="post_id" id="single_comment" value='<?= "$post_id"?>' />
-                <input type="hidden" name="created_by" id="single_comment" value='<?= $_SESSION["user_id"]?>' />
-                <label for="single_comment">Comment</label>
-                <textarea id="single_comment" name="content" class="form-control" rows="3"></textarea>
+<!--- H E A D E R  CONTENT--->
+<header class="hero_header">
+    <div class="inner-container">
+        <img class="heroLogo" src="../images/logo_whr.svg">
+    </div>
+</header>
+
+
+<main class="container post_section ">
+    <section>
+        <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article ">
+        <?php foreach($all_posts as $key => $single_post){?>
+            <div class="col-6 post_parallax">
+                <a href="single_post.php?<?=$single_post['id'];?>=<?=$single_post['slug'];?>"><img src="../<?=$single_post['image'];?>"></a>
+                <div class="text-block">
+                    <h4><?=$single_post['title'];?></h4>
+                    <p><?=excerpt($single_post['description']);?></p>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <?php } ?>
         </div>
-    </div>
 
-<?php 
-    } //end else
-    include '../includes/bootstrap_js.php';
-?>
+        
+    </section>
+
 </main>
+<script>
+    AOS.init();
+</script>
 
 </body>
 </html>

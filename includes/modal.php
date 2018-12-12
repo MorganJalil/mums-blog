@@ -34,6 +34,7 @@
                     <button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
                     <span class="error"><?=$imageErr;?></span><br>   
                 </form>
+                <?php var_dump($imageErr);?> 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

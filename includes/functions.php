@@ -1,7 +1,7 @@
 <?php
 
 function getSinglePost($pdo) {
-    // Replace 1 with $_GET later
+  /*  // Replace 1 with $_GET later
     $id= 1;
    
     //Prepare the database
@@ -20,7 +20,7 @@ function getSinglePost($pdo) {
    } else {
      header('location: ../index.php?=kebabfail');
    }
-   var_dump($fetched_post["title"]);
+   var_dump($fetched_post["title"]);*/
 }
 
 function test_input($data) // exempel
@@ -32,3 +32,44 @@ function test_input($data) // exempel
     return $data;
 }
 
+//Ulrica function
+
+function singlePost($pdo, $post_id, $slug){
+    $statement = $pdo->prepare(
+    "SELECT posts.id, posts.title, posts.description, posts.created_at, posts.image AS image_id, images.image AS image, post_category.prod_category_id AS category_id, product_category.category AS category_name
+    FROM posts
+    JOIN images
+    ON images.id = posts.image
+    JOIN post_category
+    ON post_category.post_id = posts.id
+    JOIN product_category
+    ON product_category.category_id = post_category.prod_category_id
+    WHERE posts.id = :post_id;
+    AND posts.slug = :slug");
+
+    $statement->execute([
+        ":post_id"     => $post_id,
+        ":slug"     => $slug
+    ]);
+    $single_post = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $single_post;
+}
+
+function excerpt($string){
+    $string = strip_tags($string);
+    if (strlen($string) > 30) {
+
+        // truncate string
+        $stringCut = substr($string, 0, 40);
+        $endPoint = strrpos($stringCut, ' ');
+
+        //if the string doesn't contain any space then it will cut without word basis.
+        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+        $string .= '... <a href="/this/story">Read More</a>';
+    }
+
+    return $string;
+}
+
+//slut ulrica function

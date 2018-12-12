@@ -23,7 +23,7 @@ if(isset($_FILES["image"])){
     // Check if file already exists
     if (file_exists($target_file)) {
         $uploadOk = 0;
-        header('Location: ?error=exist');
+        $imageErr = "File already exists";
     }
     // Check file size
     if ($image["size"] > 500000) {
@@ -34,12 +34,12 @@ if(isset($_FILES["image"])){
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
         $uploadOk = 0;
-        header('Location: ?error=format');
+        $imageErr = "Invalid image format";
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         $imageErr = "Sorry, your file was not uploaded.";
-        //header('Location: ?error');
+        header('Location: ?error');
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($temporary_location, $target_file)) {
