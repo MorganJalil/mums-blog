@@ -31,7 +31,7 @@ include '../includes/bootstrap_js.php';?>
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="main_page_2.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+    <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,11 +85,10 @@ include '../includes/bootstrap_js.php';?>
     <!--Set post and session for example-->
     <?php $_SESSION["user_id"] = "2";?>
     <!--Add comment form-->
-    <div class="card col-5">
-        <div class="card-title">Submit Your Comments</div>
-        <div class="card-subtitle">
-            <form method="POST" action="../includes/commentform.php">
-        </div>    
+    <div class="panel panel-default">
+        <div class="panel-heading">Submit Your Comments</div>
+        <div class="panel-body">
+            <form method="POST" action="../includes/commentform.php"> 
             <div class="form-group">
                 <!--insert post and session values to form-->
                 <input type="hidden" name="post_id" id="single_comment" value='<?= "$post_id"?>' />
@@ -99,20 +98,9 @@ include '../includes/bootstrap_js.php';?>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+        </div>
     </div>
 
-    <?php
-    $all_comments = getAllComments($pdo);
-
-
-    foreach($all_comments as $allComment => $comment): ?>
-        <div class="card col-5" >
-            <p><?= $comment['created_by']; ?></p>
-            <p><?= $comment['post_id']; ?></p>
-            <p><?= $comment['content']; ?></p>
-        </div>
-    <?php endforeach; ?>
-    
 <?php 
     } //end else
     include '../includes/bootstrap_js.php';

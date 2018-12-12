@@ -2,11 +2,15 @@
 session_start();
 include '../includes/database_connection.php';
 include 'upload_image.php';
+require_once '../includes/functions.php';
+
+$single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);
+
 $_SESSION["user_id"] = 1;
 
 $imageErr = "";
 $image_id = "";
-$post_id = 23;
+//$post_id = 23;
 
 //REMOVE IMAGE FORM DB AND FOLDER
 if(isset($_GET['remove'])){
@@ -37,6 +41,8 @@ $statement = $pdo->prepare("SELECT * FROM product_category");
 $statement->execute();
 $categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+/*
 $statement = $pdo->prepare(
 "SELECT posts.id, posts.title, posts.description, posts.image AS image_id, images.image AS image, post_category.prod_category_id AS category_id
 FROM posts
@@ -49,7 +55,7 @@ WHERE posts.id = :post_id;");
 $statement->execute([
     ":post_id"     => $post_id
 ]);
-$post = $statement->fetchAll(PDO::FETCH_ASSOC);
+$post = $statement->fetchAll(PDO::FETCH_ASSOC);*/
 
 if(isset($_POST['image'])){
 	$statement = $pdo->prepare("SELECT id FROM images WHERE image = :image");	
@@ -60,7 +66,7 @@ if(isset($_POST['image'])){
 
 	$image_id = $image_id[0]['id'];
 } else {
-	$image_id = $post[0]['image_id'];
+	$image_id = $single_post[0]['image_id'];
 }
 ?>
 
@@ -95,7 +101,7 @@ if(isset($_POST['image'])){
 				<?php if(isset($_POST["image"])){?>
 					<img src="../<?=$_POST["image"];?>">
 				<?php } else {?>
-                    <img src="../<?=$post[0]["image"];?>">
+                    <img src="../<?=$single_post[0]["image"];?>">
                 <?php } ?>
 				</div>
 			</div>
@@ -111,18 +117,18 @@ if(isset($_POST['image'])){
 				<form action="update_post.php" method="post" id="update">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION["user_id"];?>">
-					<input type="hidden" name="post_id" id="post_id" value="<?=$post_id;?>">
+					<input type="hidden" name="post_id" id="post_id" value="<?=$single_post[0]['id'];?>">
 
-					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="update" value="<?=$post[0]["title"];?>">
+					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="update" value="<?=$single_post[0]["title"];?>">
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
 					<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
-                    <input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="update"<?php if($single_category['category_id'] == $post[0]["category_id"]){ ?> checked <?php } ?>>
+                    <input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="update"<?php if($single_category['category_id'] == $single_post[0]["category_id"]){ ?> checked <?php } ?>>
 						
 					<?php } ?>
 
 					<div class="col-12" id="editor" contenteditable="true" name="textBox" aria-label="description">
-                        <?=$post[0]["description"];?>
+                        <?=$single_post[0]["description"];?>
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
 

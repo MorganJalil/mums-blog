@@ -2,10 +2,16 @@
 session_start();
 include '../includes/database_connection.php';
 include 'upload_image.php';
+include '../includes/post_validation.php';
 $_SESSION["user_id"] = 1;
 
-$imageErr = "";
 $image_id = "";
+$openModal = false;
+
+//Open modal on reload
+if(isset($_GET['success']) || isset($_GET['error']) ){
+	$openModal = true;
+}
 
 //REMOVE IMAGE FORM DB AND FOLDER
 if(isset($_GET['remove'])){
@@ -91,24 +97,27 @@ if(isset($_POST['image'])){
 					Choose an image
 					</button>
 				</div>
-				<form action="upload_post.php" method="post" id="post">
+				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="post">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION["user_id"];?>">
 
 					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="post">
+					<span class="error"><?=$titleErr;?></span>
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
 						<label for="<?=$single_category['category']?>"><?=ucfirst($single_category['category'])?></label>
 						<input type="radio" id="<?=$single_category['category']?>" name="category_id" value="<?=$single_category['category_id']?>" form="post">
 						
 					<?php } ?>
+					<span class="error"><?=$categoryErr;?></span>
 
 					<div class="col-12" id="editor" contenteditable="true" name="textBox" aria-label="description">
+
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
-					<button type="submit" id="save" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
+					<button type="submit" id="save" value="0" name="published" class="btn btn-secondary post" form="post">Save</button>
+					<button type="submit" id="publish" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
 				</form>
-				
 			</div>
 
 	<!-- Include the Quill library -->
@@ -134,13 +143,21 @@ if(isset($_POST['image'])){
 				});
 			});
 
-/*
+			$(function(){
+				$('#publish').click(function () {
+					var mysave = $('.ql-editor').html();
+					$('#hiddeninput').val(mysave);			
+				});
+			});
+			
+			var php_var = "<?php echo $openModal; ?>";
+
 			$(document).ready(function() { 
-				if (){
+				if (php_var){
 					$('#imageUploadModal').modal('show');
 				}
 			});
-*/
+
 			</script>
 		</div>
 	</main>

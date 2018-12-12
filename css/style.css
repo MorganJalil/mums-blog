@@ -2,8 +2,14 @@
    POST ULRICA
 \*------------------------------------*/
 
+.error {
+	color: #e60000;
+    font-size: 0.8rem;
+}
+
 #editor{
-	height: 20rem;;
+	height: 20rem;
+	background-color: #ffffff;
 }
 
 .image_container {
@@ -52,10 +58,15 @@
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+/*
 span {
     display: none;
 }
-  
+  */
+
+.no_post{
+    height: 100vh;
+}
 .post_wrap {
 	margin: 0 auto;
 	max-width: 60rem;
@@ -70,7 +81,6 @@ span {
 	background-color: #60495A;
 	border-color: #252525;
 }
-
 
 .btn-primary:hover{
 	background-color: #D7BCC8;
