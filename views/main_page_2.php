@@ -24,9 +24,6 @@ include '../includes/functions.php';
 <?php
 include '../includes/bootstrap_js.php';
 
-highlight_string("<?php\n\$data =\n" . var_export($all_posts, true) . ";\n?>");
-
-
 ?>
 
 <!-- N A V . B A R -->
@@ -70,17 +67,16 @@ highlight_string("<?php\n\$data =\n" . var_export($all_posts, true) . ";\n?>");
     <section>
         <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article ">
         <?php foreach($all_posts as $key => $single_post){?>
-            <div class="col-6 post_parallax">
+            <div class="col- 12 col-md-6 post_parallax">
                 <a href="single_post.php?<?=$single_post['id'];?>=<?=$single_post['slug'];?>"><img src="../<?=$single_post['image'];?>"></a>
                 <div class="text-block">
                     <h4><?=$single_post['title'];?></h4>
-                    <p><?=excerpt($single_post['description']);?></p>
+                    <p><?=excerpt($single_post['description'], $single_post['id'], $single_post['slug']);?></p>
                 </div>
             </div>
             <?php } ?>
         </div>
-
-        
+    
     </section>
 
 </main>

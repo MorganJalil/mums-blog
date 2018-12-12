@@ -31,7 +31,7 @@ include '../includes/bootstrap_js.php';?>
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+    <a class="navbar-brand" href="main_page_2.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,6 @@ include '../includes/bootstrap_js.php';?>
     </div>
     <?php 
     } else { 
-    getSinglePost($pdo);
     $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br />
     
     <!--Display post image-->

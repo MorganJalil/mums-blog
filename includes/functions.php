@@ -56,7 +56,7 @@ function singlePost($pdo, $post_id, $slug){
     return $single_post;
 }
 
-function excerpt($string){
+function excerpt($string, $post_id, $post_slug){
     $string = strip_tags($string);
     if (strlen($string) > 30) {
 
@@ -66,7 +66,7 @@ function excerpt($string){
 
         //if the string doesn't contain any space then it will cut without word basis.
         $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-        $string .= '... <a href="/this/story">Read More</a>';
+        $string .= "... <a href='single_post.php?$post_id=$post_slug'>Read More</a>";
     }
 
     return $string;

@@ -36,7 +36,7 @@ if(isset($_SERVER)){
 			$descriptionErr = 1;
 		} else {
             //$description = test_input($_POST["description"]);
-            $_SESSION['description'] = test_input($_POST["description"]);
+                  $description = test_input($_POST["description"]);
 		}
 		
 
@@ -75,8 +75,8 @@ if(isset($_SERVER)){
             ]);	
             header("Location: main_page_2.php");		
         } 
-		}		
-	}
+	}		
+}
 
 
 ?>

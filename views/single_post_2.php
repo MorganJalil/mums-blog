@@ -68,7 +68,6 @@ include '../includes/bootstrap_js.php';?>
     </div>
     <?php 
     } else { 
-    getSinglePost($pdo);
     $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br />
     
     <!--Display post image-->

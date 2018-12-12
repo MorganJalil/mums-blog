@@ -101,7 +101,7 @@ if(isset($_POST['image'])){
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
 					<input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION["user_id"];?>">
 
-					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" <?php if(isset($_SESSION['title'])){?>value="<?=$_SESSION['title']?>" <?php } ?>form="post">
+					<input class="post_title" aria-label="Title" id="tile" name="title" type="text" placeholder="Title" form="post">
 					<span class="error"><?=$titleErr;?></span>
 					<?php foreach($categories as $single_category){ ?>
 						&ensp;
