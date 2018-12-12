@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+
+  margin-left: 16%;
+  position: relative;
+  overflow: hidden;
+  width: 83%;
+  height: auto;
+}
+
+.resp-iframe {
+    position: relative;
+    overflow: hidden;
+    width:100%; 
+    height:550px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  div.content {
+    width: 100%;
+  }
+
+  .resp-iframe {
+    position: relative;
+    overflow: hidden;
+    width:100%; 
+    height:500px;
+}
+
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+    
