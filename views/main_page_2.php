@@ -47,6 +47,7 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
+        <a href="create_post.php">Create Post</a>
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
