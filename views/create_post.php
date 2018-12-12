@@ -1,9 +1,16 @@
 <?php
 session_start();
+
+if(empty($_SESSION['user_id'])){
+    header("Location: ../index.php?error=please_login");
+}
+$_SESSION["user_id"] = 1;
+
 include '../includes/database_connection.php';
+include '../includes/db_fetches.php';
 include 'upload_image.php';
 include '../includes/post_validation.php';
-$_SESSION["user_id"] = 1;
+
 
 $image_id = "";
 $openModal = false;
@@ -12,35 +19,6 @@ $openModal = false;
 if(isset($_GET['success']) || isset($_GET['error']) ){
 	$openModal = true;
 }
-
-//REMOVE IMAGE FORM DB AND FOLDER
-if(isset($_GET['remove'])){
-	$image_id = $_GET['remove'];
-
-	$statement = $pdo->prepare("SELECT image FROM images WHERE id = :image_id");
-	
-	$statement->execute([
-		":image_id"     => $image_id,
-	]);
-	$image_location = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-	unlink("../".$image_location[0]['image']);
-
-	$statement = $pdo->prepare("DELETE FROM images WHERE id = :image_id");
-	$statement->execute([
-		":image_id"     => $image_id,
-	]);
-
-	header("Location: ?");	
-}
-
-$statement = $pdo->prepare("SELECT * FROM images");	
-$statement->execute();
-$images = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-$statement = $pdo->prepare("SELECT * FROM product_category");	
-$statement->execute();
-$categories = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if(isset($_POST['image'])){
 	$statement = $pdo->prepare("SELECT id FROM images WHERE image = :image");	
@@ -65,17 +43,50 @@ if(isset($_POST['image'])){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-	<!-- Include stylesheet -->
+	<!-- Include quill stylesheet -->
 	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <title>Write new post</title>
-	<!--<script src="https://code.jquery.com/jquery-1.10.2.js"></script>-->
+    <title>Millhouse | Write new post</title>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+<!-- N A V . B A R -->
+<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="main_page_2.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+                                          alt="Millhouse logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar_options" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto ">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link disabled" href="#">Contact</a>
+            </li>
+        </ul>
+        <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
+        <form class="form-inline my-2 my-lg-0 loginButton">
+            <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
+                   aria-label="Login button">
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Login</button>
+        </form>
+    </div>
+</nav>
 <div class="container-fluid">
 	<main class="post_wrap">
 		<div class="row justify-content-around">
@@ -96,6 +107,7 @@ if(isset($_POST['image'])){
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#imageUploadModal">
 					Choose an image
 					</button>
+					<span class="error"><?=$imageErr;?></span>
 				</div>
 				<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="post">
 					<input type="hidden" name="image_id" id="image_id" value="<?=$image_id; ?>">
@@ -115,7 +127,7 @@ if(isset($_POST['image'])){
 
 					</div>
 					<input id="hiddeninput" name="description" type="hidden">
-					<button type="submit" id="save" value="0" name="published" class="btn btn-secondary post" form="post">Save</button>
+					<!-- <button type="submit" id="save" value="0" name="published" class="btn btn-secondary post" form="post">Save</button> -->
 					<button type="submit" id="publish" value="1" name="published" class="btn btn-primary post" form="post">Post</button>
 				</form>
 			</div>

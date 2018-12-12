@@ -1,6 +1,9 @@
 <?php
 //Start session for comment and admin 
 session_start();
+if(empty($_SESSION['user_id'])){
+    header("Location: ../index.php?error=please_login");
+}
 
 $_SESSION["admin"] = 1;
 
@@ -50,6 +53,7 @@ include '../includes/bootstrap_js.php';?>
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
+        <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
@@ -73,7 +77,7 @@ include '../includes/bootstrap_js.php';?>
     <!--Display post image-->
     <img src="../<?=$single_post[0]['image'];?>" alt="Cool Post Image">
     <!--Display post title-->
-    <h1><?=$single_post[0]['title'];?></h1><?php if($_SESSION["admin"] == 1){?><a href="edit_post.php?<?=key($_GET);?>=<?=$_GET[key($_GET)];?>">Edit post</a> <?php } ?>
+    <h1><?=$single_post[0]['title'];?></h1><?php if($_SESSION["admin"] == 1){?><a href="edit_post.php?remove_post=<?=key($_GET);?>">Remove post</a> | <a href="edit_post.php?<?=key($_GET);?>=<?=$_GET[key($_GET)];?>">Edit post</a> <?php } ?>
     <!--Display post date-->
     <p><?=$single_post[0]['created_at'];?> |
     <!--Display post category-->
@@ -81,9 +85,6 @@ include '../includes/bootstrap_js.php';?>
     <!--Display post -->
     <?=$single_post[0]['description'];?>
     
-
-    <!--Set post and session for example-->
-    <?php $_SESSION["user_id"] = "2";?>
     <!--Add comment form-->
     <div class="card col-5">
         <div class="card-title">Submit Your Comments</div>
@@ -108,9 +109,12 @@ include '../includes/bootstrap_js.php';?>
 
     foreach($all_comments as $allComment => $comment): ?>
         <div class="card col-5" >
-            <p><?= $comment['created_by']; ?></p>
-            <p><?= $comment['post_id']; ?></p>
-            <p><?= $comment['content']; ?></p>
+            <p>created by:<?= $comment['created_by']; ?></p>
+            <p>post id:<?= $comment['post_id']; ?></p>
+            <p>content:<?= $comment['content']; ?></p>
+            <p>comment id:<?= $comment['id']; ?></p>
+            <!--IF ADMIN SÅ VISAS DENNA -->
+            <a href="?remove_comment=<?=$comment['id'];?>&post_id=<?=key($_GET)?>&slug=<?=$_GET[key($_GET)]?>">Remove comment</a>
         </div>
     <?php endforeach; ?>
     

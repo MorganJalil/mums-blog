@@ -15,15 +15,13 @@ if(isset($_SERVER)){
 	$titleErr = $categoryErr = $descriptionErr = "";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        var_dump($_POST);
 	
 		// If the post variable is empty, set a value to the error variable which prints out on the page
 		if (empty($_POST["title"])) {
             $titleErr = "*";
             echo $titleErr;
 		} else {
-            //$title = test_input($_POST["title"]);
-            $_SESSION['title'] = test_input($_POST["title"]);
+            $title = test_input($_POST["title"]);
 		}
 		
 		if (empty($_POST["category_id"])) {
@@ -35,15 +33,14 @@ if(isset($_SERVER)){
 		if (empty($_POST["description"])) {
 			$descriptionErr = 1;
 		} else {
-            //$description = test_input($_POST["description"]);
-                  $description = test_input($_POST["description"]);
+            $description = test_input($_POST["description"]);
 		}
 		
 
 		//Makes sure all error variables are empty before proceeding
 		if (empty($titleErr) && empty($categoryErr) && empty($descriptionErr)){
 
-            $slug = str_replace(" ", "_", $_POST["title"]);
+            $slug = str_replace(" ", "_", strtolower($_POST["title"]));
 	
             //Add $_POST info to posts DB
             $statement = $pdo->prepare(
