@@ -38,10 +38,11 @@ require_once '../includes/functions.php';
     <?php $post_id ="1";?>
     <?php $_SESSION["user_id"] = "2";?>
     <!--Add comment form-->
-    <div class="panel panel-default">
-        <div class="panel-heading">Submit Your Comments</div>
-        <div class="panel-body">
-            <form method="POST" action="../includes/commentform.php"> 
+    <div class="card col-5">
+        <div class="card-title">Submit Your Comments</div>
+        <div class="card-subtitle">
+            <form method="POST" action="../includes/commentform.php">
+        </div>    
             <div class="form-group">
                 <!--insert post and session values to form-->
                 <input type="hidden" name="post_id" id="single_comment" value='<?= "$post_id"?>' />
@@ -51,9 +52,20 @@ require_once '../includes/functions.php';
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-        </div>
     </div>
 
+    <?php
+    $all_comments = getAllComments($pdo);
+
+
+    foreach($all_comments as $allComment => $comment): ?>
+        <div class="card col-5" >
+            <p><?= $comment['created_by']; ?></p>
+            <p><?= $comment['post_id']; ?></p>
+            <p><?= $comment['content']; ?></p>
+        </div>
+    <?php endforeach; ?>
+    
 <?php 
     include '../includes/bootstrap_js.php';
 ?>
