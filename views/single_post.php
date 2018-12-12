@@ -92,7 +92,8 @@ include '../includes/bootstrap_js.php';?>
         </div>    
             <div class="form-group">
                 <!--insert post and session values to form-->
-                <input type="hidden" name="post_id" id="single_comment" value='<?= "$post_id"?>' />
+                <input type="hidden" name="post_id" id="single_comment" value='<?= key($_GET)?>' />
+                <input type="hidden" name="slug" id="single_comment" value='<?= $_GET[key($_GET)]?>' />
                 <input type="hidden" name="created_by" id="single_comment" value='<?= $_SESSION["user_id"]?>' />
                 <label for="single_comment">Comment</label>
                 <textarea id="single_comment" name="content" class="form-control" rows="3"></textarea>
@@ -102,7 +103,7 @@ include '../includes/bootstrap_js.php';?>
     </div>
 
     <?php
-    $all_comments = getAllComments($pdo);
+    $all_comments = getComments($pdo, key($_GET));
 
 
     foreach($all_comments as $allComment => $comment): ?>
