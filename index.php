@@ -26,8 +26,8 @@ include 'includes/header.php';
                         <input type="password" class="form-control border-1" name="password" Placeholder="Password">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-dark" name="login"> Log in</button><br/>
-                <p>Not a member? <a href="views/register_user.php">Register</a></p>
+                <button type="submit" class="btn btn-outline-secondary" name="login"> Log in</button><br/>  
+                <div class="alert alert-info" id="member_register" role="alert">Not a member? <a href="views/register_user.php">Register</a></div>
             </form>
         </main>
     

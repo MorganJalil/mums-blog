@@ -249,6 +249,13 @@ footer {
     text-align:center;
 }
 
+#member_register {
+    
+        border: 2px solid red;
+        border-radius: 5px;
+      
+}
+
 
 /* MEDIA QUERIES */
 

@@ -29,10 +29,22 @@ html {
 }
 
 footer {
-
-    margin: auto;
+    margin-top: 5%;
     width: 100%;
     text-align:center;
+}
+
+#member_register {
+    color: black;
+    padding:5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    width:190px;
+    margin-left: auto; 
+    margin-right: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;  
+  
 }
 
 

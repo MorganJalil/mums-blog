@@ -71,8 +71,8 @@ session_start();
                     }
                     ?>
                     <br/>
-                    <button type="submit" value="submit" class="btn btn-outline-dark" name="login">back</button>
-                    <button type="submit" value="submit" class="btn btn-outline-dark" name="login">Register</button>
+                    <a href="../index.php"  class="btn btn-outline-info" role="button">Back</a>
+                    <button type="submit" value="submit" class="btn btn-outline-secondary" name="login">Register</button>
                     </div><br/>
                 </div>
             
