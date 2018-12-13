@@ -250,7 +250,7 @@ index.php styling Morgan
 
 .body_index {
     height: 200%;
-    background-color: #f0f0f0;
+    background-image: linear-gradient(white, whitesmoke, lightgrey);
 }
 
 .form_index {
