@@ -126,7 +126,6 @@ button.save {
 
 body {
     width: 100%;
-    height: 100%;
     background-image: linear-gradient(white, whitesmoke, lightgrey);
 }
 
@@ -243,35 +242,9 @@ background-color: #f0f0f0;
 index.php styling Morgan
 ========================================================================== */
 
-html {
-    height: 100%;
-}
-.hero_image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.body_index {
-    width: 100%;
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: lightgrey;
-}
-
-.form_index {
-    margin: auto;
-    max-width:50%;
-    margin-top: 5%;
-    text-align: right;
-
-}
-
 footer {
-
     margin: auto;
+    margin-top: 10%;
     width: 100%;
     text-align:center;
 }
@@ -282,13 +255,6 @@ footer {
 @media only screen and (max-width: 920px ){
     .inner-container{
         margin-top: 100px;
-    }
-    .form_index {
-        margin: auto;
-        max-width:50%;
-        margin-top: 5%;
-        text-align: right;
-
     }
 }
 @media only screen and (max-width: 540px ) {

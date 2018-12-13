@@ -10,7 +10,7 @@ session_start();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/index_register.css">
 
     <title>Millhouse</title>
 </head>
@@ -35,7 +35,7 @@ session_start();
                 <div class="form-row">
                     <div class="form-group col-md-6 ">
                         <label class="sr-only" for="reg_user">Username</label>
-                        <input type="text" class="form-control border-0" name="username" Placeholder="Username"
+                        <input type="text" class="form-control border-1" name="username" Placeholder="Username"
                         id="reg_user" required>
                     <?php
                         if(isset($_SESSION['username_fail'])){
@@ -47,7 +47,7 @@ session_start();
 
                     <div class="form-group col-md-6">
                         <label class="sr-only" for="reg_password">Password</label>
-                        <input type="password" class="form-control border-0" name="password" Placeholder="Password"
+                        <input type="password" class="form-control border-1" name="password" Placeholder="Password"
                         id="reg_password" required>
                     <?php
                         if(isset($_SESSION['pwd_fail'])){
@@ -61,10 +61,9 @@ session_start();
                 
                     <div class="form-group col-md-12">
                         <label class="sr-only" for="reg_email">email</label> 
-                        <input type="email" class="form-control border-0" name="email" placeholder="email" 
+                        <input type="email" class="form-control border-1" name="email" placeholder="email" 
                         id="reg_email" required>
                         <input type="hidden" name="email_id" id="email_id">
-                    
                     <?php
                         if(isset($_SESSION['email_fail'])){
                         $email_fail = $_SESSION['email_fail'];

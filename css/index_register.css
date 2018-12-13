@@ -1,0 +1,55 @@
+/* ==========================================================================
+index.php styling Morgan
+========================================================================== */
+
+html {
+    height: 100%;
+    background-image: repeating-radial-gradient(white, whitesmoke, lightgrey);  
+}
+.hero_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body_index {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: repeating-radial-gradient(white, whitesmoke, lightgrey);
+}
+
+.form_index {
+    margin: auto;
+    max-width:50%;
+    margin-top: 5%;
+    text-align: right;
+
+}
+
+footer {
+
+    margin: auto;
+    width: 100%;
+    text-align:center;
+}
+
+
+/* ==========================================================================
+Media queries
+========================================================================== */
+
+@media only screen and (max-width: 920px ){
+
+    .form_index {
+        margin: auto;
+        max-width:50%;
+        margin-top: 5%;
+        text-align: right;
+
+    }
+}
+@media only screen and (max-width: 540px ) {
+
+}
