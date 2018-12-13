@@ -126,6 +126,7 @@ button.save {
 
 body {
     width: 100%;
+    height: 100%;
     background-image: linear-gradient(white, whitesmoke, lightgrey);
 }
 
@@ -242,6 +243,9 @@ background-color: #f0f0f0;
 index.php styling Morgan
 ========================================================================== */
 
+html {
+    height: 100%;
+}
 .hero_image {
     display: block;
     margin-left: auto;
@@ -249,8 +253,12 @@ index.php styling Morgan
 }
 
 .body_index {
-    height: 200%;
-    background-image: linear-gradient(white, whitesmoke, lightgrey);
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: lightgrey;
 }
 
 .form_index {
@@ -262,8 +270,8 @@ index.php styling Morgan
 }
 
 footer {
+
     margin: auto;
-    margin-top: 10%;
     width: 100%;
     text-align:center;
 }

@@ -63,7 +63,7 @@ session_start();
                         <label class="sr-only" for="reg_email">email</label> 
                         <input type="email" class="form-control border-0" name="email" placeholder="email" 
                         id="reg_email" required>
-                        <input type="hidden" name="id" id="reg_email">
+                        <input type="hidden" name="email_id" id="email_id">
                     
                     <?php
                         if(isset($_SESSION['email_fail'])){
