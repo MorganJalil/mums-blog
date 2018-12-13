@@ -7,7 +7,7 @@ var_dump($_POST);
 if(isset($_POST)){
 	
 	//Create slug for post
-	$slug = str_replace(" ", "_", $_POST["title"]);
+	$slug = str_replace(" ", "_", strtolower($_POST["title"]));
 	
 	//Add $_POST info to posts DB
 	$statement = $pdo->prepare(
@@ -31,7 +31,5 @@ if(isset($_POST)){
 	
 	header("Location: main_page_2.php");		
 } 
-
-
 
 ?>

@@ -1,5 +1,11 @@
 <?php
 session_start();
+$_SESSION['user_id'] = 1;
+$_SESSION['admin'] = 1;
+if(empty($_SESSION['user_id'])){
+    header("Location: ../index.php?error=please_login");
+}
+
 include '../includes/database_connection.php';
 include '../includes/db_fetches.php';
 include '../includes/functions.php';
@@ -23,7 +29,6 @@ include '../includes/functions.php';
 <body id="main-page">
 <?php
 include '../includes/bootstrap_js.php';
-
 ?>
 
 <!-- N A V . B A R -->
@@ -47,7 +52,7 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
-        <a href="create_post.php">Create Post</a>
+        <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">

@@ -86,4 +86,54 @@ function excerpt($string, $post_id, $post_slug){
     return $string;
 }
 
+//Remove image from database and folder
+if(isset($_GET['remove_image'])){
+	$image_id = $_GET['remove_image'];
+
+	$statement = $pdo->prepare("SELECT image FROM images WHERE id = :image_id");
+	
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+	$image_location = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+	unlink("../".$image_location[0]['image']);
+
+	$statement = $pdo->prepare("DELETE FROM images WHERE id = :image_id");
+	$statement->execute([
+		":image_id"     => $image_id,
+	]);
+
+	header("Location: ?");	
+}
+
+//Remove specific post from database
+if(isset($_GET['remove_post'])){
+	$post_id = $_GET['remove_post'];
+
+	$statement = $pdo->prepare(
+        "DELETE FROM posts WHERE id = :post_id;
+        
+        DELETE FROM post_category WHERE post_id = :post_id;
+
+        DELETE FROM comments WHERE post_id = :post_id;");
+	$statement->execute([
+		":post_id"     => $post_id,
+	]);
+
+	header("Location: main_page_2.php");	
+}
+
+//Remove specific comment from database
+if(isset($_GET['remove_comment'])){
+	$comment_id = $_GET['remove_comment'];
+
+	$statement = $pdo->prepare("DELETE FROM comments WHERE id = :comment_id");
+	$statement->execute([
+		":comment_id"     => $comment_id,
+	]);
+
+	header("Location: ?" . $_GET['post_id'] . "=" . $_GET['slug']);	
+}
+
 //slut ulrica function

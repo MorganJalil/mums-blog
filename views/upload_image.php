@@ -28,18 +28,18 @@ if(isset($_FILES["image"])){
     // Check file size
     if ($image["size"] > 500000) {
         $uploadOk = 0;
-        header('Location: ?error=size');
+        $imageErr = "Your file was not uploaded, max 500kB";
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
         $uploadOk = 0;
-        $imageErr = "Invalid image format";
+        $imageErr = "Invalid image format, only jpeg, png and gif allowed";
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        $imageErr = "Sorry, your file was not uploaded.";
-        header('Location: ?error');
+        //$imageErr = "Sorry, your file was not uploaded.";
+       
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($temporary_location, $target_file)) {
@@ -53,7 +53,7 @@ if(isset($_FILES["image"])){
 
             header('Location: ?success');
         } else {
-            //echo "Sorry, there was an error uploading your file.";
+            $imageErr = "Sorry, there was an error uploading your file.";
         }
     }
 }

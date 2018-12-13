@@ -18,7 +18,7 @@
                                 <label class="col-md-3 mr-auto">
                                     <input type="radio" class="choose_image" name="image" value="<?=$images[$i]["image"]?>" form="choose_image">
                                     <div class="image_container">
-                                        <a class="close" href="?remove=<?=$images[$i]['id'];?>"><i class="far fa-times-circle"></i></a>
+                                        <a class="close" href="?remove_image=<?=$images[$i]['id'];?>"><i class="far fa-times-circle"></i></a>
                                         <img src="../<?=$images[$i]["image"]?>">
                                     </div>
                                 </label>									
@@ -32,9 +32,8 @@
                     Select image to upload (max 500kB):
                     <input type="file" name="image" id="image">
                     <button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
-                    <span class="error"><?=$imageErr;?></span><br>   
-                </form>
-                <?php var_dump($imageErr);?> 
+                    <br>   
+                </form> 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
