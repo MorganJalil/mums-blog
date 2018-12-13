@@ -33,7 +33,7 @@ session_start();
             <form action="../includes/register.php" class="form_index" method="POST">
 
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6 ">
                         <label class="sr-only" for="reg_user">Username</label>
                         <input type="text" class="form-control border-0" name="username" Placeholder="Username"
                         id="reg_user" required>
@@ -56,14 +56,14 @@ session_start();
                         }
                     ?>
                     </div><br/>
-                </div>
+                
 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                
+                    <div class="form-group col-md-12">
                         <label class="sr-only" for="reg_email">email</label> 
                         <input type="email" class="form-control border-0" name="email" placeholder="email" 
                         id="reg_email" required>
-                        <input type="hidden" name="id" id="reg_email">
+                        <input type="hidden" name="email_id" id="email_id">
                     
                     <?php
                         if(isset($_SESSION['email_fail'])){
@@ -71,8 +71,10 @@ session_start();
                         echo "<span>$email_fail</span>";
                     }
                     ?>
+                    <br/>
+                    <button type="submit" value="submit" class="btn btn-outline-dark" name="login">back</button>
+                    <button type="submit" value="submit" class="btn btn-outline-dark" name="login">Register</button>
                     </div><br/>
-                    <button type="submit" value="submit" class="btn btn-success" name="login"> Register</button>
                 </div>
             
         <?php
@@ -86,5 +88,12 @@ session_start();
             }
         ?>
         </form>
+
+        <footer role="contentinfo">
+        <address>
+          <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        </address>
+        <small>Copyright &copy; <time>2018</time></small>
+    </footer>
     </body>
 </html>
