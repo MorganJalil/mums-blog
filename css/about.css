@@ -1,0 +1,39 @@
+/* ==========================================================================
+about.php styling Micke
+========================================================================== */
+
+.navbarLogo {
+    height: 3rem;
+    width: 4rem;
+    padding: 1vh;
+}
+
+.navbar-default .navbar_options .nav-item {
+    font-size: 1.1em;
+    margin-right: 110px;
+    margin-left: 30px;
+    font-family: 'Merriweather', serif;
+    color: #60495A;
+}
+
+.navbar-default .loginButton {
+   margin-right: 15px;
+    background-color: seashell;
+
+}
+
+.navbar-default .btn-default {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px ;
+    background-color:#f0f0f0 ;
+}
+
+
+
+footer {
+    margin-top: 5%;
+    width: 100%;
+    text-align:center;
+}
