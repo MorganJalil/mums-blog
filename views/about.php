@@ -63,6 +63,8 @@ include '../includes/bootstrap_js.php';
 
 
 <main class="container">
+
+<img class="aboutImage" src="../images/people-coffee-tea-meeting.jpg">
     <section>
         <div data-aos="fade-up" data-aos-duration="2000" class="row">
         
