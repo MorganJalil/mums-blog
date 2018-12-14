@@ -19,15 +19,15 @@ include 'includes/header.php';
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label class="sr-only" for="username">Username</label>
-                        <input type="text" class="form-control border-0" name="username" Placeholder="Username">
+                        <input type="text" class="form-control border-1" name="username" Placeholder="Username">
                     </div>
                     <div class="form-group col-md-6">
                     <label class="sr-only" for="password">Password</label>
-                        <input type="password" class="form-control border-0" name="password" Placeholder="Password">
+                        <input type="password" class="form-control border-1" name="password" Placeholder="Password">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-outline-dark" name="login"> Log in</button><br/>
-                <p>Not a member? <a href="views/register_user.php">Register</a></p>
+                <button type="submit" class="btn btn-outline-secondary" name="login"> Log in</button><br/>  
+                <div class="alert alert-info" id="member_register" role="alert">Not a member? <a href="views/register_user.php">Register</a></div>
             </form>
         </main>
     
