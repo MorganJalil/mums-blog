@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(empty($_SESSION['username'])){
+if (empty($_SESSION['username'])) {
     header("Location: ../index.php?error=please_login");
 }
 
@@ -13,7 +13,7 @@ include '../includes/functions.php';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -50,7 +50,7 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
-        <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
+        <?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
@@ -69,21 +69,52 @@ include '../includes/bootstrap_js.php';
 
 <main class="container post_section ">
     <section>
-        <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article ">
-            <?php foreach($all_posts as $key => $single_post){?>
-                <div class="col- 12 col-md-6 post_parallax">
-                    <a href="single_post.php?<?=$single_post['id'];?>=<?=$single_post['slug'];?>"><img src="../<?=$single_post['image'];?>"></a>
+        <h2 class="section-title"> HIGHLIGHTS </h2>
+        <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) {  ?>
+            <div data-aos="fade-up" data-aos-duration="1500" class="row latest_featured_article ">
+                <div class="col-<?= ($i+1 < sizeof($all_posts))? 6 : 12; ?> post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i]['id']; ?>=<?= $all_posts[$i]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i]['image']; ?>"></a>
                     <div class="text-block">
-                        <h4><?=$single_post['title'];?></h4>
-                        <p><?=excerpt($single_post['description'], $single_post['id'], $single_post['slug']);?></p>
+                        <h4><?= $all_posts[$i]['title']; ?></h4>
+                        <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
                     </div>
                 </div>
+               <?php if ($i+1 < sizeof($all_posts)) { ?>
+                <div class="col-6 post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i+1]['id']; ?>=<?= $all_posts[$i+1]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i+1]['image']; ?>"></a>
+                    <div class="text-block">
+                        <h4><?= $all_posts[$i+1]['title']; ?></h4>
+                        <p><?= excerpt($all_posts[$i+1]['description'], $all_posts[$i+1]['id'], $all_posts[$i+1]['slug']); ?></p>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        <?php if ($i+2 < sizeof($all_posts)) { ?>
+            <div data-aos="fade-up" data-aos-duration="1500" class="row latest_featured_article ">
+                <div class="col-12 post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i+2]['id']; ?>=<?= $all_posts[$i+2]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i+2]['image']; ?>"></a>
+                    <div class="text-block">
+                        <h4><?= $all_posts[$i+2]['title']; ?></h4>
+                        <p><?= excerpt($all_posts[$i+2]['description'], $all_posts[$i+2]['id'], $all_posts[$i+2]['slug']); ?></p>
+                    </div>
+                </div>
+            </div>
             <?php } ?>
-        </div>
+        <?php } ?>
 
+        <h2 class="section-title"> View more </h2>
     </section>
 
 </main>
+<footer role="contentinfo">
+    <address>
+        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+    </address>
+    <small>Copyright &copy; <time>2018</time></small>
+</footer>
 <script>
     AOS.init();
 </script>
