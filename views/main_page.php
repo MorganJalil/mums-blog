@@ -30,6 +30,7 @@ include '../includes/bootstrap_js.php';
 ?>
 
 <!-- N A V . B A R -->
+
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
@@ -59,27 +60,33 @@ include '../includes/bootstrap_js.php';
 </nav>
 
 <!--- H E A D E R  CONTENT--->
+
 <header class="hero_header">
     <div class="inner-container">
         <img class="heroLogo" src="../images/logo_whr.svg">
     </div>
 </header>
-
-
 <main class="container post_section ">
     <div class="section-line">
         <span class="grey-line"></span>
         <span class="section-title"> latest feature </span>
         <span class="grey-line"></span>
     </div>
-    <article class="row firstSection"> <!--- FIRST SECTION--->
-        <figure class="col-12 latest_feature">
-            <a href="single_post.php?<?= $latestPost['0']['id']?>=<?= $latestPost['0']['slug']; ?>">
-                <img class="img-fluid" src="../<?= $latestPost['0']['image']; ?>" alt="article about interior"></a>
-        </figure>
-        <h6>Posted by: <?= $latestPost['0']['username']?> </h6>
-        <p><?= excerpt($latestPost['0']['description'], $latestPost['0']['id'], $latestPost['0']['slug']); ?></p>
+
+    <!--- FIRST SECTION--->
+
+    <article class="row">
+        <div class="col-12 latest_feature">
+            <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
+                <img class="img-fluid latest_feature_image" src="../<?= $latestPost['0']['image']; ?>" alt="article about interior"></a>
+            <div class="first_textblock">
+            <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
+            <h6>By: <?= $latestPost['0']['username'] ?> </h6>
+            <p><?= excerpt($latestPost['0']['description'], $latestPost['0']['id'], $latestPost['0']['slug']); ?></p>
+            </div
+        </div>
     </article>
+
     <!--- SECOND SECTION CONTENT--->
 
     <section class="secondSection">
@@ -89,59 +96,61 @@ include '../includes/bootstrap_js.php';
             <span class="grey-line"></span>
         </div>
         <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) { ?>
-            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row latest_featured_article ">
-                <div class="col-<?= ($i+1 < sizeof($all_posts))? 6 : 12; ?>">
-                    <div class="image-container">
+            <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+            <div class="col-<?= ($i + 1 < sizeof($all_posts)) ? 6 : 12; ?>">
+                <div class="image-container">
                     <a href="single_post.php?<?= $all_posts[$i]['id']; ?>=<?= $all_posts[$i]['slug']; ?>"><img
                                 class="img-fluid" src="../<?= $all_posts[$i]['image']; ?>"></a>
                     <div class="text-block">
-                        <h4><?= $all_posts[$i]['title']; ?></h4>
-                        <h6>Posted by:<?=$all_posts[$i]['username']?></h6>
+                        <h5><?= $all_posts[$i]['title']; ?></h5>
+                        <h6>By:<?= $all_posts[$i]['username'] ?></h6>
                         <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
                     </div>
-                    </div>
                 </div>
-               <?php if ($i+1 < sizeof($all_posts)) { ?>
+            </div>
+            <?php if ($i + 1 < sizeof($all_posts)) { ?>
                 <div class="col-6">
-                    <div class="image-container" ">
-                    <a href="single_post.php?<?= $all_posts[$i+1]['id']; ?>=<?= $all_posts[$i+1]['slug']; ?>"><img
-                                class="img-fluid" src="../<?= $all_posts[$i+1]['image']; ?>"></a>
-                    <div class="text-block">
-                        <h4><?= $all_posts[$i+1]['title']; ?></h4>
-                        <h6>Posted by: <?=$all_posts[$i]['username']?></h6>
-                        <p><?= excerpt($all_posts[$i+1]['description'], $all_posts[$i+1]['id'], $all_posts[$i+1]['slug']); ?></p>
-                    </div>
-                    </div>
-                </div>
-                <?php } ?>
-            </div>
-        <?php if ($i+2 < sizeof($all_posts)) { ?>
-            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row latest_featured_article ">
-                <div class="col-12">
                     <div class="image-container">
-                    <a href="single_post.php?<?= $all_posts[$i+2]['id']; ?>=<?= $all_posts[$i+2]['slug']; ?>"><img
-                                class="img-fluid" src="../<?= $all_posts[$i+2]['image']; ?>"></a>
+                    <a href="single_post.php?<?= $all_posts[$i + 1]['id']; ?>=<?= $all_posts[$i + 1]['slug']; ?>"><img
+                                class="img-fluid" src="../<?= $all_posts[$i + 1]['image']; ?>"></a>
                     <div class="text-block">
-                        <h4><?= $all_posts[$i+2]['title']; ?></h4>
-                        <h6>Posted by: <?=$all_posts[$i]['username']?></h6>
-                        <p><?= excerpt($all_posts[$i+2]['description'], $all_posts[$i+2]['id'], $all_posts[$i+2]['slug']); ?></p>
-                    </div>
+                        <h5><?= $all_posts[$i + 1]['title']; ?></h5>
+                        <h6>By: <?= $all_posts[$i]['username'] ?></h6>
+                        <p><?= excerpt($all_posts[$i + 1]['description'], $all_posts[$i + 1]['id'], $all_posts[$i + 1]['slug']); ?></p>
                     </div>
                 </div>
+                </div>
+            <?php } ?>
             </div>
+            <?php if ($i + 2 < sizeof($all_posts)) { ?>
+                <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+                    <div class="col-12">
+                        <div class="image-container">
+                            <a href="single_post.php?<?= $all_posts[$i + 2]['id']; ?>=<?= $all_posts[$i + 2]['slug']; ?>"><img
+                                        class="img-fluid" src="../<?= $all_posts[$i + 2]['image']; ?>"></a>
+                            <div class="text-block">
+                                <h5><?= $all_posts[$i + 2]['title']; ?></h5>
+                                <h6>Posted by: <?= $all_posts[$i]['username'] ?></h6>
+                                <p><?= excerpt($all_posts[$i + 2]['description'], $all_posts[$i + 2]['id'], $all_posts[$i + 2]['slug']); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         <?php } ?>
-
     </section>
 
 </main>
-<footer role="contentinfo">
+<footer class="main_footer" role="contentinfo">
+    <div class="footer_content"
     <address>
         <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
     </address>
-    <small>Copyright &copy; <time>2018</time></small>
-    <div class="createPost"> <?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
-    </div>
+    <small>Copyright &copy;
+        <time>2018</time>
+    </small>
+    <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?> </div>
+</div>
 </footer>
 <script>
     AOS.init();

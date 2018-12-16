@@ -32,7 +32,7 @@ $all_posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
 //Get latest post
 
-$query = $pdo->prepare('SELECT title, slug, description, posts.id, created_by, images.image, users.username, posts.image AS image_id
+$query = $pdo->prepare('SELECT posts.title, slug, description, posts.id, created_by, images.image, users.username, posts.image AS image_id
 FROM `posts` 
 INNER JOIN users
 ON posts.created_by = users.user_id

@@ -3,117 +3,118 @@
 \*------------------------------------*/
 
 .error {
-	color: #e60000;
+    color: #e60000;
     font-size: 0.8rem;
 }
 
-#editor{
-	height: 20rem;
-	background-color: #ffffff;
+#editor {
+    height: 20rem;
+    background-color: #ffffff;
 }
 
 .image_container {
-	height: 10rem;
-	width: 10rem;
-	overflow: hidden;
-	position: relative;
-	margin-left: 0.2rem;
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+    position: relative;
+    margin-left: 0.2rem;
 }
 
 .image_container img {
-	object-fit: contain;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 100%;
-	height: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .image_container .close {
-	position: absolute;
+    position: absolute;
     top: 2px;
     right: 2px;
     z-index: 100;
 }
 
-.blog-image-frame{
-	height: 30rem;
-	width: 30rem;
-	overflow: hidden;
-	position: relative;
-	margin-left: 0.2rem;
+.blog-image-frame {
+    height: 30rem;
+    width: 30rem;
+    overflow: hidden;
+    position: relative;
+    margin-left: 0.2rem;
 }
 
 .blog-image-frame img {
-	object-fit: contain;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 100%;
-	height: 100%;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+    object-fit: contain;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
+
 /*
 span {
     display: none;
 }
   */
 
-.no_post{
+.no_post {
     height: 100vh;
 }
+
 .post_wrap {
-	margin: 0 auto;
-	max-width: 60rem;
+    margin: 0 auto;
+    max-width: 60rem;
 }
 
 .post_title {
-	font-size: 2rem;
-	padding-left: 0.5rem;
+    font-size: 2rem;
+    padding-left: 0.5rem;
 }
 
-.btn-primary{
-	background-color: #60495A;
-	border-color: #252525;
+.btn-primary {
+    background-color: #60495A;
+    border-color: #252525;
 }
 
-.btn-primary:hover{
-	background-color: #D7BCC8;
-	border-color: #FAC8CD;
+.btn-primary:hover {
+    background-color: #D7BCC8;
+    border-color: #FAC8CD;
 }
 
 button.save {
-	background-color: rgb(124, 124, 124);
+    background-color: rgb(124, 124, 124);
 }
 
-.fa-image{
-	font-size: 1.5rem;
+.fa-image {
+    font-size: 1.5rem;
 }
 
 /* HIDE RADIO */
-.choose_image { 
-	position: absolute;
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-  
-  /* IMAGE STYLES */
-.choose_image + div {
-	cursor: pointer;
-}
-  
-  /* CHECKED STYLES */
-.choose_image:checked + div {
-	outline: 2px solid #FAC8CD;
-	box-shadow: 0px 0px 5px 2px #FAC8CD; 
+.choose_image {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
+/* IMAGE STYLES */
+.choose_image + div {
+    cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.choose_image:checked + div {
+    outline: 2px solid #FAC8CD;
+    box-shadow: 0px 0px 5px 2px #FAC8CD;
+}
 
 /*------------------------------------*\
    END POST
@@ -137,7 +138,7 @@ body {
 /* NAVIGATION BAR - SHERIE */
 
 #main-page .navbar-default {
-background-color: #f0f0f0;
+    background-color: #f0f0f0;
     padding: 0;
 }
 
@@ -162,7 +163,7 @@ background-color: #f0f0f0;
 }
 
 .navbar-default .loginButton {
-   margin-right: 15px;
+    margin-right: 15px;
     background-color: seashell;
 
 }
@@ -171,8 +172,8 @@ background-color: #f0f0f0;
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 3px;
-    padding-bottom: 3px ;
-    background-color:#f0f0f0 ;
+    padding-bottom: 3px;
+    background-color: #f0f0f0;
 }
 
 /* HERO HEADER - SHERIE */
@@ -181,7 +182,7 @@ background-color: #f0f0f0;
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
     background-position: center;
     height: 70vh;
-    background-size:80%;
+    background-size: 80%;
     position: relative;
     overflow: hidden;
 
@@ -194,7 +195,6 @@ background-color: #f0f0f0;
     transform: translate(-10%, -10%);
 
 }
-
 
 .hero_header h2 {
     text-align: center;
@@ -219,11 +219,26 @@ background-color: #f0f0f0;
     overflow: hidden;
 }
 
-.latest_featured_article img  {
+.latest_feature_title {
+    font-weight: 400;
+    font-family: 'Merriweather', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.first_textblock h6 {
+    padding-top: 10px;
+}
+
+.highlight_articles img {
     height: auto;
     width: 100%;
     overflow: hidden;
 
+}
+
+.first_textblock  {
+     margin: 2vh;
 }
 
 .text-block {
@@ -231,7 +246,7 @@ background-color: #f0f0f0;
     bottom: 8px;
     right: 16px;
     background: rgba(240, 240, 240, 0.7);
-    color:#60495A ;
+    color: #60495A;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
@@ -241,38 +256,48 @@ background-color: #f0f0f0;
 .image-container {
     text-align: left;
     position: relative;
-   margin: 25px;
+    margin: 25px;
+
 }
 
-.text-block h4 {
+.text-block h5 {
 
-    font-weight: 500;
-    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-family: 'Merriweather', serif;
 }
 
 .text-block p {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .section-line {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 30px 0;
+    padding: 30px 80px;
 }
 
 .section-title {
     font-family: 'Merriweather', serif;
-    font-weight: 400;
-    letter-spacing: 1px;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 0 30px;
 }
 
 .section-line .grey-line {
-    border-bottom: 1px solid #1C3045 ;
+    border-bottom: 1px solid #1C3045;
     flex: 1;
+}
+
+.main_footer {
+    background-color: #60495A;
+}
+
+.footer_content {
+    padding: 10px;
 }
 /* ==========================================================================
 index.php styling Morgan
@@ -282,26 +307,27 @@ footer {
     margin: auto;
     margin-top: 10%;
     width: 100%;
-    text-align:center;
+    text-align: center;
 }
 
 #member_register {
-    
-        border: 2px solid red;
-        border-radius: 5px;
-}
 
+    border: 2px solid red;
+    border-radius: 5px;
+}
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 920px ){
-    .inner-container{
+@media only screen and (max-width: 920px ) {
+    .inner-container {
         margin-top: 100px;
     }
+
     .text-block {
         display: none;
     }
 }
+
 @media only screen and (max-width: 540px ) {
 
     .hero_header {
@@ -326,11 +352,12 @@ footer {
     }
 
     .text-block {
-      display: none;
+        display: none;
     }
-     footer {
-         margin: 5vh;
-     }
+
+    footer {
+        margin: 5vh;
+    }
 
 }
 
