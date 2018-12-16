@@ -51,10 +51,10 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
-        <a class="form-inline my-2 my-lg-0 loginButton">
-            <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
-                   aria-label="Login button">
-            <a href="logout.php"><button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button></a>
+        <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
+            <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
+                   aria-label="Logout button">
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button></a>
             <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
             </div>
         </form>
