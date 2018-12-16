@@ -40,7 +40,7 @@ session_start();
                     <?php
                         if(isset($_SESSION['username_fail'])){
                             $username_fail = $_SESSION['username_fail'];
-                            echo "<span>$username_fail</span>";
+                            echo "<span class='error_msg'>$username_fail</span>";
                         }
                     ?>
                     </div><br/>
@@ -52,7 +52,7 @@ session_start();
                     <?php
                         if(isset($_SESSION['pwd_fail'])){
                         $pwd_fail = $_SESSION['pwd_fail'];
-                        echo "<span>$pwd_fail</span>";
+                        echo "<span class='error_msg'>$pwd_fail</span>";
                         }
                     ?>
                     </div><br/>
@@ -67,7 +67,7 @@ session_start();
                     <?php
                         if(isset($_SESSION['email_fail'])){
                         $email_fail = $_SESSION['email_fail'];
-                        echo "<span>$email_fail</span>";
+                        echo "<span class='error_msg'>$email_fail</span>";
                     }
                     ?>
                     <br/>
@@ -79,11 +79,14 @@ session_start();
         <?php
             if(isset($_SESSION['username_taken'])){
                 $username_taken = $_SESSION['username_taken'];
-                echo "<span>$username_taken</span><br/>";
+                echo "<span class='error_msg'>$username_taken</span><br/>";
+                unset($_SESSION['username_taken']);
             }
+            
             if(isset($_SESSION['email_taken'])){
                 $email_taken = $_SESSION['email_taken'];
-                echo "<span>$email_taken</span><br/>";
+                echo "<span class='error_msg'>$email_taken</span><br/>";
+                unset($_SESSION['email_taken']);
             }
         ?>
         </form>

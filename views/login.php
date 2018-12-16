@@ -30,10 +30,12 @@ if (isset($_POST['login'])) {
         $_SESSION["user_id"] = $fetched_user["user_id"];
         $_SESSION["admin"] = $fetched_user["admin"];
         header('location: ../views/main_page.php');
-        var_dump($_SESSION["admin"]);
+        $_SESSION['login_failed'] = false;
 
     } else {
         header('location: ../index.php?login_failed_true');
+        $_SESSION['login_failed'] = "Wrong username or password.";
+        exit();
     }
 }
 

@@ -1,20 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
---
--- Host: localhost:8889
--- Generation Time: Dec 10, 2018 at 12:34 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 26, 2018 at 02:27 PM
+-- Generation Time: Dec 14, 2018 at 02:53 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -23,6 +12,11 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `millhouse`
@@ -38,8 +32,18 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `content` varchar(500) NOT NULL,
   `post_id` int(11) NOT NULL,
-  `created_by` int(11) NOT NULL
+  `created_by` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `content`, `post_id`, `created_by`) VALUES
+(1, 'xv', 23, '1'),
+(2, 'mumumu', 24, '0'),
+(3, 'momo', 25, '0'),
+(4, '346346', 25, 'admin');
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,9 @@ INSERT INTO `posts` (`id`, `title`, `slug`, `description`, `created_by`, `image`
 (20, 'hej', '', '<p><strong>svej</strong></p>', 1, '3', 1, '2018-12-03 20:38:54'),
 (21, 'hej', '', '<p><strong>svej</strong></p>', 1, '3', 1, '2018-12-03 20:39:21'),
 (22, 'hejsan svejsan', '', '<p><strong>svej</strong></p>', 1, '3', 1, '2018-12-09 16:55:11'),
-(23, 'testa byta titel', 'testa_byta_titel', '<p><strong>descriptiononon</strong> <em>hejsvej</em> lalala test update</p>', 1, '5', 1, '2018-12-09 18:48:21');
+(23, 'testa byta titel', 'testa_byta_titel', '<p><strong>descriptiononon</strong> <em>hejsvej</em> lalala test update</p>', 1, '5', 1, '2018-12-09 18:48:21'),
+(24, 'wetwet', 'wetwet', '<p>wetwet</p>', 1, '4', 1, '2018-12-14 14:12:40'),
+(25, 'Morgan', 'morgan', '<p>test</p>', 1, '5', 1, '2018-12-14 14:15:04');
 
 -- --------------------------------------------------------
 
@@ -130,7 +136,9 @@ CREATE TABLE `post_category` (
 
 INSERT INTO `post_category` (`id`, `post_id`, `prod_category_id`) VALUES
 (1, 22, 1),
-(2, 23, 1);
+(2, 23, 1),
+(3, 24, 1),
+(4, 25, 1);
 
 -- --------------------------------------------------------
 
@@ -154,16 +162,23 @@ INSERT INTO `product_category` (`category_id`, `category`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `admin` tinyint(1) DEFAULT NULL,
   `username` varchar(500) NOT NULL,
   `password` varchar(500) NOT NULL,
   `email` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `admin`, `username`, `password`, `email`) VALUES
+(1, 1, 'admin', '$2y$10$uya6j9wJzrpC1fdBsvByFOf0SO0FFx3y4qbNmgcWsSESMy6RYdPw.', 'admin@admin.admin');
 
 --
 -- Indexes for dumped tables
@@ -200,9 +215,9 @@ ALTER TABLE `product_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -213,34 +228,33 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `post_category`
 --
 ALTER TABLE `post_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

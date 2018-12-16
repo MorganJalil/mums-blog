@@ -13,8 +13,15 @@ include 'includes/header.php';
     </header>
 
         <main role="main">
-
-            <form action="views/login.php" class="form_index" method="post">    
+            <form action="views/login.php" class="form_index" method="post"> 
+                
+                <?php //login fail error message
+                    if(isset($_SESSION['login_failed'])){
+                        $login_failed = $_SESSION['login_failed'];
+                        echo "<span class='error_msg'>$login_failed</span>";
+                    }
+                ?>
+               
                 <div class="form-row">
                     <div class="form-group col-md-6">
                     <label class="sr-only" for="username">Username</label>
