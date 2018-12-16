@@ -51,10 +51,12 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="#">Contact</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 loginButton">
+        <a class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
-            <button class="btn btn-default my-2 my-sm-0 " type="submit">Login</button>
+            <a href="logout.php"><button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button></a>
+            <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
+            </div>
         </form>
     </div>
 </nav>
@@ -148,15 +150,13 @@ include '../includes/bootstrap_js.php';
 
 </main>
 <footer class="main_footer" role="contentinfo">
-    <div class="footer_content"
+    <div class="footer_content">
     <address>
         <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
     </address>
     <small>Copyright &copy;
         <time>2018</time>
     </small>
-    <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
-    </div>
     </div>
 </footer>
 <script>
