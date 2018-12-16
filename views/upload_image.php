@@ -34,7 +34,7 @@ if(isset($_FILES["image"])){
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
         $uploadOk = 0;
-        $imageErr = "Invalid image format, only jpeg, png and gif allowed";
+        $imageErr = "Invalid image format, only jpeg, jpg, png and gif allowed";
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {

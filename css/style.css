@@ -225,12 +225,19 @@ background-color: #f0f0f0;
     font-size: 0.2em;
     padding-left: 20px;
     padding-right: 20px;
+    border-radius: 5px;
 }
 
 .text-block h4 {
-    font-size: 6em;
+    padding: 5px;
+    font-size: 8em;
+    font-family: 'Open Sans', sans-serif;
 }
 
+.text-block p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6em;
+}
 
 .section-title {
     font-family: 'Merriweather', serif;
@@ -239,6 +246,7 @@ background-color: #f0f0f0;
     border-bottom: 1px solid #60495A;
     border-top: 1px solid #60495A;
     padding: 10px;
+    margin: 20px;
 }
 /* ==========================================================================
 index.php styling Morgan
@@ -296,6 +304,9 @@ footer {
         padding-left: 10px;
         padding-right: 10px;
     }
+     footer {
+         margin: 5vh;
+     }
 
 }
 
