@@ -113,12 +113,12 @@ include '../includes/bootstrap_js.php';
     <article class="secondSection">
         <header>
             <h2 class="section-title"> FEATURES </h2>
-            <p>Posted by: </p>
         </header>
-        <p>POST</p>
         <figure>
             <img src="../images/" alt="article about Millhouse">
         </figure>
+        <p>Posted by: </p>
+        <p>POST</p>
     </article>
 </main>
 <footer role="contentinfo">

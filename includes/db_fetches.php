@@ -30,7 +30,13 @@ $request->execute();
 
 $all_posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
+//Get latest post
 
+$query = $pdo->prepare('SELECT title, slug, description, created_by, image FROM `posts` ORDER BY created_at DESC');
+
+$query->execute();
+
+$latestPost = $query->fetchAll(PDO::FETCH_ASSOC);
 
 //Get all images
 $statement = $pdo->prepare("SELECT * FROM images");	

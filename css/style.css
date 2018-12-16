@@ -277,8 +277,8 @@ footer {
 }
 @media only screen and (max-width: 540px ) {
 
-    .hero_header {
-        height: 30vh;
+    .hero_header{
+        display: none;
     }
 
     .heroLogo {
