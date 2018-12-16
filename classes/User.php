@@ -17,7 +17,7 @@ class User {
         // Validations for inputs from form, and error messages.
         if(strlen($username) < 3 || ctype_space($username)){
             header('Location:../views/register_user.php?=namefailed');
-            $_SESSION['username_fail'] = 'Username must be atleast 3 characters long.';
+            $_SESSION['username_fail'] = 'Name must be longer than 2 letters.';
             exit();
         } else {
             $username = test_input($username);
@@ -25,7 +25,7 @@ class User {
         }   
         if(strlen($password) < 6 || ctype_space($password)){
             header('Location:../views/register_user.php?test=passfailed');
-            $_SESSION['pwd_fail'] = 'Password must be atleast 6 characters long.';
+            $_SESSION['pwd_fail'] = 'Password must be longer than 6 letters.';
             exit();
         } else {
             $_SESSION['pwd_fail'] = false;
@@ -59,6 +59,7 @@ class User {
         } else {
             $_SESSION['username_taken'] = false;
             $_SESSION['email_taken'] = false;
+            
         //INSERT data into db
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $statement = $this->pdo->prepare("INSERT INTO users (username, password, email) VALUES (:username, :password, 
