@@ -185,7 +185,6 @@ body {
     background-size: 80%;
     position: relative;
     overflow: hidden;
-
 }
 
 .heroLogo {
@@ -237,8 +236,8 @@ body {
 
 }
 
-.first_textblock  {
-     margin: 2vh;
+.first_textblock {
+    margin: 2vh;
 }
 
 .text-block {
@@ -271,14 +270,14 @@ body {
     font-weight: 300;
 }
 
-.section-line {
+.section_line {
     display: flex;
     align-items: center;
     justify-content: space-around;
     padding: 30px 80px;
 }
 
-.section-title {
+.section_title {
     font-family: 'Merriweather', serif;
     font-size: large;
     font-weight: 500;
@@ -287,18 +286,36 @@ body {
     padding: 0 30px;
 }
 
-.section-line .grey-line {
+.section_line .grey_line {
     border-bottom: 1px solid #1C3045;
     flex: 1;
 }
 
 .main_footer {
     background-color: #60495A;
+    color: #f0f0f0;
+}
+.main_footer a{
+    color: #f0f0f0;
 }
 
 .footer_content {
     padding: 10px;
+    width: 100%;
 }
+
+a {
+    color: #60495A;
+}
+.createPost a{
+    border: solid 1px #f0f0f0;
+    border-radius: 5%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #FAC8CD;
+    color: #60495A;
+}
+
 /* ==========================================================================
 index.php styling Morgan
 ========================================================================== */
@@ -319,26 +336,33 @@ footer {
 /* MEDIA QUERIES */
 
 @media only screen and (max-width: 920px ) {
-    .inner-container {
+    .inner_container {
         margin-top: 100px;
     }
 
-    .text-block {
-        display: none;
+}
+
+@media (min-width: 768px) {
+
+    .hero_header {
+        height: 30vh;
+    }
+
+    .section_line {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 25px 30px;
     }
 }
 
 @media only screen and (max-width: 540px ) {
 
     .hero_header {
-        height: 30vh;
+        height: 20vh;
     }
 
-    .heroLogo {
-
-    }
-
-    .inner-container {
+    .inner_container {
         margin-top: 150px;
     }
 
@@ -351,15 +375,41 @@ footer {
         height: 2px;
     }
 
-    .text-block {
+    .section_title {
+        font-size: x-small;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 0 10px;
+    }
+
+    .section_line {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 40px;
+    }
+
+    .mobile_hidden {
         display: none;
     }
 
-    footer {
-        margin: 5vh;
+    .latest_feature_title {
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: xx-small;
+    }
+    .first_textblock h6 {
+        font-size: small;
+    }
+    .first_textblock p {
+        font-size: small;
     }
 
 }
+
+
 
 /**/
 /**/
