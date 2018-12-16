@@ -123,6 +123,11 @@ button.save {
    MAIN PAGE - SHERIE
 \*------------------------------------*/
 
+/*
+* {
+    border: red 1px solid;
+}
+*/
 
 body {
     width: 100%;
@@ -208,44 +213,66 @@ background-color: #f0f0f0;
     align-content: center;
 }
 
-.latest_featured_article img  {
-    height: 100%;
+.latest_feature {
+    height: auto;
     width: 100%;
     overflow: hidden;
-    padding: 25px;
+}
+
+.latest_featured_article img  {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
 
 }
 
 .text-block {
     position: absolute;
-    bottom: 60px;
-    right: 120px;
+    bottom: 8px;
+    right: 16px;
     background: rgba(240, 240, 240, 0.7);
     color:#60495A ;
-    font-size: 0.2em;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top: 10px;
     border-radius: 5px;
 }
 
+.image-container {
+    text-align: left;
+    position: relative;
+   margin: 25px;
+}
+
 .text-block h4 {
-    padding: 5px;
-    font-size: 8em;
+
+    font-weight: 500;
     font-family: 'Open Sans', sans-serif;
 }
 
 .text-block p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 6em;
+    font-weight: 500;
+}
+
+.section-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 0;
 }
 
 .section-title {
     font-family: 'Merriweather', serif;
-    text-align: center;
-    border-bottom: 1px solid #60495A;
-    border-top: 1px solid #60495A;
-    padding: 10px;
-    margin: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.section-line .grey-line {
+    border-bottom: 1px solid #1C3045 ;
+    flex: 1;
 }
 /* ==========================================================================
 index.php styling Morgan
@@ -277,8 +304,8 @@ footer {
 }
 @media only screen and (max-width: 540px ) {
 
-    .hero_header{
-        display: none;
+    .hero_header {
+        height: 30vh;
     }
 
     .heroLogo {

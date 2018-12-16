@@ -24,7 +24,7 @@ ON images.id = posts.image
 INNER JOIN post_category
 ON post_category.post_id = posts.id
 AND users.admin = 1
-AND admin = 1 ');
+AND admin = 1  ');
 
 $request->execute();
 
@@ -32,11 +32,19 @@ $all_posts = $request->fetchAll(PDO::FETCH_ASSOC);
 
 //Get latest post
 
-$query = $pdo->prepare('SELECT title, slug, description, created_by, image FROM `posts` ORDER BY created_at DESC');
+$query = $pdo->prepare('SELECT title, slug, description, posts.id, created_by, images.image, users.username, posts.image AS image_id
+FROM `posts` 
+INNER JOIN users
+ON posts.created_by = users.user_id
+INNER JOIN images 
+ON posts.image = images.id
+ORDER BY created_at DESC
+LIMIT 1');
 
 $query->execute();
 
 $latestPost = $query->fetchAll(PDO::FETCH_ASSOC);
+
 
 //Get all images
 $statement = $pdo->prepare("SELECT * FROM images");	
