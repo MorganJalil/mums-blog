@@ -20,7 +20,7 @@ session_start();
     <header role="banner">
         <div class="container-fluid">
             <img src="../images/hero_image.svg" class="hero_image" alt="Logo Big">
-    
+
         </div>
 
     <nav role="navigation">
@@ -56,12 +56,12 @@ session_start();
                         }
                     ?>
                     </div><br/>
-                
 
-                
+
+
                     <div class="form-group col-md-12">
-                        <label class="sr-only" for="reg_email">email</label> 
-                        <input type="email" class="form-control border-1" name="email" placeholder="email" 
+                        <label class="sr-only" for="reg_email">email</label>
+                        <input type="email" class="form-control border-1" name="email" placeholder="email"
                         id="reg_email" required>
                         <input type="hidden" name="email_id" id="email_id">
                     <?php
@@ -75,7 +75,7 @@ session_start();
                     <button type="submit" value="submit" class="btn btn-outline-secondary" name="login">Register</button>
                     </div><br/>
                 </div>
-            
+
         <?php
             if(isset($_SESSION['username_taken'])){
                 $username_taken = $_SESSION['username_taken'];
@@ -93,7 +93,7 @@ session_start();
 
         <footer role="contentinfo">
         <address>
-          <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+            <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
         </address>
         <small>Copyright &copy; <time>2018</time></small>
     </footer>

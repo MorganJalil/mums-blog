@@ -121,7 +121,7 @@ if(isset($_GET['remove_post'])){
 		":post_id"     => $post_id,
 	]);
 
-	header("Location: main_page_2.php");	
+	header("Location: main_page.php");
 }
 
 //Remove specific comment from database

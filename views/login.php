@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
         $_SESSION["username"] = $fetched_user["username"];
         $_SESSION["user_id"] = $fetched_user["user_id"];
         $_SESSION["admin"] = $fetched_user["admin"];
-        header('location: ../index.php?pooop');
+        header('location: ../views/main_page.php');
         $_SESSION['login_failed'] = false;
 
     } else {

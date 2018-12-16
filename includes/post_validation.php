@@ -70,7 +70,7 @@ if(isset($_SERVER)){
             ":post_id"     => $post_id[0]["id"],
             ":category_id"     => $_POST["category_id"],
             ]);	
-            header("Location: main_page_2.php");		
+            header("Location: main_page.php");
         } 
 	}		
 }

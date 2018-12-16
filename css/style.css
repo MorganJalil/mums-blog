@@ -175,7 +175,7 @@ background-color: #f0f0f0;
 .hero_header {
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
     background-position: center;
-    height: 90vh;
+    height: 70vh;
     background-size:80%;
     position: relative;
     overflow: hidden;
@@ -216,28 +216,37 @@ background-color: #f0f0f0;
 
 }
 
-.featured_articles img{
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    padding: 10px;
-    position: relative;
-}
-
 .text-block {
     position: absolute;
     bottom: 60px;
     right: 120px;
-    background: rgba(240, 240, 240, 0.7);   color:#60495A ;
+    background: rgba(240, 240, 240, 0.7);
+    color:#60495A ;
     font-size: 0.2em;
     padding-left: 20px;
     padding-right: 20px;
+    border-radius: 5px;
 }
 
 .text-block h4 {
+    padding: 5px;
+    font-size: 8em;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.text-block p {
+    font-family: 'Open Sans', sans-serif;
     font-size: 6em;
 }
 
+.section-title {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    border-bottom: 1px solid #60495A;
+    border-top: 1px solid #60495A;
+    padding: 10px;
+    margin: 20px;
+}
 /* ==========================================================================
 index.php styling Morgan
 ========================================================================== */
@@ -287,14 +296,11 @@ footer {
     }
 
     .text-block {
-        position: absolute;
-        bottom: 30px;
-        right: 30px;
-        font-size: 0.2em;
-        padding-left: 10px;
-        padding-right: 10px;
+      display: none;
     }
-
+     footer {
+         margin: 5vh;
+     }
 
 }
 

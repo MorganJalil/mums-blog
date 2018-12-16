@@ -7,8 +7,7 @@ include 'includes/header.php';
     <header role="banner">
         
             <img src="images/hero_image.svg" class="hero_image" alt="Logo Big">
-        
-        
+
         <nav role="navigation">
         </nav>
     </header>

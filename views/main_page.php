@@ -1,8 +1,19 @@
+<?php
+session_start();
+if (empty($_SESSION['username'])) {
+    header("Location: ../index.php?error=please_login");
+}
+
+include '../includes/database_connection.php';
+include '../includes/db_fetches.php';
+include '../includes/functions.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -16,21 +27,7 @@
 <body id="main-page">
 <?php
 include '../includes/bootstrap_js.php';
-include '../includes/database_connection.php';
-
-/*
-    $request = $pdo->prepare('SELECT users.username, posts.image, posts.created_at, posts.title, posts.body FROM posts INNER JOIN users ON posts.created_by = users.user_id AND users.admin = 1 AND admin = 1; ');
-
-    $request->execute();
-
-    $posts = $request->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($posts as $post): */ ?>
-
-
-<!--TODO function for disabling animation for mobile and smaller device-->
-<!--TODO @mediequeries header image for mobile and smaller device-->
-<!--TODO @mediequeries textbox for mobile and smaller device-->
+?>
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
@@ -68,72 +65,72 @@ include '../includes/database_connection.php';
     </div>
 </header>
 
-<!--- M A I N CONTENT --->
-<!---->
-<!---->
-<? //= $post['image'] ?>
-<? //= $post['title'] ?>
-<? //= $post['username'] ?>
-<? //= $post['created_at'] ?>
-<? //= $post['body'] ?>
-<?php //endforeach; ?>
-
 
 <main class="container post_section ">
-    <section>
-        <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article ">
-            <div class="col-6 post_parallax">
-                <a href=""><img src="../images/paint_featured_interior%20copy.jpg"></a>
-                <div class="text-block">
-                    <h4>Article</h4>
-                    <p>Poop</p>
-                </div>
-            </div>
-            <div class="col-6 post_parallax">
-                <a href=""><img src="../images/jen-p-541467-unsplash%20copy.jpg"></a>
-                <div class="text-block">
-                    <h4>Article</h4>
-                    <p>Poop </p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="2000" class="row latest_featured_article">
-                <div class="col-12 post_parallax">
-                    <a href=""> <img src="../images/tamara-bellis-388531-unsplash.jpg"></a>
-                    <div class="text-block">
-                        <h4>Article</h4>
-                        <p>Poop </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div  data-aos="fade-up" data-aos-duration="2000" class="row featured_articles">
-            <div class="col-5">
-                <a href=""><img src="../images/stil-243522-unsplash.jpg"></a>
-                <div class="text-block">
-                    <h4>Article</h4>
-                    <p>Poop</p>
-                </div>
-            </div>
-            <div class="col-5 post_parallax">
-                <a href=""><img src="../images/dane-deaner-272375-unsplash%20copy.jpg"></a>
-                <div class="text-block">
-                    <h4>Article</h4>
-                    <p>Poop</p>
-                </div>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="2500" class="row featured_articles">
-                <div class="col-12 post_parallax">
-                    <a href=""><img src="../images/kari-shea-109894-unsplash%20copy.jpg"></a>
-                    <div class="text-block">
-                        <h4>Article</h4>
-                        <p>Poop</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section class="firstSection">
+        <h2 class="section-title"> HIGHLIGHTS </h2>
+        <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) {
 
+            ?>
+            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row latest_featured_article ">
+                <div class="col-<?= ($i+1 < sizeof($all_posts))? 6 : 12; ?> post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i]['id']; ?>=<?= $all_posts[$i]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i]['image']; ?>"></a>
+                    <div class="text-block">
+                        <h4><?= $all_posts[$i]['title']; ?></h4>
+                        <h6><?=$all_posts[$i]['username']?></h6>
+                        <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
+                    </div>
+                </div>
+               <?php if ($i+1 < sizeof($all_posts)) { ?>
+                <div class="col-6 post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i+1]['id']; ?>=<?= $all_posts[$i+1]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i+1]['image']; ?>"></a>
+                    <div class="text-block">
+                        <h4><?= $all_posts[$i+1]['title']; ?></h4>
+                        <h6><?=$all_posts[$i]['username']?></h6>
+                        <p><?= excerpt($all_posts[$i+1]['description'], $all_posts[$i+1]['id'], $all_posts[$i+1]['slug']); ?></p>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        <?php if ($i+2 < sizeof($all_posts)) { ?>
+            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row latest_featured_article ">
+                <div class="col-12 post_parallax">
+                    <a href="single_post.php?<?= $all_posts[$i+2]['id']; ?>=<?= $all_posts[$i+2]['slug']; ?>"><img
+                                src="../<?= $all_posts[$i+2]['image']; ?>"></a>
+                    <div class="text-block">
+                        <h4><?= $all_posts[$i+2]['title']; ?></h4>
+                        <h6><?=$all_posts[$i]['username']?></h6>
+                        <p><?= excerpt($all_posts[$i+2]['description'], $all_posts[$i+2]['id'], $all_posts[$i+2]['slug']); ?></p>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        <?php } ?>
+
+        <h2 class="section-title"> FEATURES </h2>
+
+    </section>
+    <article class="secondSection">
+        <header>
+            <h1>Our latests</h1>
+            <p>Posted by: </p>
+        </header>
+        <p>POST</p>
+        <figure>
+            <img src="../images/" alt="article about Millhouse">
+        </figure>
+    </article>
 </main>
+<footer role="contentinfo">
+    <address>
+        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+    </address>
+    <small>Copyright &copy; <time>2018</time></small>
+    <div class="createPost"> <?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
+    </div>
+</footer>
 <script>
     AOS.init();
 </script>
