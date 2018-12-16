@@ -271,6 +271,9 @@ footer {
     .inner-container{
         margin-top: 100px;
     }
+    .text-block {
+        display: none;
+    }
 }
 @media only screen and (max-width: 540px ) {
 

@@ -109,12 +109,10 @@ include '../includes/bootstrap_js.php';
             <?php } ?>
         <?php } ?>
 
-        <h2 class="section-title"> FEATURES </h2>
-
     </section>
     <article class="secondSection">
         <header>
-            <h1>Our latests</h1>
+            <h2 class="section-title"> FEATURES </h2>
             <p>Posted by: </p>
         </header>
         <p>POST</p>
