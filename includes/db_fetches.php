@@ -24,7 +24,8 @@ ON images.id = posts.image
 INNER JOIN post_category
 ON post_category.post_id = posts.id
 AND users.admin = 1
-AND admin = 1  ');
+AND admin = 1 
+ORDER BY created_at ASC ');
 
 $request->execute();
 

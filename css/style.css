@@ -339,13 +339,17 @@ footer {
     .inner_container {
         margin-top: 100px;
     }
+    .hero_header {
+        height: 55vh;
+    }
+
 
 }
 
 @media (min-width: 768px) {
 
     .hero_header {
-        height: 30vh;
+        height: 35vh;
     }
 
     .section_line {
