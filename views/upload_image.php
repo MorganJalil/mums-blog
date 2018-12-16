@@ -26,9 +26,9 @@ if(isset($_FILES["image"])){
         $imageErr = "File already exists";
     }
     // Check file size
-    if ($image["size"] > 500000) {
+    if ($image["size"] > 2000000) {
         $uploadOk = 0;
-        $imageErr = "Your file was not uploaded, max 500kB";
+        $imageErr = "Your file was not uploaded, max 2MB";
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"

@@ -29,7 +29,7 @@
                     </div>	
                 </div>			
                 <form action="<?=$_SERVER["PHP_SELF"];?>" method="post" enctype="multipart/form-data" id="upload_image">
-                    Select image to upload (max 500kB):
+                    Select image to upload (max 2MB):
                     <input type="file" name="image" id="image">
                     <button type="submit" class="btn btn-primary" form="upload_image">Upload image</button><br>
                     <br>   

@@ -67,11 +67,10 @@ include '../includes/bootstrap_js.php';
 
 
 <main class="container post_section ">
-    <section>
+    <section class="firstSection">
         <h2 class="section-title"> HIGHLIGHTS </h2>
         <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) {
 
-            var_dump($all_posts[$i]);
             ?>
             <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row latest_featured_article ">
                 <div class="col-<?= ($i+1 < sizeof($all_posts))? 6 : 12; ?> post_parallax">
@@ -110,23 +109,19 @@ include '../includes/bootstrap_js.php';
             <?php } ?>
         <?php } ?>
 
-        <h2 class="section-title"> View more </h2>
+        <h2 class="section-title"> FEATURES </h2>
 
     </section>
-    <div class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="../images/tamara-bellis-388531-unsplash.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/kari-shea-109894-unsplash%20copy.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/paint_featured_interior%20copy.jpg" alt="Third slide">
-            </div>
-        </div>
-    </div>
-
+    <article class="secondSection">
+        <header>
+            <h1>Our latests</h1>
+            <p>Posted by: </p>
+        </header>
+        <p>POST</p>
+        <figure>
+            <img src="../images/" alt="article about Millhouse">
+        </figure>
+    </article>
 </main>
 <footer role="contentinfo">
     <address>

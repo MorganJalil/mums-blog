@@ -175,7 +175,7 @@ background-color: #f0f0f0;
 .hero_header {
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
     background-position: center;
-    height: 90vh;
+    height: 70vh;
     background-size:80%;
     position: relative;
     overflow: hidden;
@@ -241,7 +241,6 @@ background-color: #f0f0f0;
 
 .section-title {
     font-family: 'Merriweather', serif;
-    width: 100%;
     text-align: center;
     border-bottom: 1px solid #60495A;
     border-top: 1px solid #60495A;
@@ -297,12 +296,7 @@ footer {
     }
 
     .text-block {
-        position: relative;
-        bottom: 3vh;
-        right: 1vh;
-        font-size: 0.1em;
-        padding-left: 10px;
-        padding-right: 10px;
+      display: none;
     }
      footer {
          margin: 5vh;
