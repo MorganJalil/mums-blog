@@ -42,7 +42,7 @@ include '../includes/bootstrap_js.php';
     <div class="collapse navbar-collapse navbar_options" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="categories.php">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="about.php">About</a>
@@ -51,11 +51,14 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 loginButton">
-            <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
-                   aria-label="Login button">
-            <button class="btn btn-default my-2 my-sm-0 " type="submit">Login</button>
-        </form>
+        <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
+            <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
+                   aria-label="Logout button">
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button>
+        </a>
+        <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create
+                Post</a><?php } ?>
+        </div>
     </div>
 </nav>
 
@@ -66,7 +69,11 @@ include '../includes/bootstrap_js.php';
         <img class="heroLogo" src="../images/logo_whr.svg">
     </div>
 </header>
-<main class="container post_section ">
+
+<!--- MAIN S E C T I O N  DIVIDER--->
+
+
+<main class="container post_section_divider ">
     <div class="section_line">
         <span class="grey_line"></span>
         <span class="section_title"> latest feature </span>
@@ -75,11 +82,12 @@ include '../includes/bootstrap_js.php';
 
     <!--- FIRST SECTION--->
 
-    <article class="row">
-        <div class="col-12 latest_feature">
+    <article class="row justify-content-center">
+        <div class="col-9 latest_feature">
             <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
                 <img class="img-fluid latest_feature_image" src="../<?= $latestPost['0']['image']; ?>"
-                     alt="article about interior"></a>
+                     alt="article about interior">
+            </a>
             <div class="first_textblock">
                 <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
                 <h6>By: <?= $latestPost['0']['username'] ?> </h6>
@@ -97,7 +105,7 @@ include '../includes/bootstrap_js.php';
             <span class="grey_line"></span>
         </div>
         <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) { ?>
-            <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row highlight_articles ">
                 <div class="col-sm<?= ($i + 1 < sizeof($all_posts)) ? 6 : 12; ?> col-lg-6">
                     <div class="image-container">
                         <a href="single_post.php?<?= $all_posts[$i]['id']; ?>=<?= $all_posts[$i]['slug']; ?>"><img
@@ -105,8 +113,8 @@ include '../includes/bootstrap_js.php';
                         <div class="text-block">
                             <h5><?= $all_posts[$i]['title']; ?></h5>
                             <div class="mobile_hidden">
-                            <h6>By:<?= $all_posts[$i]['username'] ?></h6>
-                            <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
+                                <h6>By:<?= $all_posts[$i]['username'] ?></h6>
+                                <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
                             </div>
                         </div>
                     </div>
@@ -119,15 +127,15 @@ include '../includes/bootstrap_js.php';
                             <div class="text-block">
                                 <h5><?= $all_posts[$i + 1]['title']; ?></h5>
                                 <div class="mobile_hidden"><h6>By: <?= $all_posts[$i]['username'] ?></h6>
-                                <p><?= excerpt($all_posts[$i + 1]['description'], $all_posts[$i + 1]['id'], $all_posts[$i + 1]['slug']); ?></p>
-                            </div>
+                                    <p><?= excerpt($all_posts[$i + 1]['description'], $all_posts[$i + 1]['id'], $all_posts[$i + 1]['slug']); ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
             </div>
             <?php if ($i + 2 < sizeof($all_posts)) { ?>
-                <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+                <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row highlight_articles ">
                     <div class="col-12">
                         <div class="image-container">
                             <a href="single_post.php?<?= $all_posts[$i + 2]['id']; ?>=<?= $all_posts[$i + 2]['slug']; ?>"><img
@@ -135,8 +143,8 @@ include '../includes/bootstrap_js.php';
                             <div class="text-block">
                                 <h5><?= $all_posts[$i + 2]['title']; ?></h5>
                                 <div class="mobile_hidden">
-                                <h6>Posted by: <?= $all_posts[$i]['username'] ?></h6>
-                                <p><?= excerpt($all_posts[$i + 2]['description'], $all_posts[$i + 2]['id'], $all_posts[$i + 2]['slug']); ?></p>
+                                    <h6>Posted by: <?= $all_posts[$i]['username'] ?></h6>
+                                    <p><?= excerpt($all_posts[$i + 2]['description'], $all_posts[$i + 2]['id'], $all_posts[$i + 2]['slug']); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -147,8 +155,17 @@ include '../includes/bootstrap_js.php';
     </section>
 
 </main>
+
+<!--- F O O T E R  DIVIDER--->
+
 <footer class="main_footer" role="contentinfo">
     <div class="footer_content">
+        <address>
+            <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        </address>
+        <small>Copyright &copy;
+            <time>2018</time>
+        </small>
     <address>
         <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
         
@@ -161,8 +178,6 @@ include '../includes/bootstrap_js.php';
     <small>Copyright &copy;
         <time>2018</time>
     </small>
-    <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
-    </div>
     </div>
 </footer>
 <script>

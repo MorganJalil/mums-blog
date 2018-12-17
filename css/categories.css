@@ -1,27 +1,23 @@
 
-/*------------------------------------*\
-   MAIN PAGE - SHERIE
-\*------------------------------------*/
-
-/*
 * {
     border: red 1px solid;
 }
-*/
+
 
 body {
     width: 100%;
     background-image: linear-gradient(grey, whitesmoke, #f0f0f0);
+
 }
 
 /* NAVIGATION BAR - SHERIE */
 
-#main-page .navbar-default {
+#category-page .navbar-default {
     background-color: #f0f0f0;
     padding: 0;
 }
 
-#main-page .navbar-brand {
+#category-page .navbar-brand {
     margin: 0;
     padding: 0;
     padding-left: 5px;
@@ -99,13 +95,10 @@ a {
     color: #f0f0f0;
 }
 
-/* MAIN POST CONTENT - SHERIE */
-
 .post_section_divider {
     padding: 30px;
     align-content: center;
 }
-
 
 .section_line {
     display: flex;
@@ -128,76 +121,45 @@ a {
     flex: 1;
 }
 
-.latest_feature {
-    height: 80%;
-    width: 80%;
-    overflow: hidden;
+
+.category_bar {
+    padding: 30px;
+    align-content: center;
 }
 
-.latest_feature_image {
-    max-height:100%;
-    object-fit: cover;
-    width: 100%;
+.category_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 80px;
 }
 
-.latest_feature_title {
-    font-weight: 400;
+.category_title {
     font-family: 'Merriweather', serif;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    padding: 0 30px;
 }
 
-.first_textblock h6 {
-    padding-top: 10px;
+.category_section .grey_line {
+    border-bottom: 1px solid #1C3045;
+    flex: 1;
 }
 
-.image-container {
-    text-align: left;
-    position: relative;
-    margin: 25px;
-    height: 80%;
-    width: 80%;
-    overflow: hidden;
-
-}
-
-.highlight_articles img {
-    max-height: 100%;
-    width: 100%;
-    overflow: hidden;
-    object-fit: cover;
-
-}
-
-.first_textblock {
-    margin: 2vh;
-}
-
-.text-block {
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-    background: rgba(240, 240, 240, 0.7);
-    color: #60495A;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    border-radius: 5px;
-}
-
-.text-block h5 {
-
-    font-weight: 400;
-    font-family: 'Merriweather', serif;
-}
-
-.text-block p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+.list-group .list-group-item{
+    background-color:#D7BCC8 ;
 }
 
 /* Footer */
 
+footer {
+    margin: auto;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}
 
 .main_footer {
     background-color: #60495A;
@@ -213,42 +175,8 @@ a {
     width: 100%;
 }
 
+/* MEDIA Q */
 
-/* ==========================================================================
-index.php styling Morgan
-========================================================================== */
-
-footer {
-    margin: auto;
-    margin-top: 10%;
-    width: 100%;
-    text-align: center;
-}
-
-#member_register {
-
-    border: 2px solid red;
-    border-radius: 5px;
-}
-
-/* MEDIA QUERIES */
-
-@media only screen and (max-width: 1024px ) {
-    .hero_header {
-        height: 35vh;
-    }
-}
-
-@media only screen and (max-width: 920px ) {
-    .inner_container {
-        margin-top: 100px;
-    }
-
-    .hero_header {
-        height: 30vh;
-    }
-
-}
 
 @media (max-width: 768px) {
 
@@ -263,15 +191,10 @@ footer {
         padding: 25px 30px;
     }
 }
-
 @media only screen and (max-width: 540px ) {
 
     .hero_header {
         height: 20vh;
-    }
-
-    .inner_container {
-        margin-top: 150px;
     }
 
     h1 {
@@ -297,34 +220,4 @@ footer {
         justify-content: space-around;
         padding: 10px 40px;
     }
-
-    .mobile_hidden {
-        display: none;
-    }
-
-    .latest_feature_title {
-        font-weight: 100;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: xx-small;
-    }
-
-    .first_textblock h6 {
-        font-size: small;
-    }
-
-    .first_textblock p {
-        font-size: small;
-    }
-
-    .latest_feature_image {
-        height: 300px;
-        width: 100%;
-        object-fit: cover;
-    }
-
 }
-
-/**/
-/**/
-
