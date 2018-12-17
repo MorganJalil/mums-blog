@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,6 @@ session_start();
     <header role="banner">
         <div class="container-fluid">
             <img src="../images/hero_image.svg" class="hero_image" alt="Logo Big">
-
         </div>
 
     <nav role="navigation">
@@ -57,8 +57,6 @@ session_start();
                     ?>
                     </div><br/>
 
-
-
                     <div class="form-group col-md-12">
                         <label class="sr-only" for="reg_email">email</label>
                         <input type="email" class="form-control border-1" name="email" placeholder="email"
@@ -91,11 +89,15 @@ session_start();
         ?>
         </form>
 
-        <footer role="contentinfo">
-        <address>
-            <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-        </address>
-        <small>Copyright &copy; <time>2018</time></small>
-    </footer>
+        <footer class="main_footer" role="contentinfo">
+            <div class="footer_content">
+                <address>
+                    <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+                </address>
+                <small>Copyright &copy;
+                    <time>2018</time>
+                </small>
+            </div>
+        </footer>
     </body>
 </html>
