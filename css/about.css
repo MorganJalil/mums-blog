@@ -2,6 +2,17 @@
 about.php styling Micke
 ========================================================================== */
 
+/* *{
+    border: 1px solid black;
+}
+*/
+
+.main{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
 .navbarLogo {
     height: 3rem;
     width: 4rem;
@@ -33,9 +44,20 @@ about.php styling Micke
 .aboutImage{
 
     object-fit: cover;
-    height: 10rem;
-	width: 60rem;
-	margin-left: 0.2rem;
+    height: 100px;
+	width: 90%;
+	
+}
+
+.post_parallax{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+
+.about_text{
+    text-align: center;
 }
 
 
