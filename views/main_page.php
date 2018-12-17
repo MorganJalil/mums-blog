@@ -84,7 +84,7 @@ include '../includes/bootstrap_js.php';
                 <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
                 <h6>By: <?= $latestPost['0']['username'] ?> </h6>
                 <p><?= excerpt($latestPost['0']['description'], $latestPost['0']['id'], $latestPost['0']['slug']); ?></p>
-            </div
+            </div>
         </div>
     </article>
 
@@ -148,9 +148,15 @@ include '../includes/bootstrap_js.php';
 
 </main>
 <footer class="main_footer" role="contentinfo">
-    <div class="footer_content"
+    <div class="footer_content">
     <address>
         <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        
+        <?php if ($_SESSION["admin"] == 1) {
+            echo "logged in as ADMIN ". $_SESSION['username']; 
+        } else {   
+            echo "logged in as" . $_SESSION['username'];}
+            ?>
     </address>
     <small>Copyright &copy;
         <time>2018</time>
