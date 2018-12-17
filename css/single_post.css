@@ -1,0 +1,128 @@
+body {
+    background-image: linear-gradient(lightgrey, whitesmoke, #f0f0f0);
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.first_textblock a {
+    color: #D7BCC8;
+}
+
+.first_textblock a:hover{
+    color:#60495A;
+}
+
+.navbarLogo {
+    height: 3rem;
+    width: 4rem;
+    padding: 1vh;
+}
+
+.navbar-default .navbar_options .nav-item {
+    font-size: 1.1em;
+    margin-right: 110px;
+    margin-left: 30px;
+    font-family: 'Merriweather', serif;
+    color: #60495A;
+}
+
+.navbar-default .loginButton {
+    margin-right: 15px;
+    background-color: seashell;
+
+}
+
+.navbar-default .btn-default {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #f0f0f0;
+}
+.hero_header {
+    background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
+    background-position: center;
+    height: 70vh;
+    background-size: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroLogo {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+
+}
+
+.post_section_divider {
+    padding: 30px;
+    align-content: center;
+}
+
+
+.section_line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 80px;
+}
+
+.section_title {
+    font-family: 'Merriweather', serif;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.section_line .grey_line {
+    border-bottom: 1px solid #1C3045;
+    flex: 1;
+}
+
+.first_textblock {
+    text-align: center;
+    padding-top: 10px;
+    letter-spacing: 1px;
+}
+
+.post-description {
+    padding: 25px 0;
+}
+
+.post-title h1 {
+
+
+}
+/* Footer */
+
+.main_footer {
+    background-color: #60495A;
+    color: #f0f0f0;
+}
+
+.main_footer a {
+    color: #f0f0f0;
+}
+
+.footer_content {
+    padding: 10px;
+    width: 100%;
+}
+
+
+footer {
+    margin: auto;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}

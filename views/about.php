@@ -2,13 +2,14 @@
 session_start();
 $_SESSION['user_id'] = 1;
 $_SESSION['admin'] = 1;
-if(empty($_SESSION['user_id'])){
+if (empty($_SESSION['user_id'])) {
     header("Location: ../index.php?error=please_login");
 }
 
 include '../includes/database_connection.php';
 include '../includes/db_fetches.php';
 include '../includes/functions.php';
+include '../includes/bootstrap_js.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,15 +27,13 @@ include '../includes/functions.php';
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Millhouse</title>
 </head>
-<body id="main-page">
-<?php
-include '../includes/bootstrap_js.php';
-?>
+<body id="about-page">
+
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
-                                          alt="Millhouse logo"></a>
+                                                      alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,7 +51,7 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
-        <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
+        <?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
         <form class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
                    aria-label="Login button">
@@ -64,36 +63,37 @@ include '../includes/bootstrap_js.php';
 
 <main class="container-fluid">
 
-<img class="img-responsive aboutImage" src="../images/people-coffee-tea-meeting.jpg">
+    <img class="img-responsive aboutImage" src="../images/people-coffee-tea-meeting.jpg">
     <section>
         <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row">
-        
-       
-        <div class="col-10 post_parallax">
+
+
+            <div class="col-10 post_parallax">
                 <div class="about_text">
                     <h4>About us</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                         deserunt mollit anim id est laborum."</p>
                 </div>
             </div>
         </div>
-    
     </section>
 
 </main>
 
 <footer role="contentinfo">
-        <address>
-          <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-        </address>
-        <small>Copyright &copy; <time>2018</time></small>
+    <address>
+        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+    </address>
+    <small>Copyright &copy;
+        <time>2018</time>
+    </small>
 </footer>
-    
+
 <script>
     AOS.init();
 </script>

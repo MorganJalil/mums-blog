@@ -33,7 +33,7 @@ include '../includes/bootstrap_js.php';
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
-                                          alt="Millhouse logo"></a>
+                                                      alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -156,7 +156,7 @@ include '../includes/bootstrap_js.php';
 
 </main>
 
-<!--- F O O T E R  DIVIDER--->
+<!--- F O O T E R --->
 
 <footer class="main_footer" role="contentinfo">
     <div class="footer_content">
@@ -166,19 +166,13 @@ include '../includes/bootstrap_js.php';
         <small>Copyright &copy;
             <time>2018</time>
         </small>
-    <address>
-        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-        
-        <?php if ($_SESSION["admin"] == 1) {
-            echo "logged in as ADMIN ". $_SESSION['username']; 
-        } else {   
-            echo "logged in as" . $_SESSION['username'];}
-            ?>
-    </address>
-    <small>Copyright &copy;
-        <time>2018</time>
-    </small>
-    </div>
+        <address>
+
+            <?php if ($_SESSION["admin"] == 1) {
+                echo "logged in as ADMIN " . $_SESSION['username'];
+            } else {
+                echo "logged in as" . $_SESSION['username'];
+            } ?>
 </footer>
 <script>
     AOS.init();

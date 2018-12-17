@@ -2,7 +2,7 @@
 about.php styling Micke
 ========================================================================== */
 
-.aos-animate{
+.aos-animate {
     display: flex;
     justify-content: center;
     padding: 0;
@@ -23,7 +23,7 @@ about.php styling Micke
 }
 
 .navbar-default .loginButton {
-   margin-right: 15px;
+    margin-right: 15px;
     background-color: seashell;
 
 }
@@ -32,33 +32,39 @@ about.php styling Micke
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 3px;
-    padding-bottom: 3px ;
-    background-color:#f0f0f0 ;
+    padding-bottom: 3px;
+    background-color: #f0f0f0;
 }
 
-.aboutImage{
+.aboutImage {
 
     object-fit: cover;
     height: 100px;
-	width: 100%;
-	
+    width: 100%;
+
 }
 
-.post_parallax{
+.post_parallax {
     display: flex;
     justify-content: center;
     padding: 0;
 }
 
-
-.about_text{
+.about_text {
     text-align: center;
 }
-
-
 
 footer {
     margin-top: 5%;
     width: 100%;
-    text-align:center;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+
 }
