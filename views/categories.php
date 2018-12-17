@@ -71,28 +71,69 @@ include '../includes/bootstrap_js.php';
     </div>
 </header>
 
-<!--- MAIN  S E C T I O N  DIVIDER--->
+<!--- S E C T I O N  DIVIDER--->
 
 
 <main class="container post_section_divider ">
     <div class="section_line">
         <span class="grey_line"></span>
-        <span class="section_title"> categories </span>
+        <span class="section_title"> <h2>categories</h2></span>
         <span class="grey_line"></span>
     </div>
-</main>
 
+
+    <!--- CATEGORY S E C T I O N  DIVIDER--->
+
+    <div class="category_bar">
+        <div class="category_section">
+            <span class="grey_line"></span>
+            <span class="category_title">Watches</span>
+            <span class="grey_line"></span>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="category_section">
+            <span class="grey_line"></span>
+            <span class="category_title">Shades</span>
+            <span class="grey_line"></span>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="category_section">
+            <span class="grey_line"></span>
+            <span class="category_title">Interior</span>
+            <span class="grey_line"></span>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+</main>
 <!--- F O O T E R  DIVIDER--->
 
-    <footer class="main_footer" role="contentinfo">
-        <div class="footer_content">
-            <address>
-                <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-            </address>
-            <small>Copyright &copy;
-                <time>2018</time>
-            </small>
-        </div>
-    </footer>
+<footer class="main_footer" role="contentinfo">
+    <div class="footer_content">
+        <address>
+            <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        </address>
+        <small>Copyright &copy;
+            <time>2018</time>
+        </small>
+    </div>
+</footer>
 </body>
 </html>

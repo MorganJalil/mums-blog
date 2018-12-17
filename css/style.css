@@ -151,8 +151,18 @@ a {
     padding-top: 10px;
 }
 
+.image-container {
+    text-align: left;
+    position: relative;
+    margin: 25px;
+    height: 80%;
+    width: 80%;
+    overflow: hidden;
+
+}
+
 .highlight_articles img {
-    height: auto;
+    max-height: 100%;
     width: 100%;
     overflow: hidden;
     object-fit: cover;
@@ -173,13 +183,6 @@ a {
     padding-right: 20px;
     padding-top: 10px;
     border-radius: 5px;
-}
-
-.image-container {
-    text-align: left;
-    position: relative;
-    margin: 25px;
-
 }
 
 .text-block h5 {

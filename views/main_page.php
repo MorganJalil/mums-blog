@@ -54,9 +54,11 @@ include '../includes/bootstrap_js.php';
         <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
             <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
                    aria-label="Logout button">
-            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button></a>
-            <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
-            </div>
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button>
+        </a>
+        <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create
+                Post</a><?php } ?>
+        </div>
         </form>
     </div>
 </nav>
@@ -81,10 +83,11 @@ include '../includes/bootstrap_js.php';
 
     <!--- FIRST SECTION--->
 
-    <article class="row justify-content-center mx-auto">
+    <article class="row justify-content-center">
         <div class="col-9 latest_feature">
+            <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
                 <img class="img-fluid latest_feature_image" src="../<?= $latestPost['0']['image']; ?>"
-                     alt="article about interior">  <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
+                     alt="article about interior">
             </a>
             <div class="first_textblock">
                 <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
@@ -111,8 +114,8 @@ include '../includes/bootstrap_js.php';
                         <div class="text-block">
                             <h5><?= $all_posts[$i]['title']; ?></h5>
                             <div class="mobile_hidden">
-                            <h6>By:<?= $all_posts[$i]['username'] ?></h6>
-                            <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
+                                <h6>By:<?= $all_posts[$i]['username'] ?></h6>
+                                <p><?= excerpt($all_posts[$i]['description'], $all_posts[$i]['id'], $all_posts[$i]['slug']); ?></p>
                             </div>
                         </div>
                     </div>
@@ -125,8 +128,8 @@ include '../includes/bootstrap_js.php';
                             <div class="text-block">
                                 <h5><?= $all_posts[$i + 1]['title']; ?></h5>
                                 <div class="mobile_hidden"><h6>By: <?= $all_posts[$i]['username'] ?></h6>
-                                <p><?= excerpt($all_posts[$i + 1]['description'], $all_posts[$i + 1]['id'], $all_posts[$i + 1]['slug']); ?></p>
-                            </div>
+                                    <p><?= excerpt($all_posts[$i + 1]['description'], $all_posts[$i + 1]['id'], $all_posts[$i + 1]['slug']); ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -141,8 +144,8 @@ include '../includes/bootstrap_js.php';
                             <div class="text-block">
                                 <h5><?= $all_posts[$i + 2]['title']; ?></h5>
                                 <div class="mobile_hidden">
-                                <h6>Posted by: <?= $all_posts[$i]['username'] ?></h6>
-                                <p><?= excerpt($all_posts[$i + 2]['description'], $all_posts[$i + 2]['id'], $all_posts[$i + 2]['slug']); ?></p>
+                                    <h6>Posted by: <?= $all_posts[$i]['username'] ?></h6>
+                                    <p><?= excerpt($all_posts[$i + 2]['description'], $all_posts[$i + 2]['id'], $all_posts[$i + 2]['slug']); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -158,12 +161,12 @@ include '../includes/bootstrap_js.php';
 
 <footer class="main_footer" role="contentinfo">
     <div class="footer_content">
-    <address>
-        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-    </address>
-    <small>Copyright &copy;
-        <time>2018</time>
-    </small>
+        <address>
+            <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        </address>
+        <small>Copyright &copy;
+            <time>2018</time>
+        </small>
     </div>
 </footer>
 <script>

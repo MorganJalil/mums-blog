@@ -121,6 +121,33 @@ a {
     flex: 1;
 }
 
+
+.category_bar {
+    padding: 30px;
+    align-content: center;
+}
+
+.category_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 80px;
+}
+
+.category_title {
+    font-family: 'Merriweather', serif;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.category_section .grey_line {
+    border-bottom: 1px solid #1C3045;
+    flex: 1;
+}
+
 /* Footer */
 
 footer {
