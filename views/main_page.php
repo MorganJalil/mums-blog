@@ -32,7 +32,7 @@ include '../includes/bootstrap_js.php';
 <!-- N A V . B A R -->
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+    <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,10 +45,10 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link" href="categories.php">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Contact</a>
+                <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
         <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
@@ -93,7 +93,7 @@ include '../includes/bootstrap_js.php';
                 <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
                 <h6>By: <?= $latestPost['0']['username'] ?> </h6>
                 <p><?= excerpt($latestPost['0']['description'], $latestPost['0']['id'], $latestPost['0']['slug']); ?></p>
-            </div
+            </div>
         </div>
     </article>
 
@@ -167,6 +167,18 @@ include '../includes/bootstrap_js.php';
         <small>Copyright &copy;
             <time>2018</time>
         </small>
+    <address>
+        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        
+        <?php if ($_SESSION["admin"] == 1) {
+            echo "logged in as ADMIN ". $_SESSION['username']; 
+        } else {   
+            echo "logged in as" . $_SESSION['username'];}
+            ?>
+    </address>
+    <small>Copyright &copy;
+        <time>2018</time>
+    </small>
     </div>
 </footer>
 <script>

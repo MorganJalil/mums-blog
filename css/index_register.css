@@ -27,6 +27,26 @@ html {
     text-align: right;
 }
 
+.main_footer {
+    background-color: #60495A;
+    color: #f0f0f0;
+    margin-bottom: -10%;
+    bottom: 0;
+    position: absolute;
+}
+
+.main_footer a{
+    color: #f0f0f0;
+}
+
+.footer_content {
+    padding: 10px;
+    width: 100%;
+}
+
+a {
+    color: #60495A;
+}
 footer {
     margin-top: 5%;
     width: 100%;

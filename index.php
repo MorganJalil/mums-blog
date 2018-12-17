@@ -1,16 +1,28 @@
 <?php
 session_start();
-include 'includes/header.php';
 ?>
 
-<body class="body_index">
-    <header role="banner">
-        
-            <img src="images/hero_image.svg" class="hero_image" alt="Logo Big">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="css/index_register.css">
+        <title>Millhouse</title>
 
-        <nav role="navigation">
-        </nav>
-    </header>
+    </head>
+
+    <body class="body_index">
+        <header role="banner">
+            <img src="images/hero_image.svg" class="hero_image" alt="Logo Big">
+            
+            <nav role="navigation">
+            </nav>
+        </header>
 
         <main role="main">
             <form action="views/login.php" class="form_index" method="post"> 
@@ -36,14 +48,16 @@ include 'includes/header.php';
                 <div class="alert alert-info" id="member_register" role="alert">Not a member? <a href="views/register_user.php">Register</a></div>
             </form>
         </main>
-    
-            
-    <footer role="contentinfo">
-        <address>
-          <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
-        </address>
-        <small>Copyright &copy; <time>2018</time></small>
-    </footer>
-    
-</body>
+              
+        <footer class="main_footer" role="contentinfo">
+            <div class="footer_content">
+                <address>
+                    <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+                </address>
+                <small>Copyright &copy;
+                    <time>2018</time>
+                </small>
+            </div>
+        </footer>
+    </body>
 </html>
