@@ -33,7 +33,7 @@ include '../includes/bootstrap_js.php';
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+    <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,10 +46,10 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Contact</a>
+                <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
         <?php if($_SESSION["admin"] == 1){?><a href="create_post.php">Create Post</a><?php } ?>
@@ -62,14 +62,15 @@ include '../includes/bootstrap_js.php';
 </nav>
 
 
-<main class="container">
+<main class="container-fluid">
 
-<img class="aboutImage" src="../images/people-coffee-tea-meeting.jpg">
+<img class="img-responsive aboutImage" src="../images/people-coffee-tea-meeting.jpg">
     <section>
-        <div data-aos="fade-up" data-aos-duration="2000" class="row">
+        <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row">
         
-            <div class="col- 12 col-md-6 post_parallax">
-                <div class="text-block">
+       
+        <div class="col-10 post_parallax">
+                <div class="about_text">
                     <h4>About us</h4>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
