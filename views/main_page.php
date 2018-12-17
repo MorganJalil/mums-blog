@@ -81,11 +81,11 @@ include '../includes/bootstrap_js.php';
 
     <!--- FIRST SECTION--->
 
-    <article class="row">
-        <div class="col-12 latest_feature">
-            <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
+    <article class="row justify-content-center mx-auto">
+        <div class="col-9 latest_feature">
                 <img class="img-fluid latest_feature_image" src="../<?= $latestPost['0']['image']; ?>"
-                     alt="article about interior"></a>
+                     alt="article about interior">  <a href="single_post.php?<?= $latestPost['0']['id'] ?>=<?= $latestPost['0']['slug']; ?>">
+            </a>
             <div class="first_textblock">
                 <span class="latest_feature_title"><?= $latestPost['0']['title'] ?></span>
                 <h6>By: <?= $latestPost['0']['username'] ?> </h6>

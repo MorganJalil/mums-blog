@@ -49,10 +49,7 @@ if(isset($_POST['image'])){
 
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="../css/create_post.css">
     <title>Millhouse | Write new post</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -87,6 +84,24 @@ if(isset($_POST['image'])){
         </form>
     </div>
 </nav>
+<!--- H E A D E R  CONTENT--->
+
+<header class="hero_header">
+    <div class="inner_container">
+        <img class="heroLogo" src="../images/logo_whr.svg">
+    </div>
+</header>
+
+<!---  S E C T I O N  DIVIDER--->
+
+
+<div class="container post_section_divider ">
+    <div class="section_line">
+        <span class="grey_line"></span>
+        <span class="section_title"> admin </span>
+        <span class="grey_line"></span>
+    </div>
+</div>
 <div class="container-fluid">
 	<main class="post_wrap">
 		<div class="row justify-content-around">
@@ -173,6 +188,18 @@ if(isset($_POST['image'])){
 			</script>
 		</div>
 	</main>
+    <!--- F O O T E R  DIVIDER--->
+
+    <footer class="main_footer" role="contentinfo">
+        <div class="footer_content">
+            <address>
+                <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+            </address>
+            <small>Copyright &copy;
+                <time>2018</time>
+            </small>
+        </div>
+    </footer>
 </div>
 
     <!-- Optional JavaScript -->
