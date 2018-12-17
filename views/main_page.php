@@ -34,7 +34,7 @@ include '../includes/database_connection.php';
 
 <!-- N A V . B A R -->
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
+    <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
                                           alt="Millhouse logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,10 +47,10 @@ include '../includes/database_connection.php';
                 <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Contact</a>
+                <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 loginButton">
