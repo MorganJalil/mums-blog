@@ -26,7 +26,7 @@ include '../includes/bootstrap_js.php';
 </head>
 <body id="category-page">
 
-<!-- N A V . B A R -->
+<!-- N A V . B A R -->‰
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"

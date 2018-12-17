@@ -59,7 +59,6 @@ include '../includes/bootstrap_js.php';
         <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create
                 Post</a><?php } ?>
         </div>
-        </form>
     </div>
 </nav>
 
