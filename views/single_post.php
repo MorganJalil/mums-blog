@@ -74,6 +74,7 @@ include '../includes/bootstrap_js.php';?>
     $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br />
     
     <!--Display post image-->
+
     <img src="../<?=$single_post[0]['image'];?>" alt="Cool Post Image">
     <!--Display post title-->
     <h1><?=$single_post[0]['title'];?></h1><?php if($_SESSION["admin"] == 1){?><a href="edit_post.php?remove_post=<?=key($_GET);?>">Remove post</a> | <a href="edit_post.php?<?=key($_GET);?>=<?=$_GET[key($_GET)];?>">Edit post</a> <?php } ?>
@@ -95,7 +96,7 @@ include '../includes/bootstrap_js.php';?>
                 <input type="hidden" name="post_id" id="single_comment" value='<?= key($_GET)?>' />
                 <input type="hidden" name="slug" id="single_comment" value='<?= $_GET[key($_GET)]?>' />
                 <input type="hidden" name="created_by" id="single_comment" value='<?= $_SESSION["username"]?>' />
-                <label for="single_comment">Comment</label>
+                <label for="single_comment">Comment:</label>
                 <textarea id="single_comment" name="content" class="form-control" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -109,9 +110,7 @@ include '../includes/bootstrap_js.php';?>
     foreach($all_comments as $allComment => $comment): ?>
         <div class="card col-5" >
             <p>created by:<?= $comment['created_by']; ?></p>
-            <p>post id:<?= $comment['post_id']; ?></p>
-            <p>content:<?= $comment['content']; ?></p>
-            <p>comment id:<?= $comment['id']; ?></p>
+            <p>content: <?= $comment['content']; ?></p>
             <!--IF ADMIN SÅ VISAS DENNA -->
             <a href="?remove_comment=<?=$comment['id'];?>&post_id=<?=key($_GET)?>&slug=<?=$_GET[key($_GET)]?>">Remove comment</a>
         </div>
