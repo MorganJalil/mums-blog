@@ -27,7 +27,7 @@ include '../includes/db_fetches.php';
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>Millhouse</title>
 </head>
-<body id="main-page">
+<body id="single-post-page">
 <?php
 include '../includes/bootstrap_js.php';?>
 
@@ -60,7 +60,7 @@ include '../includes/bootstrap_js.php';?>
         </form>
     </div>
 </nav>
-<main class="container">
+<main class="container-fluid">
     <!--Load single post function-->
     <?php 
     if(empty(key($_GET)) || empty($_GET[key($_GET)])){  ?>
@@ -71,11 +71,11 @@ include '../includes/bootstrap_js.php';?>
     </div>
     <?php 
     } else { 
-    $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br />
-    
+    $single_post = singlePost($pdo, key($_GET), $_GET[key($_GET)]);?> <br /> 
+    <div class="single-post-image">
     <!--Display post image-->
-
-    <img src="../<?=$single_post[0]['image'];?>" alt="Cool Post Image">
+    <img class=“img-fluid” src="../<?=$single_post[0]['image'];?>" alt="Cool Post Image">
+    </div>
     <!--Display post title-->
     <h1><?=$single_post[0]['title'];?></h1><?php if($_SESSION["admin"] == 1){?><a href="edit_post.php?remove_post=<?=key($_GET);?>">Remove post</a> | <a href="edit_post.php?<?=key($_GET);?>=<?=$_GET[key($_GET)];?>">Edit post</a> <?php } ?>
     <!--Display post date-->
@@ -84,6 +84,7 @@ include '../includes/bootstrap_js.php';?>
     <b>Category:</b> <?=ucfirst($single_post[0]['category_name']);?></p>
     <!--Display post -->
     <?=$single_post[0]['description'];?>
+
     
     <!--Add comment form-->
     <div class="card col-5">
@@ -121,6 +122,23 @@ include '../includes/bootstrap_js.php';?>
     include '../includes/bootstrap_js.php';
 ?>
 </main>
-
+<footer class="main_footer" role="contentinfo">
+    <div class="footer_content">
+    <address>
+        <p>For further information, please contact <a href="mailto:admin@example.com">Millhouse</a>.</p>
+        
+        <?php if ($_SESSION["admin"] == 1) {
+            echo "logged in as ADMIN ". $_SESSION['username']; 
+        } else {   
+            echo "logged in as" . $_SESSION['username'];}
+            ?>
+    </address>
+    <small>Copyright &copy;
+        <time>2018</time>
+    </small>
+    <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create Post</a><?php } ?>
+    </div>
+    </div>
+</footer>
 </body>
 </html>
