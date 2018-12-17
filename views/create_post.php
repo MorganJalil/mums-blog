@@ -72,10 +72,10 @@ if (isset($_POST['image'])) {
                 <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Contact</a>
+                <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
             <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">

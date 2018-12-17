@@ -2,12 +2,7 @@
 about.php styling Micke
 ========================================================================== */
 
-/* *{
-    border: 1px solid black;
-}
-*/
-
-.main{
+.aos-animate{
     display: flex;
     justify-content: center;
     padding: 0;
@@ -45,7 +40,7 @@ about.php styling Micke
 
     object-fit: cover;
     height: 100px;
-	width: 90%;
+	width: 100%;
 	
 }
 
