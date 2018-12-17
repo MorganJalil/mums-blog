@@ -124,7 +124,7 @@ button.save {
 
 body {
     width: 100%;
-    background-image: linear-gradient(#f0f0f0, whitesmoke, lightgrey);
+    background-image: linear-gradient(grey, whitesmoke, #f0f0f0);
 }
 
 /* NAVIGATION BAR - SHERIE */

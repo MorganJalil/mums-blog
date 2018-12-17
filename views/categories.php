@@ -6,6 +6,7 @@ if (empty($_SESSION['username'])) {
 
 include '../includes/database_connection.php';
 include '../includes/db_fetches.php';
+include '../includes/bootstrap_js.php';
 /*include '../includes/functions.php';*/
 ?>
 
@@ -24,9 +25,6 @@ include '../includes/db_fetches.php';
     <title>Millhouse</title>
 </head>
 <body id="category-page">
-<?php
-include '../includes/bootstrap_js.php';
-?>
 
 <!-- N A V . B A R -->
 
@@ -91,11 +89,11 @@ include '../includes/bootstrap_js.php';
             <span class="grey_line"></span>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <a href="#" class="list-group-item">Cras justo odio</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
         </ul>
         <div class="category_section">
             <span class="grey_line"></span>
@@ -103,11 +101,11 @@ include '../includes/bootstrap_js.php';
             <span class="grey_line"></span>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <a href="#" class="list-group-item">Cras justo odio</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
         </ul>
         <div class="category_section">
             <span class="grey_line"></span>
@@ -115,11 +113,11 @@ include '../includes/bootstrap_js.php';
             <span class="grey_line"></span>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+            <a href="#" class="list-group-item">Cras justo odio</a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
         </ul>
     </div>
 </main>

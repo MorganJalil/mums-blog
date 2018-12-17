@@ -6,7 +6,7 @@
 
 body {
     width: 100%;
-    background-image: linear-gradient(#f0f0f0, whitesmoke, lightgrey);
+    background-image: linear-gradient(grey, whitesmoke, #f0f0f0);
 
 }
 
@@ -146,6 +146,10 @@ a {
 .category_section .grey_line {
     border-bottom: 1px solid #1C3045;
     flex: 1;
+}
+
+.list-group .list-group-item{
+    background-color:#D7BCC8 ;
 }
 
 /* Footer */
