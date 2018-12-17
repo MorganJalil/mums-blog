@@ -1,4 +1,3 @@
-
 /*------------------------------------*\
    POST ULRICA
 \*------------------------------------*/
@@ -133,7 +132,7 @@ button.save {
 
 body {
     width: 100%;
-    background-image: linear-gradient(white, whitesmoke, lightgrey);
+    background-image: linear-gradient(#f0f0f0, whitesmoke, lightgrey);
 }
 
 /* NAVIGATION BAR - SHERIE */
@@ -158,7 +157,7 @@ body {
 .navbar-default .navbar_options .nav-item {
     font-size: 1.1em;
     margin-right: 110px;
-    margin-left: 30px;
+    margin-left: 160px;
     font-family: 'Merriweather', serif;
     color: #60495A;
 }
@@ -176,6 +175,21 @@ body {
     padding-bottom: 3px;
     background-color: #f0f0f0;
 }
+
+a {
+    color: #60495A;
+}
+
+.createPost a {
+    border: solid 1px #f0f0f0;
+    border-radius: 5;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #FAC8CD;
+    color: #60495A;
+    margin-right: 10px;
+}
+
 
 /* HERO HEADER - SHERIE */
 
@@ -208,15 +222,47 @@ body {
 
 /* MAIN POST CONTENT - SHERIE */
 
-.post_section {
+.post_section_divider {
     padding: 30px;
     align-content: center;
 }
 
+
+.section_line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 80px;
+}
+
+.section_title {
+    font-family: 'Merriweather', serif;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.section_line .grey_line {
+    border-bottom: 1px solid #1C3045;
+    flex: 1;
+}
+
 .latest_feature {
+    position: relative;
+    justify-content: space-around;
     height: auto;
-    width: 100%;
+    width: auto;
     overflow: hidden;
+    object-fit: none;
+}
+
+.latest_feature_image {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
 }
 
 .latest_feature_title {
@@ -271,32 +317,15 @@ body {
     font-weight: 300;
 }
 
-.section_line {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 30px 80px;
-}
+/* Footer */
 
-.section_title {
-    font-family: 'Merriweather', serif;
-    font-size: large;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 0 30px;
-}
-
-.section_line .grey_line {
-    border-bottom: 1px solid #1C3045;
-    flex: 1;
-}
 
 .main_footer {
     background-color: #60495A;
     color: #f0f0f0;
 }
-.main_footer a{
+
+.main_footer a {
     color: #f0f0f0;
 }
 
@@ -305,18 +334,6 @@ body {
     width: 100%;
 }
 
-a {
-    color: #60495A;
-}
-.createPost a{
-    border: solid 1px #f0f0f0;
-    border-radius: 5%;
-    padding: 5px;
-    margin-top: 10px;
-    background-color: #FAC8CD;
-    color: #60495A;
-    margin-right: 10px;
-}
 
 /* ==========================================================================
 index.php styling Morgan
@@ -347,10 +364,10 @@ footer {
     .inner_container {
         margin-top: 100px;
     }
+
     .hero_header {
         height: 30vh;
     }
-
 
 }
 
@@ -412,16 +429,22 @@ footer {
         letter-spacing: 1px;
         font-size: xx-small;
     }
+
     .first_textblock h6 {
         font-size: small;
     }
+
     .first_textblock p {
         font-size: small;
     }
 
+    .latest_feature_image {
+        height: 300px;
+        width: 100%;
+        object-fit: cover;
+    }
+
 }
-
-
 
 /**/
 /**/

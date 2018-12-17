@@ -1,0 +1,192 @@
+
+* {
+    border: red 1px solid;
+}
+
+
+body {
+    width: 100%;
+    background-image: linear-gradient(#f0f0f0, whitesmoke, lightgrey);
+
+}
+
+/* NAVIGATION BAR - SHERIE */
+
+#category-page .navbar-default {
+    background-color: #f0f0f0;
+    padding: 0;
+}
+
+#category-page .navbar-brand {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+}
+
+.navbarLogo {
+    height: 3rem;
+    width: 4rem;
+    padding: 1vh;
+}
+
+.navbar-default .navbar_options .nav-item {
+    font-size: 1.1em;
+    margin-right: 110px;
+    margin-left: 160px;
+    font-family: 'Merriweather', serif;
+    color: #60495A;
+}
+
+.navbar-default .loginButton {
+    margin-right: 15px;
+    background-color: seashell;
+
+}
+
+.navbar-default .btn-default {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #f0f0f0;
+}
+
+a {
+    color: #60495A;
+}
+
+.createPost a {
+    border: solid 1px #f0f0f0;
+    border-radius: 5;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #FAC8CD;
+    color: #60495A;
+    margin-right: 10px;
+}
+
+
+/* HERO HEADER - SHERIE */
+
+.hero_header {
+    background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
+    background-position: center;
+    height: 70vh;
+    background-size: 80%;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroLogo {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-10%, -10%);
+
+}
+
+.hero_header h2 {
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    left: 53%;
+    transform: translate(-70%, -53%);
+    font-size: 5em;
+    color: #f0f0f0;
+}
+
+.post_section_divider {
+    padding: 30px;
+    align-content: center;
+}
+
+.section_line {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 80px 80px;
+}
+
+.section_title {
+    font-family: 'Merriweather', serif;
+    font-size: large;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0 30px;
+}
+
+.section_line .grey_line {
+    border-bottom: 1px solid #1C3045;
+    flex: 1;
+}
+
+/* Footer */
+
+footer {
+    margin: auto;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+}
+
+.main_footer {
+    background-color: #60495A;
+    color: #f0f0f0;
+}
+
+.main_footer a {
+    color: #f0f0f0;
+}
+
+.footer_content {
+    padding: 10px;
+    width: 100%;
+}
+
+/* MEDIA Q */
+
+
+@media (max-width: 768px) {
+
+    .hero_header {
+        height: 25vh;
+    }
+
+    .section_line {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 25px 30px;
+    }
+}
+@media only screen and (max-width: 540px ) {
+
+    .hero_header {
+        height: 20vh;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .hero_header hr {
+        width: 40vh;
+        height: 2px;
+    }
+
+    .section_title {
+        font-size: x-small;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 0 10px;
+    }
+
+    .section_line {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 40px;
+    }
+}

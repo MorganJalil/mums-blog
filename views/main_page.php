@@ -42,7 +42,7 @@ include '../includes/bootstrap_js.php';
     <div class="collapse navbar-collapse navbar_options" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="categories.php">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">About</a>
@@ -68,7 +68,11 @@ include '../includes/bootstrap_js.php';
         <img class="heroLogo" src="../images/logo_whr.svg">
     </div>
 </header>
-<main class="container post_section ">
+
+<!--- MAIN S E C T I O N  DIVIDER--->
+
+
+<main class="container post_section_divider ">
     <div class="section_line">
         <span class="grey_line"></span>
         <span class="section_title"> latest feature </span>
@@ -99,7 +103,7 @@ include '../includes/bootstrap_js.php';
             <span class="grey_line"></span>
         </div>
         <?php for ($i = 0; $i < sizeof($all_posts); $i += 3) { ?>
-            <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+            <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row highlight_articles ">
                 <div class="col-sm<?= ($i + 1 < sizeof($all_posts)) ? 6 : 12; ?> col-lg-6">
                     <div class="image-container">
                         <a href="single_post.php?<?= $all_posts[$i]['id']; ?>=<?= $all_posts[$i]['slug']; ?>"><img
@@ -129,7 +133,7 @@ include '../includes/bootstrap_js.php';
                 <?php } ?>
             </div>
             <?php if ($i + 2 < sizeof($all_posts)) { ?>
-                <div data-aos="fade-zoom-in" data-aos-duration="2300" class="row highlight_articles ">
+                <div data-aos="fade-zoom-in" data-aos-duration="2500" class="row highlight_articles ">
                     <div class="col-12">
                         <div class="image-container">
                             <a href="single_post.php?<?= $all_posts[$i + 2]['id']; ?>=<?= $all_posts[$i + 2]['slug']; ?>"><img
@@ -149,6 +153,9 @@ include '../includes/bootstrap_js.php';
     </section>
 
 </main>
+
+<!--- F O O T E R  DIVIDER--->
+
 <footer class="main_footer" role="contentinfo">
     <div class="footer_content">
     <address>
