@@ -26,7 +26,7 @@ include '../includes/bootstrap_js.php';
 </head>
 <body id="category-page">
 
-<!-- N A V . B A R -->‰
+<!-- N A V . B A R -->
 
 <nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="main_page.php"><img class="d-inline-block navbarLogo" src="../images/Nav-logo.png"
@@ -39,25 +39,24 @@ include '../includes/bootstrap_js.php';
     <div class="collapse navbar-collapse navbar_options" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="categories.php">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="about.php">About</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Contact</a>
+                <a class="nav-link" href="contact.php">Contact</a>
             </li>
         </ul>
-        <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
-            <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
-                   aria-label="Logout button">
-            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button>
-        </a>
-        <div class="createPost"><?php if ($_SESSION["admin"] == 1) { ?><a href="create_post.php">Create
-                Post</a><?php } ?>
-        </div>
-        </form>
+
+            <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
+                <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
+                       aria-label="Logout button">
+                <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button>
+            </a>
     </div>
+
+
 </nav>
 
 
@@ -73,11 +72,6 @@ include '../includes/bootstrap_js.php';
 
 
 <main class="container post_section_divider ">
-    <div class="section_line">
-        <span class="grey_line"></span>
-        <span class="section_title"> <h2>categories</h2></span>
-        <span class="grey_line"></span>
-    </div>
 
 
     <!--- CATEGORY S E C T I O N  DIVIDER--->

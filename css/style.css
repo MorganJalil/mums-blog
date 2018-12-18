@@ -1,7 +1,4 @@
 
-/*------------------------------------*\
-   MAIN PAGE - SHERIE
-\*------------------------------------*/
 
 /*
 * {
@@ -11,7 +8,7 @@
 
 body {
     width: 100%;
-    background-image: linear-gradient(grey, whitesmoke, #f0f0f0);
+    background-image: linear-gradient(lightgrey, whitesmoke, #f0f0f0);
 }
 
 /* NAVIGATION BAR - SHERIE */
@@ -59,15 +56,6 @@ a {
     color: #60495A;
 }
 
-.createPost a {
-    border: solid 1px #f0f0f0;
-    border-radius: 5;
-    padding: 5px;
-    margin-top: 10px;
-    background-color: #FAC8CD;
-    color: #60495A;
-    margin-right: 10px;
-}
 
 
 /* HERO HEADER - SHERIE */
@@ -116,9 +104,9 @@ a {
 
 .section_title {
     font-family: 'Merriweather', serif;
-    font-size: large;
+    font-size: x-large;
     font-weight: 500;
-    letter-spacing: 1.5px;
+    letter-spacing: 9px;
     text-transform: uppercase;
     padding: 0 30px;
 }

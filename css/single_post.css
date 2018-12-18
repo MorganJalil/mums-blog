@@ -1,21 +1,21 @@
-
-
 body {
-    width: 100%;
     background-image: linear-gradient(lightgrey, whitesmoke, #f0f0f0);
 }
 
-/* NAVIGATION BAR  */
-
-.navbar-default {
-    background-color: #f0f0f0;
-    padding: 0;
+h1 {
+    font-family: 'Merriweather', serif;
 }
 
-.navbar-brand {
-    margin: 0;
-    padding: 0;
-    padding-left: 5px;
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.first_textblock a {
+    color: #D7BCC8;
+}
+
+.first_textblock a:hover{
+    color:#60495A;
 }
 
 .navbarLogo {
@@ -26,8 +26,8 @@ body {
 
 .navbar-default .navbar_options .nav-item {
     font-size: 1.1em;
-    margin-right: 165px;
-    margin-left: 115px;
+    margin-right: 160px;
+    margin-left: 110px;
     font-family: 'Merriweather', serif;
     color: #60495A;
 }
@@ -45,7 +45,6 @@ body {
     padding-bottom: 3px;
     background-color: #f0f0f0;
 }
-
 .hero_header {
     background: url("../images/jan-de-keijzer-1136069-unsplash.jpg");
     background-position: center;
@@ -61,16 +60,6 @@ body {
     left: 10%;
     transform: translate(-10%, -10%);
 
-}
-
-.hero_header h2 {
-    text-align: center;
-    position: absolute;
-    top: 70%;
-    left: 53%;
-    transform: translate(-70%, -53%);
-    font-size: 5em;
-    color: #f0f0f0;
 }
 
 .post_section_divider {
@@ -100,30 +89,21 @@ body {
     flex: 1;
 }
 
-
-.about_text h4 {
-    font-family: 'Merriweather', serif;
-    margin: 5px;
-    padding: 5px;
-    font-weight: 200;
+.first_textblock {
+    text-align: center;
+    padding-top: 10px;
     letter-spacing: 1px;
-    text-transform: uppercase;
-    text-align: center;
 }
 
-.about_text p {
-    font-family: 'Open Sans', sans-serif;
-    padding: 5px;
-
+.post-description {
+    padding: 25px 0;
 }
 
+.post-title h1 {
 
-footer {
-    margin: auto;
-    margin-top: 10%;
-    width: 100%;
-    text-align: center;
+
 }
+/* Footer */
 
 .main_footer {
     background-color: #60495A;
@@ -137,4 +117,12 @@ footer {
 .footer_content {
     padding: 10px;
     width: 100%;
+}
+
+
+footer {
+    margin: auto;
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
 }
