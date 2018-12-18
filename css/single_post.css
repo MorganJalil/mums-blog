@@ -26,8 +26,8 @@ p {
 
 .navbar-default .navbar_options .nav-item {
     font-size: 1.1em;
-    margin-right: 110px;
-    margin-left: 30px;
+    margin-right: 160px;
+    margin-left: 110px;
     font-family: 'Merriweather', serif;
     color: #60495A;
 }
@@ -77,9 +77,9 @@ p {
 
 .section_title {
     font-family: 'Merriweather', serif;
-    font-size: large;
+    font-size: x-large;
     font-weight: 500;
-    letter-spacing: 1.5px;
+    letter-spacing: 9px;
     text-transform: uppercase;
     padding: 0 30px;
 }

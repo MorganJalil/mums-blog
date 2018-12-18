@@ -38,7 +38,7 @@ include '../includes/bootstrap_js.php';
     <div class="collapse navbar-collapse navbar_options" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Category<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="categories.php">Category<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="about.php">About</a>
@@ -47,11 +47,11 @@ include '../includes/bootstrap_js.php';
                 <a class="nav-link disabled" href="contact.php">Contact</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0 loginButton">
-            <input class="form-control mr-sm-2" type="hidden" name="login" placeholder="Login"
-                   aria-label="Login button">
-            <button class="btn btn-default my-2 my-sm-0 " type="submit">Login</button>
-        </form>
+        <a href="logout.php" class="form-inline my-2 my-lg-0 loginButton">
+            <input class="form-control mr-sm-2" type="hidden" name="logout" placeholder="Logout"
+                   aria-label="Logout button">
+            <button class="btn btn-default my-2 my-sm-0 " type="submit">Log out</button>
+        </a>
     </div>
 </nav>
 
@@ -113,7 +113,7 @@ include '../includes/bootstrap_js.php';
             </div>
 
             <!--Add comment form-->
-            <div class="card col-5">
+            <div class="card col-sm-6">
                 <div class="card-title">Submit Your Comments</div>
                 <div class="card-subtitle">
                     <form method="POST" action="../includes/commentform.php">

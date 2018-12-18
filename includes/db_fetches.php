@@ -41,7 +41,6 @@ INNER JOIN images
 ON posts.image = images.id
 ORDER BY created_at DESC
 LIMIT 1');
-
 $query->execute();
 
 $latestPost = $query->fetchAll(PDO::FETCH_ASSOC);
